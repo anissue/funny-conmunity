@@ -1,0 +1,366 @@
+.page {
+    width: 760px;
+    float: left;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.page .sort {
+    height: 50px;
+    background-color: #F5F5F5;
+}
+
+.page .sort a {
+    float: left;
+    padding: 0 30px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+}
+
+.page .sort .on {
+    background-color: #E5E5E5;
+    color: black;
+}
+
+.page .sort a:hover {
+    background-color: #E5E5E5;
+    color: black;
+}
+
+.page .post-item {
+    padding-bottom: 10px;
+    height: 100%;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    background: #F9F9F9 url('/public/img/split.png') bottom repeat-x;
+}
+
+.page .post-item .post-head {
+    padding: 30px;
+    background: white;
+    position: relative;
+}
+
+.page .post-item .post-head .avatar {
+    float: left;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.page .post-item .post-head .avatar .name {
+    display: none;
+}
+
+.page .post-item .post-head .avatar img{
+    display: block;
+}
+
+.page .post-item .post-head .user-info {
+    float: left;
+    padding-left: 20px;
+    width: 570px;
+}
+
+.page .post-item .post-head .user-info .name {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 25px;
+}
+
+.page .post-item .post-head .user-info .name:hover {
+    color: #3498DB;
+}
+
+.page .post-item .post-head .user-info p {
+    color: #9a9a9a;
+    height: 25px;
+    line-height: 25px;
+    font-size: 12px;
+    width: 300px;
+}
+
+.page .post-item .content {
+    padding: 0 102px;
+    padding-bottom: 30px;
+    background: #F9F9F9;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+}
+
+.page .post-item .content:hover {
+    background-color: #f3f6f7;
+}
+
+.page .post-item .content .title {
+    display: block;
+    padding: 20px 0;
+}
+
+.page .post-item .content .title a {
+    line-height: 21px;
+    word-break: break-all;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.page .post-item .content .title a:hover {
+    color: #3498DB;
+}
+
+.page .post-item .content .picture {
+    display: block;
+}
+
+.page .post-item .content .picture img {
+    display: block;
+    width: 480px;
+    margin: 0 auto;
+}
+
+.page .port{
+    padding-left: 180px;
+    height: 42px;
+    background: white;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.page .port .bar {
+    float: right;
+}
+
+.page .port .bar a {
+    float: left;
+    padding: 8px 0;
+}
+
+.page .port .bar a:hover {
+    background-color: #eff3f5;
+}
+
+.page .port .bar a span {
+    padding: 0 40px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 14px;
+    color: #808080;
+    transition: none;
+    -webkit-transition: none;
+}
+
+.page .port .bar a:hover span {
+    color: #3498DB;
+}
+
+.page .port .bar a i {
+    font-size: 24px;
+    padding-right: 10px;
+    vertical-align: middle;
+}
+
+/*
+* 点赞
+*/
+.page .port .bar .like {
+    padding: 9px 0;
+    padding-left: 42px;
+}
+
+.page .port .bar .like span {
+    position: relative;
+}
+
+.page .port .bar .like span i {
+    font-size: 22px;
+    position: absolute;
+    left: 0;
+}
+
+@keyframes like {
+    0% {
+        font-size: 22px;
+        left: 0;
+    }
+
+    30% {
+        font-size: 15px;
+        left: 2px;
+    }
+
+    70% {
+        font-size: 33px;
+        content: "&#xe60a;";
+        left: -5px;
+    }
+
+    100% {
+        font-size: 22px;
+        left: 0;
+    }
+}
+
+@-webkit-keyframes like {
+    0% {
+        font-size: 22px;
+        left: 0;
+    }
+
+    30% {
+        font-size: 15px;
+        left: 2px;
+    }
+
+    70% {
+        font-size: 33px;
+        content: "&#xe60a;";
+        left: -5px;
+    }
+
+    100% {
+        font-size: 22px;
+        left: 0;
+    }
+}
+
+@media only screen and ( max-width:  1140px) {
+    .page {
+        width: 800px;
+        margin: 0 auto;
+        float: none;
+    }
+    .sidebar {
+        display: none;
+    }
+}
+
+
+@media only screen and ( max-width: 800px ) {
+
+    .page {
+        width: 100%;
+    }
+
+    .page .sort {
+        display: none;
+    }
+
+    .page .post-item .post-head {
+        padding: 10px 18px;
+        height: 36px;
+        border-bottom: 1px solid #e6e6e6;
+    }
+
+    .page .post-item .post-head .avatar {
+        width: 100%;
+        height: 36px;
+        line-height: 36px;
+        display: block;
+        border-radius: 0;
+    }
+
+    .page .post-item .post-head .avatar:hover {
+        color: #3498DB;
+    }
+
+    .page .post-item .post-head .avatar .name {
+        float: left;
+        display: block;
+        padding-left: 10px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .page .post-item .post-head .avatar img {
+        float: left;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        vertical-align: middle;
+    }
+
+    .page .post-item .user-info {
+        display: none;
+    }
+
+    .page .post-item .content {
+        padding: 0;
+        margin: 0;
+    }
+
+    .page .post-item .content .title {
+        display: block;
+        padding: 8px;
+        border-bottom: 1px solid #e6e6e6;
+        background-color: white;
+    }
+
+    .page .post-item .content .title a {
+        font-weight: normal;
+        word-break: break-all;
+        font-size: 14px;
+    }   
+
+    .page .post-item .content .picture {
+        display: block;
+        padding: 10px;
+        background: #f7f7f7;
+        text-align: center;
+    }
+
+    .page .post-item .content .picture img {
+        width: 100%;
+        max-width: 540px;
+    }
+
+    .page .post-item .port {
+        width: 100%;
+        padding: 0;
+        height: 35px;
+        line-height: 35px;
+    }
+
+    .page .post-item .port .bar {
+        float: none;
+    }
+
+    .page .post-item .port .bar a {
+        width: 33.3%;
+        height: 35px;
+        text-align: center;
+        padding: 0;
+    }
+
+    .page .post-item .port .bar a span {
+        padding: 0;
+    }
+
+    .page .post-item .port .bar a span i{
+        font-size: 20px;
+    }
+
+    .page .post-item .port .bar .like span i {
+        top: -4px;
+        text-shadow: none !important;
+    }
+    .page .post-item .port .bar .like span {
+        padding-left: 27px;
+    }
+
+    .page .port .bar a:hover {
+        background-color: white;
+    }
+    .page .port .bar a:active {
+        background-color: #eff3f5;
+    }
+
+    .page .port .bar a:hover span {
+        color: #808080;
+    }
+    .page .port .bar a:active span {
+        color: #3498DB;
+    }
+}

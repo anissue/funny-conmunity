@@ -1,0 +1,26 @@
+<div class="page">
+    <div class="sort">
+        <a class="on" href="">首页</a>
+        <a href="">最热</a>
+        <a href="">最新</a>
+    </div>
+    <%- include('./post.html') %>
+    <%- include('./post.html') %>
+    <script type="text/html" id="replyTemplate">
+        <div class="reply-item clearfix">
+            <a class="reply-head" href="">
+                <img src="[avatar]" alt="" width="30" height="30">
+            </a>
+            <div class="reply-content">
+                <a href="">[name]</a>
+                <span>[text]</span>
+            </div>
+            <div class="reply-port clearfix">
+                <div class="r">
+                    <a href=""><i class="iconfont">&#xe872;</i>[like]</a>
+                </div>
+                <em>[floor]L</em>
+            </div>
+        </div>
+    </script>
+</div>

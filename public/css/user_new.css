@@ -1,0 +1,163 @@
+#main {
+	margin: 110px auto;
+	margin-bottom: 70px;
+    max-width: 1180px;
+    height: 600px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+}
+
+#main .title {
+	height: 60px;
+    line-height: 60px;
+    padding-left: 20px;
+    font-size: 20px;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+#main .title i {
+	padding-right: 10px;
+}
+
+#main .edit {
+	max-width: 350px;
+    margin: 0 auto;
+    margin-top: 40px;
+    padding: 0 5px;
+}
+
+#main .edit .avatar {
+	display: block;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    border: 5px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0,0,0,.2);
+    cursor: pointer;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+}
+
+#main .edit .avatar:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+}
+
+#main .edit .item {
+    padding: 30px 5px;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    line-height: 25px;
+    border-bottom: 1px solid #DDDDDD;
+    position: relative;
+}
+
+#main .edit .item:hover .line{
+	width: 100%;
+	border-bottom: 2px solid #67b2e4;
+}
+
+#main .edit .item .line {
+	border-bottom: 0px solid #67b2e4;
+	position: absolute;
+	bottom: 0;
+	width: 0;
+	left: 0;
+	transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+}
+
+#main .edit .item i {
+	display: inline-block;
+    width: 36px;
+    height: 25px;
+    margin-right: 10px;
+    font-size: 26px;
+    color: #3499da;
+    text-align: center;
+}
+
+#main .edit .item input {
+	vertical-align: top;
+    max-width: 250px;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #999999;
+}
+
+#main .edit .agreement {
+	border: none;
+	cursor: pointer;
+	user-select: none;
+}
+
+#main .edit .agreement i {
+	font-size: 20px;
+}
+
+#main .edit .agreement span {
+	font-size: 14px;
+    vertical-align: top;
+    color: #999999;
+}
+
+#main .edit .finish {
+	margin-top: 20px;
+    text-align: center;
+    background: #3498DB;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+}
+
+#main .edit .finish:hover {
+	background-color: #3da2e3;
+}
+
+
+@media only screen and ( max-width: 800px ) {
+
+	body {
+		background-color: white;
+	}
+
+	#main {
+		margin: 0;
+		box-shadow: none;
+	}
+
+	#main .title {
+		height: 40px;
+		line-height: 40px;
+		font-size: 14px;
+	}
+
+	#main .edit {
+		margin-top: 10px;
+	}
+
+	#main .edit .item {	
+		padding-top: 15px;
+	}
+
+	#main .edit .avatar {
+		margin: 0 auto;
+		margin-top: 15px;
+	}
+
+	#main .edit .finish {
+		margin-top: 10px;
+		padding: 6px 0;
+	}
+
+	#header {
+		display: none;
+	}
+}

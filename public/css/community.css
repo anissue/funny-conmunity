@@ -1,0 +1,16 @@
+.community .item .info ul li {
+    float: left;
+}
+
+.community .item .info ul li  a {
+    width: auto;
+    padding: 0 11px;
+    height: 55px;
+    line-height: 55px;
+    color: #ccc;
+    display: block;
+}
+
+.community .item .info ul li a i {
+    font-size: 49px;
+}

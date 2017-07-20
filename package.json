@@ -1,0 +1,19 @@
+{
+  "name": "funny",
+  "version": "1.0.0",
+  "description": "趣味图片分享社区",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "社区-论坛"
+  ],
+  "author": "TaoTao",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
+    "loader": "^2.1.1"
+  }
+}

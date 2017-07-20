@@ -1,0 +1,239 @@
+.upload {
+    width: 1000px;
+    border: 1px solid #B5D2E7;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    background: #F8F8F8;
+    overflow: hidden;
+    margin: 110px auto;
+    margin-top: 130px;
+    border-radius: 10px;
+}
+
+.upload .content {
+    max-width: 759px;
+    height: 100%;
+    padding-bottom: 100px;
+    background: white;
+    float: left;
+}
+
+.upload .content .up-head {
+    padding: 20px 60px 20px 40px;
+    color: #34495e;
+    font-size: 24px;
+}
+
+.upload .content .up-head  i {
+    font-size: 24px;
+    vertical-align: middle;
+    padding-right: 10px;
+    color: #3498DB;
+}
+
+.upload .content .up-form {
+    width: 680px;
+    border-top: 1px solid #EAEAEA;
+    margin: 0 auto;
+}
+
+.upload .content .up-form .group {
+    padding-top: 28px;
+    padding-left: 50px;
+    padding-bottom: 10px;
+}
+
+.upload .content .up-form .group p {
+    float: left;
+    color: #666666;
+    padding-right: 20px;
+}
+
+.upload .content .up-form .group textarea {
+    width: 420px;
+    height: 70px;
+    padding: 5px 10px;
+    resize: none;
+    font-size: 14px;
+    color: #5d6d7e;
+    border-radius: 2px;
+    opacity: 0.8;
+    padding-left: 15px;
+    line-height: 24px;
+    border: 1px solid #f0f2f4;
+    display: inline-block;
+    background-color: #f5f7f8;
+    outline: none;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    border-bottom: 3px solid transparent;
+}
+
+.upload .content .up-form .group textarea:focus {
+    background-color: #eaeaea;
+    border-bottom: 3px solid #3498DB;
+}
+
+.upload .content .up-form .group textarea:hover {
+    border-bottom: 3px solid #3498DB;
+}
+
+.upload .content .up-form .group .hint {
+    padding-left: 100px;
+    color: #999999;
+    font-size: 13px;
+}
+
+.upload .content .up-form .group form {
+    float: left;
+    border: 2px dashed #dddddd;
+    height: 200px;
+    width: 440px;
+    position: relative;
+}
+
+.upload .content .up-form .group form input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.upload .content .up-form .group form .bn {
+    display: block;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    background-color: #3da2e3;
+    border-radius: 50%;
+    font-size: 30px;
+    color: white;
+    margin: 50px auto;
+    margin-bottom: 10px;
+}
+
+.upload .content .up-form .group form .hint {
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+    color: #C2C2C2;
+    padding: 0;
+}
+
+.upload .content .up-form .upload-bnt {
+    float: right;
+    width: 150px;
+    height: 35px;
+    background-color: #3498DB;
+    text-align: center;
+    line-height: 35px;
+    color: white;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-right: 60px;
+    cursor: pointer;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+}
+
+.upload .content .up-form .upload-bnt:hover {
+    background-color: #1985c5;
+}
+
+.upload .side {
+    float: left;
+    width: 240px;
+    height: 100%;
+    padding-bottom: 10px;
+}
+
+.upload .side h2 {
+    color: #333333;
+    font-size: 18px;
+    line-height: 70px;
+    height: 70px;
+    padding-left: 20px;
+}
+
+.upload .side h3 {
+    color: #999999;
+    padding: 5px 15px;
+    font-size: 14px;
+}
+
+@media only screen and ( max-width: 800px ) {
+    .upload {
+        margin-top: 60px;
+        border-radius: 0;
+        margin-bottom: 20px;
+        border: none;
+    }
+
+    .upload .content .up-head {
+        display: none;
+    }
+
+    .upload .content .up-head i {
+        font-size: 16px;
+    }
+
+    .upload {
+        width: auto;
+    }
+
+    .upload .content {
+        float: none;
+        padding-bottom: 20px;
+    }
+
+    .upload .side {
+        float: none;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .upload .content .up-form {
+        width: auto;
+        margin: 0 auto;
+    }
+
+    .upload .content .up-form .group {
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .upload .content .up-form .group p {
+        float: none;
+        padding-bottom: 20px;
+        text-align: left;
+        padding-left: 10px;
+    }
+
+    .upload .content .up-form .group .hint {
+        padding: 0;
+        display: none;
+    }
+
+    .upload .content .up-form .group textarea {
+        width: 90%;
+    }
+
+    .upload .content .up-form .group form {
+        margin: 0 auto;
+        float: none;
+        max-width: 90%;
+        width: 90%;
+        padding: 0 10px;
+    }
+
+    .upload .content .up-form .upload-bnt {
+        margin: 0 auto;
+        width: 90%;
+        float: none;
+    }
+}

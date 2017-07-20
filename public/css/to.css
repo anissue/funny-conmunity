@@ -1,0 +1,49 @@
+.to {
+	position: fixed;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    right: 50px;
+    bottom: 120px;
+    z-index: 10;
+}
+
+.to .item {
+	display: block;
+    width: 50px;
+    height: 40px;
+    margin-top: 5px;
+    background: rgb(218, 227, 232);
+    background: rgba(153,174,188,.3);
+    color: white;
+    text-align: center;
+    line-height: 40px;
+}
+
+.to .item:hover {
+	color: #3498DB;
+}
+
+.to .item i {
+	font-size: 25px;
+}
+
+@media only screen and ( max-width:  1140px) {
+    .to {
+        right: 0;
+    }
+}
+
+@media only screen and ( max-width: 800px ) {
+
+    .to .hid {
+        display: none;
+    }
+
+    .to .item:hover {
+        color: white;
+    }
+
+    .to .item:active {
+        color: #3498DB;
+    }
+}

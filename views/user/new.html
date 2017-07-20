@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="stylesheet" type="text/css" href="/public/css/default.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/header.css">
+	<link rel="stylesheet" type="text/css" href="/public/css/user_new.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/footer.css">
+</head>
+<body>
+<%- include('../header.html', {config: config}) %>
+
+<div id="main">
+	<p class="title iconfont">
+		<span><i class=" iconfont">&#xe60f;</i>户口登记</span>
+	</p>
+	<div class="edit">
+		<img class="avatar" src="http://src.dounide.cn/tx/uid10007.jpg" alt="" widht="100" height="100">
+		<div class="item">
+			<i class="iconfont">&#xe611;</i>
+			<input type="text" placeholder="昵称">
+			<div class="line"></div>
+		</div>
+		<div class="item">
+			<i class="iconfont">&#xe60d;</i>
+			<input type="text" placeholder="个性签名">
+			<div class="line"></div>
+		</div>
+		<div class="item agreement">
+			<i class="iconfont">&#xe698;</i>
+			<span>我同意站长是最帅的</span>
+		</div>
+		<div class="item finish">完成注册</div>
+	</div>
+</div>
+
+<%- include('../footer.html') %>
+<script>
+console.log(1);
+</script>
+</body>
+</html>

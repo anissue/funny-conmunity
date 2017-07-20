@@ -1,0 +1,54 @@
+#footer {
+	 background-color: white;
+ }
+
+#footer .fm {
+	padding: 60px 0;
+	max-width: 1080px;
+	margin: 0 auto;
+}
+
+#footer .fm .statement {
+	margin: 0 auto;
+	text-align: center;
+}
+
+
+
+#footer .fm .statement .copy ,
+#footer .fm .statement .info ,
+#footer .fm .statement .info a {
+	color: #b8c4cc;
+	font-size: 14px;
+	padding-top: 10px;
+}
+
+#footer .fm .statement .link {
+	padding: 5px 0;
+}
+
+#footer .fm .statement .link a {
+	color: #7f8c8d;
+	font-size: 16px;
+	padding: 0 20px;
+
+}
+#footer .fm .statement a:hover {
+	color: #3498DB;
+}
+
+@media only screen and ( max-width: 800px ) {
+	#footer .fm {
+		padding: 10px 0;
+	}
+
+	#footer .fm .statement .copy,
+	#footer .fm .statement .info {
+		display: none;
+	}
+
+	#footer .fm .statement .link a {
+		float: left;
+		padding: 0 10px;
+	}
+}

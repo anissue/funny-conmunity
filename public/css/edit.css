@@ -1,0 +1,222 @@
+.edit {
+    width: 1000px;
+    border: 1px solid #B5D2E7;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    background-color: white;
+    overflow: hidden;
+    margin: 110px auto;
+    margin-top: 130px;
+    border-radius: 10px;
+}
+
+.edit .content .edit-head {
+    padding: 20px 60px 20px 40px;
+    color: #34495e;
+    font-size: 24px;
+}
+
+.edit .content .edit-head  i {
+    font-size: 24px;
+    vertical-align: middle;
+    padding-right: 10px;
+    color: #3498DB;
+}
+
+.edit .content .edit-form {
+	padding: 20px 50px;
+    border-top: 1px solid #EAEAEA;
+    margin: 0 auto;
+}
+
+.edit .content .edit-form .info {
+    width: 620px;
+    float: left;
+}
+
+.edit .content .edit-form .group {
+    padding-bottom: 50px;
+}
+
+.edit .content .edit-form .group .title {
+    font-size: 16px;
+	color: #2c3e50;
+}
+
+
+.edit .content .edit-form .group .title span{
+    font-size: 15px;
+    color: #b8c5ce;
+}
+
+.edit .content .edit-form .group input {
+    font-size: 16px;
+    color: #5d6d7e;
+    border-radius: 2px;
+    opacity: 0.8;
+    width: 600px;
+    height: 52px;
+    margin-top: 10px;
+    padding-left: 15px;
+    line-height: 52px;
+    border: 1px solid #f0f2f4;
+    display: inline-block;
+    background-color: #f5f7f8;
+    outline: none;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    border-bottom: 3px solid transparent;
+}
+.edit .content .edit-form .group input:hover {
+    border-bottom: 3px solid #3498DB;
+}
+
+.edit .content .edit-form .group input:focus {
+    background-color: #eaeaea;
+    border-bottom: 3px solid #3498DB;
+}
+
+
+.edit .content .edit-form .community {
+    float: left;
+}
+
+.edit .content .edit-form .community input {
+    width: 270px;
+}
+
+
+.edit .content .edit-form .avatar {
+    float: right;
+    margin-right: 20px;
+    padding: 20px;
+    width: 150px;
+}
+
+.edit .content .edit-form .avatar img {
+    border-radius: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    width: 150px;
+    height: 150px;
+}
+
+.edit .content .edit-form .btn {
+    padding: 10px 30px;
+    margin-top: 20px;
+    border-radius: 2px;
+    background: #3499da;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.edit .content .edit-form .btn:hover {
+   background-color: #49a3de; 
+}
+
+.edit .content .edit-form .group .btn {
+    float: left;
+    margin-right: 20px;
+}
+
+.edit .content .edit-form .group .cancel {
+    background: none;
+    color: #576f81;
+}
+
+.edit .content .edit-form .group .cancel:hover {
+    background: none;
+    color: #3da2e3;
+}
+
+@media only screen and ( max-width: 800px ) {
+
+    body {
+        background-color: white;
+    }
+
+    .edit {
+        margin-top: 70px;
+        box-shadow: none;
+        border: none;
+        width: 100%;
+    }
+
+    .edit .content .edit-form {
+        padding: 10px 15px;
+        border: none;
+    }
+    .edit .content .edit-head {
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+        padding: 0;
+        padding-left: 15px;
+        display: none;
+    }
+
+    .edit .content .edit-head i {
+        font-size: 18px;
+    }
+
+
+    .edit .content .edit-form .avatar {
+        float: none;
+        padding: 0;
+        padding-bottom: 20px;
+        width: 100%;
+    }
+    
+    .edit .content .edit-form .avatar img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin: 0 auto;
+        display: block;
+    } 
+
+    .edit .content .edit-form .avatar .btn {
+        display: none;
+    }
+
+    .edit .content .edit-form .info {
+        width: 100%;
+    }
+
+    .edit .content .edit-form .group {
+        padding-bottom: 20px;
+    }
+
+    .edit .content .edit-form .group input {
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        padding: 0;
+        text-indent: 10px;
+        font-size: 14px;
+    }
+
+    .edit .content .edit-form .community {
+        float: none;
+        margin-right: 0 !important;
+    }
+
+    .edit .content .edit-form .group .title span {
+        display: none;
+    }
+
+    .edit .content .edit-form .group .title {
+        font-size: 14px;
+    }
+
+    .edit .content .edit-form .group .cancel {
+        display: none;
+    }
+
+    .edit .content .edit-form .group .btn {
+        float: none;
+        margin: 0;
+    }
+
+
+}

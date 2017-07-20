@@ -1,0 +1,184 @@
+.reply{
+    padding-top: 3px;
+    display: none;
+}
+
+.reply .default {
+	text-align: center;
+    height: 40px;
+    line-height: 40px;
+    color: #666666;
+    border-bottom: 1px solid #d9d9d9;
+    position: relative;
+    background: #F2F2F5;
+}
+
+.reply .default span {
+    padding-left: 25px;
+}
+
+.reply .default i {
+	width: 20px;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    top: 10px;
+    transform: rotate(0deg);
+    animation: comDefault 0.5s linear infinite;
+    -webkit-transform: rotate(0deg);
+    -webkit-animation: comDefault 0.5s linear infinite;
+}
+
+@keyframes comDefault {
+	0% {
+		transform:rotate(0deg);
+	}
+	50% {
+		transform:rotate(180deg);
+	}
+	100% {
+		transform:rotate(360deg);
+	}
+}
+
+@-webkit-keyframes comDefault {
+	0% {
+		-webkit-transform:rotate(0deg);
+	}
+	50% {
+		-webkit-transform:rotate(180deg);
+	}
+	100% {
+		-webkit-transform:rotate(360deg);
+	}
+}
+
+.reply .reply-item {
+	position: relative;
+    padding: 8px 15px;
+    background-color: white;
+    border-bottom: 1px solid #e8e8e8;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+}
+
+.reply .reply-item:hover {
+	background-color: #f6f9fa;
+}
+
+.reply .reply-item .reply-head {
+	float: left;
+    width: 30px;
+    height: 30px;
+}
+
+.reply .reply-item .reply-content {
+	float: left;
+    width: 94%;
+    padding-bottom: 18px;
+    padding-left: 10px;
+    line-height: 24px;
+    font-size: 12px;
+}
+
+.reply .reply-item .reply-content a {
+	color: #3498DB;
+    font-weight: bold;
+}
+
+.reply .reply-item .reply-content span {
+    height: 15px;
+    line-height: 15px;
+    color: #6C7486;
+}
+
+.reply .reply-item .reply-port {
+	position: absolute;
+	right: 3px;
+	bottom: 5px;
+    width: 90px;
+    padding-left: 35px;
+}
+
+.reply .reply-item .reply-port .r {
+	float: left;
+    width: 60px;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 10px;
+}
+
+.reply .reply-item .reply-port .r a {
+    color: #6C7486;
+}
+
+.reply .reply-item .reply-port .r a:hover {
+	color: #3498DB;
+}
+
+.reply .reply-item .reply-port .r i {
+    font-size: 18px;
+    padding-right: 5px;
+    vertical-align: middle;
+}
+
+.reply .reply-item .reply-port em {
+	float: left;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 10px;
+    color: #bbb;
+}
+
+.reply .comment {
+	padding-top: 1px;
+    background-color: white;
+}
+
+.reply .comment .comment-content {
+	float: left;
+    padding: 10px 0;
+    width: 96%;
+    margin-left: 2%;
+    margin-top: 12px;
+    height: 50px;
+    border: 1px solid #e4e9ed;
+    resize: none;
+    text-indent: 20px;
+}
+
+.reply .comment .comment-content:focus {
+    border: 1px solid #3da2e3;
+}
+
+.reply .comment .comment-bnt {
+	float: right;
+    background: #3498db;
+    color: white;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    margin: 10px 2%;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+}
+
+.reply .comment .comment-bnt:hover {
+    background-color: #1985c5;
+}
+
+.reply .comment em {
+	float: right;
+	font-size: 12px;
+	color: #999;
+	padding-right: 10px;
+	padding-top: 15px;
+}
+
+@media only screen and (max-width: 800px) {
+    .reply .reply-item .reply-content {
+        width: 84%;
+    }
+}

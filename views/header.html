@@ -1,0 +1,41 @@
+<div id="header">
+    <div class="head-main clearfix">
+        <div class="band clearfix">
+            <h1 class="logo"><a href="/">逗你的-搞笑图</a></h1>
+            <div class="port">
+                <a href="./" class="iconfont">&#xe69a;</a>
+                <a href="/post/up" class="iconfont">&#xe615;</a>
+            </div>
+        </div>
+        <div class="menu">
+            <ul class="clearfix">
+                <li class="on"><a href="/">首页</a></li>
+                <li><a href="/">最新</a></li>
+                <li><a href="/">最热</a></li>
+                <li class="post"><a href="/post/up">投稿</a></li>
+                <li class="user"><a href="/user/ahh">我</a></li>
+            </ul>
+        </div>
+        <% if (!config.state_login) { %>
+        <div class="login">
+            <a class="login-btn quick" href="javascript:void(0)"><i class="iconfont">&#xe606;</i>快速登录</a>
+            <a class="login-btn login-quick" href=""><i class="iconfont">&#xe607;</i>QQ&nbsp;登录</a>
+            <a class="login-btn login-quick" href=""><i class="iconfont">&#xe652;</i>微博登录</a>
+        </div>
+        <% } else if(config.state_login) { %>
+        <div class="login">
+            <a class="login-btn login-user ell" href="" title="愿祖国繁荣昌盛"><img src="http://src.dounide.cn/tx/uid10007.jpg" alt="" width="40" height="40">愿祖国繁荣昌盛</a>
+            <a class="login-btn login-quick" href="/user/sss"><i class="iconfont">&#xe606;</i>个人中心</a>
+            <a class="login-btn login-quick" href="/user/edit"><i class="iconfont">&#xe604;</i>修改资料</a>
+            <a class="login-btn login-quick" href="/post/up"><i class="iconfont">&#xe615;</i>新建投稿</a>
+            <a class="login-btn login-quick" href=""><i class="iconfont set">&#xe67d;</i>退出登录</a>
+        </div>
+        <% } %>
+    </div>
+    <div class="head-phone">
+        <i class="iconfont back">&#xe605;</i>
+        <h1>我是傻的。</h1>
+        <a class="iconfont user">&#xe606;</a>
+    </div>
+</div>
+

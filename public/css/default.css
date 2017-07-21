@@ -83,13 +83,27 @@ img {
     text-overflow: ellipsis;
 }
 
+#hint {
+    position: fixed;
+    top: -60px;
+    z-index: 99999;
+    width: 100%;
+    font-size: 16px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    color: white;
+    background-color: rgba(245, 145, 74, 0.9);
+}
+
+
 @font-face {
     font-family: 'iconfont';  /* project id 307079 */
-    src: url('//at.alicdn.com/t/font_uh17wpgwxvpfogvi.eot');
-    src: url('//at.alicdn.com/t/font_uh17wpgwxvpfogvi.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_uh17wpgwxvpfogvi.woff') format('woff'),
-    url('//at.alicdn.com/t/font_uh17wpgwxvpfogvi.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_uh17wpgwxvpfogvi.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_lvghaix42sw6ogvi.eot');
+    src: url('//at.alicdn.com/t/font_lvghaix42sw6ogvi.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_lvghaix42sw6ogvi.woff') format('woff'),
+    url('//at.alicdn.com/t/font_lvghaix42sw6ogvi.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_lvghaix42sw6ogvi.svg#iconfont') format('svg');
 }
 
 .iconfont{

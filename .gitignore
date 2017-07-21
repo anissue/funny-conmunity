@@ -48,3 +48,4 @@ jspm_packages
 
 *.xml
 .idea/funny-conmunity.iml
+config.js

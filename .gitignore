@@ -46,3 +46,5 @@ jspm_packages
 # Yarn Integrity file
 .yarn-integrity
 
+*.xml
+.idea/funny-conmunity.iml

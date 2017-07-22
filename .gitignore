@@ -49,3 +49,15 @@ jspm_packages
 *.xml
 .idea/funny-conmunity.iml
 config.js
+
+# avatar
+avatar/*.jpg
+avatar/*.jpeg
+avatar/*.png
+avatar/*.gif
+avatar/temp/*.jpg
+avatar/temp/*.jpeg
+avatar/temp/*.png
+avatar/temp/*.gif
+!avatar/temp/user_default.png
+!avatar/user_default.png

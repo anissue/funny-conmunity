@@ -7,30 +7,44 @@ var UserSchema = new Schema({
 	loginname: {type: String},
 	password: {type: String},
 	description: {type: String},
-	avatar: {type: String},
+	avatar: {type: String, default: 'user_default.png'},
 	email: {type: String},
+	wb:{type: String}, // 微博联系方式
+	qq:{type: String},    // qq 联系方式
 
 	type: {type: String},
 	token: {type: String},
 
-	weiboid: {type: String},
-	qqid: {type: String},
+	wbid: {type: String}, // weibo 登录 uid
+	qqid: {type: String},    // qq 登录 openid
 	postCount: {type: Number},
 	replyCount: {type: Number}
 });
 
-UserSchema.statics.legal = function (user) {
+UserSchema.virtual('fullAvatar').get(function () {
+	return '/avatar/' + this.avatar;
+});
 
-	if (!user.loginname || !user.password || !user.email) {
-		return {states: -1, desc: '请填写完整!'};
-	}
+// 返回用户公共信息
+UserSchema.statics.openInfoOneUser = function (condition, callback) {
+	return this.find(condition, {
+		loginname: 1,
+		description: 1,
+		avatar: 1,
+		email: 1,
+		qq: 1,
+		wb: 1,
+		postCount: 1,
+		replyCount: 1
+	}, function (err, result) {
+		if (err) return callback(err, null);
 
-	if (!/^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/.test(user.email)) {
-		return {states: -2, desc: '邮箱格式不正确!'}
-	}
-
-	return {states: 1, desc: '合法'};
+		if (result < 1) return callback(null, []);
+		result[0].avatar = result[0].fullAvatar;
+		callback(null, result);
+	})
 };
+
 
 
 // 创建 token
@@ -49,7 +63,23 @@ UserSchema.statics.cryptoPassword = function (pwd) {
 	return hash.digest('hex');
 };
 
-//
+// 验证数据
+UserSchema.statics.legal = function (user) {
+	user.description = user.description || '';
+	if (!user.loginname || !user.password || !user.email) {
+		return {states: -1, desc: '请填写完整!'};
+	}
+
+	if (user.loginname.length < 3 || user.loginname.length > 20 || user.email.length > 100 || user.description.length > 150) {
+		return {states: -3, desc: '数据长度不匹配'};
+	}
+
+	if (!/^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/.test(user.email)) {
+		return {states: -2, desc: '邮箱格式不正确!'};
+	}
+
+	return {states: 1, desc: '合法'};
+};
 
 UserSchema.index({loginname: 1}, {unique: true});
 UserSchema.index({token: 1}, {unique: true});

@@ -13,9 +13,12 @@ var ejs     = require('ejs');
 var app     = express();
 var webRouter = require('./web_router');
 var apiRouter = require('./api_router');
+var auth      = require('./middlewares/auth');
 
 var staticDir = path.join(__dirname, 'public');
+var avatarDir = path.join(__dirname, 'avatar');
 var viewsDir  = path.join(__dirname, 'views');
+
 
 
 
@@ -32,10 +35,10 @@ app.use(session({
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
-
+app.use('/avatar', express.static(avatarDir));
 app.use('/public', express.static(staticDir));
 app.use('/api', apiRouter);
+app.use('/', auth.authUser);
 app.use('/', webRouter);
 
 // app.listen(80, '192.168.25.18');

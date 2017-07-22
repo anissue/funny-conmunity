@@ -19,16 +19,17 @@
         <% if (!user.state_login) { %>
         <div class="login">
             <a class="login-btn quick" href="javascript:void(0)"><i class="iconfont">&#xe606;</i>快速登录</a>
+            <a class="login-btn login-quick" href="/user/login"><i class="iconfont">&#xe6f0;</i>站内登录</a>
             <a class="login-btn login-quick" href="https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101405320&redirect_uri=http://127.0.0.1/auth/qq&state=123"><i class="iconfont">&#xe607;</i>QQ&nbsp;登录</a>
             <a class="login-btn login-quick" href="https://api.weibo.com/oauth2/authorize?client_id=2867021338&redirect_uri=http://127.0.0.1/auth/wb&response_type=code"><i class="iconfont">&#xe652;</i>微博登录</a>
         </div>
         <% } else if(user.state_login) { %>
         <div class="login">
-            <a class="login-btn login-user ell" href="" title="愿祖国繁荣昌盛"><img src="http://src.dounide.cn/tx/uid10007.jpg" alt="" width="40" height="40">愿祖国繁荣昌盛</a>
-            <a class="login-btn login-quick" href="/user/sss"><i class="iconfont">&#xe606;</i>个人中心</a>
+            <a class="login-btn login-user ell" href="" title="愿祖国繁荣昌盛"><img src="<%= user.info.avatar %>" alt="" width="40" height="40"><%= user.info.loginname %></a>
+            <a class="login-btn login-quick" href="/user/"><i class="iconfont">&#xe606;</i>个人中心</a>
             <a class="login-btn login-quick" href="/user/edit"><i class="iconfont">&#xe604;</i>修改资料</a>
             <a class="login-btn login-quick" href="/post/up"><i class="iconfont">&#xe615;</i>新建投稿</a>
-            <a class="login-btn login-quick" href=""><i class="iconfont set">&#xe67d;</i>退出登录</a>
+            <a class="login-btn login-quick" href="/user/out"><i class="iconfont set">&#xe67d;</i>退出登录</a>
         </div>
         <% } %>
     </div>

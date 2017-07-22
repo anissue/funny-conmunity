@@ -30,7 +30,7 @@
 
 .edit .content .edit-form .info {
     width: 620px;
-    float: left;
+    margin: 0 auto;
 }
 
 .edit .content .edit-form .group {
@@ -85,18 +85,34 @@
 }
 
 
-.edit .content .edit-form .avatar {
-    float: right;
-    margin-right: 20px;
-    padding: 20px;
-    width: 150px;
-}
-
 .edit .content .edit-form .avatar img {
     border-radius: 15px;
     box-shadow: 0 0 5px rgba(0, 0, 0, .5);
     width: 150px;
     height: 150px;
+}
+
+
+
+.edit .content .edit-form .avatar {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+.edit .content .edit-form .avatar:hover .avatar{
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+}
+
+.edit .content .edit-form .avatar input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: pointer;
+    opacity: 0;
 }
 
 .edit .content .edit-form .btn {
@@ -162,9 +178,8 @@
 
     .edit .content .edit-form .avatar {
         float: none;
-        padding: 0;
-        padding-bottom: 20px;
-        width: 100%;
+        width: 100px;
+        height: 100px;
     }
     
     .edit .content .edit-form .avatar img {

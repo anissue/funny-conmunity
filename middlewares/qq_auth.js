@@ -133,6 +133,7 @@ function getInfo (access, callback) {
     req.end();
 }
 
+exports.authType = 'qq';
 exports.getAccessToken = getAccessToken;
 exports.getInfo = getInfo;
 /*

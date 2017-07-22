@@ -7,13 +7,16 @@ exports.authUser = function (req, res, next) {
 	req.user = {state_login: false};
 	if (req.session.token) {
 
-		User.find({token: token}, function (err, result) {
+		User.openInfoOneUser({token: req.session.token}, function (err, result) {
 			if (err) return next(err);
-
 			if (result.length > 0) {
 				req.user.state_login = true;
-				// 现在需要做的是把 用户信息添加进来 User 里面添加个静态方法，过滤掉不隐私信息
+				req.user.info = result[0];
 			}
+			return next();
 		})
+	} else {
+		return next();
 	}
+
 };

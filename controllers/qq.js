@@ -22,13 +22,17 @@ exports.sign = function (req, res, next) {
 					req.session.access = access;
 					return res.redirect('/user/new');
 				});
-
 			}
 
 			// 老用户
-			// 刷新 token
 			if (result.length > 0) {
-
+				// 刷新 token
+				var token = User.createToken();
+				User.update({qqid: access.id}, {$set: {token: token}}, function (err, result){
+					if (err) return next(err);
+					req.session.token   = token;
+					return res.redirect('/')
+				});
 			}
 		});
 	});

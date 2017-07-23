@@ -12,12 +12,16 @@ function auth (req, res, next) {
 	var This = this;
 	var user = {state_login: false};
 	var code = req.query.code;
-	var idField = This.authType + 'id';
 
+	if (req.cookies.state !== req.query.state) {
+		return next();
+	}
+
+	var idField = This.authType + 'id';
 	This.getAccessToken(code, function (err, access) {
-		if (err) next(err);
+		if (err) return next(err);
 		var condition = {};
-		condition = This.authType === 'qq' ? condition = {qqid: access.id} : condition = {weiboid: access.id};
+		condition = This.authType === 'qq' ? condition = {qqid: access.id} : condition = {wbid: access.id};
 
 		User.find(condition, function (err, result) {
 

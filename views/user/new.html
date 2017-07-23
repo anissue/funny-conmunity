@@ -21,7 +21,7 @@
 <body>
 <%- include('../header.html', {user: user}) %>
 <%
-	if (!info) {
+	if (!user.info) {
 		info = {
 			avatar:  '/avatar/user_default.png',
 			name  :  '',

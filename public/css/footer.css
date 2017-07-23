@@ -38,6 +38,9 @@
 }
 
 @media only screen and ( max-width: 800px ) {
+	#footer {
+		display: none;
+	}
 	#footer .fm {
 		padding: 10px 0;
 	}

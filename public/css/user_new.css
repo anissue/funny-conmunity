@@ -84,7 +84,7 @@
 	display: block;
 	height: 25px;
 	line-height: 25px;
-	padding-bottom: 10px;
+	padding-bottom: 15px;
 }
 
 #main .edit .item input {
@@ -240,7 +240,8 @@
 		padding: 20px 0;
 	}
 
-	#main .edit .item {
+	#main .edit .avatar {
+		display: none;
 	}
 
 

@@ -48,6 +48,15 @@
     padding-right: 20px;
 }
 
+.upload .content .up-form .group .show-img {
+    display: none;
+    cursor: pointer;
+    float: left;
+    border: 2px dashed #dddddd;
+    width: 440px;
+    position: relative;
+}
+
 .upload .content .up-form .group textarea {
     width: 420px;
     height: 70px;
@@ -223,7 +232,14 @@
         width: 90%;
     }
 
-    .upload .content .up-form .group form {
+    .upload .content .up-form .group .show-img {
+        margin: 0 auto;
+        float: none;
+        max-width: 90%;
+        width: 90%;
+    }
+
+    .upload .content .up-form .group form{
         margin: 0 auto;
         float: none;
         max-width: 90%;

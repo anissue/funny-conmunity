@@ -86,10 +86,11 @@
 
 
 .edit .content .edit-form .avatar img {
-    border-radius: 15px;
+    border-radius: 50%;
+    border: 5px solid white;
     box-shadow: 0 0 5px rgba(0, 0, 0, .5);
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
 }
 
 
@@ -178,14 +179,16 @@
 
     .edit .content .edit-form .avatar {
         float: none;
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
     }
     
     .edit .content .edit-form .avatar img {
-        width: 100px;
-        height: 100px;
+        width: 100%;
+        height: 100%;
         border-radius: 50%;
+        border: none;
+        box-shadow: none;
         margin: 0 auto;
         display: block;
     } 
@@ -217,7 +220,6 @@
     }
 
     .edit .content .edit-form .group .title span {
-        display: none;
     }
 
     .edit .content .edit-form .group .title {

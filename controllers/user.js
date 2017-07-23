@@ -1,20 +1,17 @@
 var User = require('../models').User;
+var config = require('../config');
 
 // 新用户
 exports.new = function (req, res, next) {
-
 	res.render('./user/new.html', {
 		user: req.user,
-		info: req.session.temInfo
+		config: config
 	});
 };
 
 // 站内登录
 exports.login = function (req, res, next) {
-
-	res.render('./user/login.html', {
-		user: req.user
-	});
+	res.render('./user/login.html', {user: req.user, config: config});
 };
 
 // 修改用户资料
@@ -27,8 +24,7 @@ exports.edit = function (req, res, next) {
 
 		if (result.length < 1) return  res.redirect('/user/login');
 		res.render('./user/edit', {
-			user: req.user,
-			info: result[0]
+			user: req.user
 		});
 	});
 };

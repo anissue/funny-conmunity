@@ -6,7 +6,6 @@ var User    = require('../models').User;
 exports.authUser = function (req, res, next) {
 	req.user = {state_login: false};
 	if (req.session.token) {
-
 		User.openInfoOneUser({token: req.session.token}, function (err, result) {
 			if (err) return next(err);
 			if (result.length > 0) {
@@ -16,7 +15,9 @@ exports.authUser = function (req, res, next) {
 			return next();
 		})
 	} else {
+		var state = User.createToken();
+		res.cookie('state', state);
+		req.user.state_code = state;
 		return next();
 	}
-
 };

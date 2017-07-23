@@ -24,12 +24,12 @@ function getAccessToken (code, callback) {
 
         res.setEncoding('utf8');
         res.on('data', function (result) {
-            result = result.substring(result.indexOf('access_token=') + 13, result.indexOf('&'));
-
             if (result.indexOf('error') !== -1)
                 return callback(new Error('get access_token error'), null);
-            
+
+			result = result.substring(result.indexOf('access_token=') + 13, result.indexOf('&'));
             // 继续获得 openID
+
             return getOpenId(result, callback);
 
         });
@@ -52,7 +52,6 @@ function getAccessToken (code, callback) {
  * qq的接口不返回个人描述的。。。
  * */
 function getOpenId (access, callback) {
-
     var options = {
         hostname: 'graph.qq.com',
         port: 443,
@@ -64,7 +63,6 @@ function getOpenId (access, callback) {
         
         res.setEncoding('utf8');
         res.on('data', function (result) {
-            console.log(result);
             result = result.substring(result.indexOf('openid":"') + 9, result.lastIndexOf('"'));
 			if (result.indexOf('error') !== -1) return callback(new Error('get openID error'), null);
 

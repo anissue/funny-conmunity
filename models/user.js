@@ -22,6 +22,11 @@ var UserSchema = new Schema({
 });
 
 UserSchema.virtual('fullAvatar').get(function () {
+
+	// 如果头像是QQ或者微博的头像地址就直接返回
+	if (this.avatar.indexOf('http://q.qlogo.cn') !== -1 || this.avatar.indexOf('sinaimg.cn') !== -1) {
+		return this.avatar;
+	}
 	return '/avatar/' + this.avatar;
 });
 

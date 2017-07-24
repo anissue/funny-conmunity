@@ -22,4 +22,7 @@ router.post('/user/islogin', user.isLogin);
 
 // 上传帖子图片
 router.post('/post/upload', post.uploadImg);
+
+// 上传帖子
+router.post('/post/new', post.uploadTopic);
 module.exports = router;

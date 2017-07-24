@@ -1,5 +1,5 @@
-function hint (text) {
-
+function hint (text, callback) {
+	callback = callback || function () {return false};
 	$('body').append('<div id="hint">' + text + '</div>');
 	var $hint = $('#hint');
 	$hint.animate({
@@ -10,6 +10,7 @@ function hint (text) {
 			'top': '-60px'
 		}, 300, function () {
 			$hint.remove();
+			callback();
 		});
 	}, 2000);
 }

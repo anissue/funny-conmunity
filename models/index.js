@@ -9,5 +9,7 @@ mongoose.connect(config.db, function (err) {
 });
 
 var UserSchema = require('./user');
+var TopicSchema = require('./topic');
 
 exports.User = mongoose.model('user', UserSchema);
+exports.Topic = mongoose.model('topic', TopicSchema);

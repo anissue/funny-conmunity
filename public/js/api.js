@@ -34,6 +34,34 @@ function uploadPostImg(input, img) {
 	})
 }
 
+// 上传帖子
+function uploadPost(title, content) {
+	console.log(title, content);
+	if (!title || !content)
+		return hint('投稿内容请填写完整!');
+
+	if (title.length < 5)
+		return hint('5个字都挤不出来吗?');
+
+	if (title.length > 100)
+		return hint('标题超长咯!');
+
+	if (!content)
+		return hint('没有选择图片!');
+	data = 'title=' + title + '&content=' + content;
+	$.ajax({
+		type: 'POST',
+		url: '/api/post/new',
+		data: data,
+		success: function (msg) {
+			hint(msg.hint);
+		},
+		error: function () {
+			hint('服务器错误!');
+		}
+	});
+}
+
 // 上传头像的
 function uploadAvatar(input, img, callback) {
 	callback = callback || function () {};

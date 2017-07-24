@@ -27,7 +27,7 @@
         <div class="up-form">
             <div class="group clearfix">
                 <p>图片标题</p>
-                <textarea placeholder="投稿须知：敏感政治内容，黄暴内容的帖子，将会被直接删除。站长不想被请去喝茶 (┬＿┬)"></textarea>
+                <textarea id="title" placeholder="投稿须知：敏感政治内容，黄暴内容的帖子，将会被直接删除。站长不想被请去喝茶 (┬＿┬)"></textarea>
                 <p class="hint">一个描述性或有趣的标题会吸引更多的投票和分享还可以输入 100 字</p>
             </div>
             <div class="group clearfix">
@@ -57,10 +57,18 @@
 
 <%- include('../footer.html') %>
 <script type="text/javascript">
-	uploadPostImg($('#action'), $('.show-img'));
+
+	// 上传帖子图片
+    uploadPostImg($('#action'),$('.show-img'));
+
+    // 上传帖子
+    $('.upload-bnt').on('click', function(){uploadPost($('#title').val(), $('.show-img').attr('src'))});
+
+    // 点击已经上传了的图片时候弹出图片选择框
 	function inputFile() {
 		return $('#action').click();
     }
+
 </script>
 </body>
 </html>

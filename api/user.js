@@ -11,7 +11,6 @@ exports.new = function (req, res, next) {
 	var legal = User.legal(data);
 
 	if (legal.states !== 1) return res.json(legal);
-	console.log(req.session.temInfo);
 	if (req.session.temInfo === undefined || req.session.temInfo === null) {
 		data.type = 'dnd';
 	} else {

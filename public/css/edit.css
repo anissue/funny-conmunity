@@ -88,7 +88,7 @@
 .edit .content .edit-form .avatar img {
     border-radius: 50%;
     border: 5px solid white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
     width: 140px;
     height: 140px;
 }

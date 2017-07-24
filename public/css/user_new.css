@@ -1,15 +1,15 @@
 #main {
-	margin: 110px auto;
-	margin-bottom: 70px;
+    margin: 110px auto;
+    margin-bottom: 70px;
     max-width: 1180px;
-	padding-bottom: 50px;
+    padding-bottom: 50px;
     background-color: white;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,.1);
 }
 
 #main .title {
-	height: 60px;
+    height: 60px;
     line-height: 60px;
     padding-left: 20px;
     font-size: 20px;
@@ -17,28 +17,28 @@
 }
 
 #main .title i {
-	padding-right: 10px;
+    padding-right: 10px;
 }
 
 #main .edit {
-	position: relative;
-	max-width: 510px;
+    position: relative;
+    max-width: 510px;
     margin: 0 auto;
     margin-top: 40px;
     padding: 0 5px;
 }
 
 #main .edit .avatar {
-	margin: 0 auto;
-	display: block;
+    margin: 0 auto;
+    display: block;
     border: 5px solid white;
     border-radius: 50%;
     box-shadow: 0 0 5px rgba(0,0,0,.2);
     cursor: pointer;
     transition: all 0.3s;
     -webkit-transition: all 0.3s;
-	width: 110px;
-	height: 110px;
+    width: 110px;
+    height: 110px;
 }
 
 #main .edit .avatar:hover {
@@ -54,195 +54,217 @@
 }
 
 #main .edit .item:hover .line{
-	border-bottom: 3px solid #67b2e4;
+    border-bottom: 3px solid #67b2e4;
 }
 
 #main .edit .item .line {
-	border-bottom: 3px solid transparent;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	transition: all 0.4s;
-	-webkit-transition: all 0.4s;
-	width: 100%;
+    border-bottom: 3px solid transparent;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    width: 100%;
 }
 
 #main .edit .item i {
-	display: inline-block;
+    display: inline-block;
     width: 36px;
     height: 25px;
     font-size: 26px;
     color: #3499da;
     text-align: center;
-	line-height: 25px;
-	vertical-align: middle;
+    line-height: 25px;
+    vertical-align: middle;
 }
 
 #main .edit .item span {
-	font-size: 15px;
-	color: #b8c5ce;
-	display: block;
-	height: 25px;
-	line-height: 25px;
-	padding-bottom: 15px;
+    font-size: 15px;
+    color: #b8c5ce;
+    display: block;
+    height: 25px;
+    line-height: 25px;
+    padding-bottom: 15px;
 }
 
 #main .edit .item input {
-	margin: 0 auto;
-	vertical-align: top;
+    margin: 0 auto;
+    vertical-align: top;
     width: 93%;
-	height: 25px;
-	display: block;
-	padding: 5px 10px;
-	resize: none;
-	font-size: 14px;
-	color: #5d6d7e;
-	border-radius: 2px;
-	opacity: 0.8;
-	padding-left: 15px;
-	line-height: 25px;
-	border: 1px solid #f0f2f4;
-	background-color: #f5f7f8;
-	outline: none;
-	transition: all 0.3s;
-	-webkit-transition: all 0.3s;
-	border-bottom: 3px solid transparent;
+    height: 25px;
+    display: block;
+    padding: 5px 10px;
+    resize: none;
+    font-size: 14px;
+    color: #5d6d7e;
+    border-radius: 2px;
+    opacity: 0.8;
+    padding-left: 15px;
+    line-height: 25px;
+    border: 1px solid #f0f2f4;
+    background-color: #f5f7f8;
+    outline: none;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    border-bottom: 3px solid transparent;
 }
 
 #main .edit .avatar-wrap {
-	position: relative;
-	width: 120px;
-	height: 120px;
-	margin: 0 auto;
-	margin-bottom: 15px;
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    margin-bottom: 15px;
 }
 
 #main .edit .avatar-wrap:hover .avatar{
-	box-shadow: 0 0 10px rgba(0,0,0,.3);
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
 }
 
 #main .edit .avatar-wrap input {
-	position: absolute;
-	width: 120px;
-	height: 120px;
-	display: block;
-	cursor: pointer;
-	opacity: 0;
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    display: block;
+    cursor: pointer;
+    opacity: 0;
 }
 
 
 #main .edit .item input:focus {
-	background-color: #dae0e6;
+    background-color: #dae0e6;
 }
 
 
 #main .edit .agreement {
-	border: none;
-	cursor: pointer;
-	user-select: none;
+    border: none;
+    cursor: pointer;
+    user-select: none;
 }
 
 #main .edit .agreement i {
-	font-size: 20px;
+    font-size: 20px;
 }
 
 #main .edit .agreement span {
-	font-size: 14px;
+    font-size: 14px;
     vertical-align: top;
     color: #999999;
 }
 
 #main .edit .btn {
-	margin-top: 10px;
-	padding: 6px 0;
+    margin-top: 10px;
+    padding: 6px 0;
     text-align: center;
     background: #3498DB;
     color: white;
-	display: block;
+    display: block;
     cursor: pointer;
     transition: all 0.3s;
     -webkit-transition: all 0.3s;
 }
 
 #main .edit .btn:hover {
-	background-color: #3da2e3;
+    background-color: #3da2e3;
 }
 #main .edit .finish {
-	margin: 0 auto;
-	margin-bottom: 10px;
-	margin-top: 25px;
-	width: 96%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-top: 25px;
+    width: 96%;
 }
 
 #main .edit .tologin {
-	width: 100%;
-	height: 25px;
-	padding-top: 10px;
-	line-height: 25px;
-	text-align: center;
-	display: block;
-	color: #3da2e3;
+    width: 100%;
+    height: 25px;
+    padding-top: 10px;
+    line-height: 25px;
+    text-align: center;
+    display: block;
+    color: #3da2e3;
 }
 
 #main .edit .tologin:active {
-	color: #3498db;
+    color: #3498db;
 }
 
 #main .edit .btn-quick {
-	width: 96%;
-	margin: 10px auto;
-	padding: 5px 0;
+    margin: 0;
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 60px;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+    border: 1px solid #f3efef;
+    float: left;
 }
 
+#main .edit .btn-quick:hover {
+    background-color: #efefef;
+}
+
+
+
 #main .edit .btn-quick em {
-	margin-right: 3px;
+    font-size: 26px;
 }
 
 #main .edit .more {
-	text-align: center;
-	display: block;
-	padding-top: 10px;
-	cursor: pointer;
+    text-align: center;
+    display: block;
+    padding-top: 25px;
+    cursor: pointer;
 }
 
 #main .edit .login-more {
-	display: none;
+    width: 145px;
+    margin: 0 auto;
 }
 
 #main .edit .loading {
-	display: none;
-	width: 100px;
-	height: 25px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-left: -50px;
-	margin-top: -12px;
+    display: none;
+    width: 100px;
+    height: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -12px;
 }
 
 @media only screen and ( max-width: 800px ) {
 
-	body {
-		background-color: white;
-	}
+    body {
+        background-color: white;
+    }
 
-	#main {
-		margin: 0;
-		box-shadow: none;
-	}
+    #main {
+        margin: 0;
+        box-shadow: none;
+    }
 
-	#main .title {
-		display: none;
-	}
+    #main .title {
+        display: none;
+    }
 
-	#main .edit {
-		margin-top: 10px;
-		padding: 20px 0;
-	}
+    #main .edit {
+        margin-top: 10px;
+        padding: 20px;
+    }
 
-	#main .edit .avatar {
-		display: none;
-	}
+    #main .edit .avatar {
+        display: none;
+    }
 
+    #main .edit .btn-quick:hover {
+        background-color: white;
+    }
+
+    #main .edit .btn-quick:active {
+        background-color: #efefef;
+    }
 
 }

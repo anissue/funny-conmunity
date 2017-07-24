@@ -42,8 +42,8 @@
             <a class="tologin" href="/user/new">还没有账号，马上注册</a>
             <span class="more">第三方账号登录</span>
             <div class="item login-more">
-                <a class="item btn btn-quick" style="background: #ff424f;"><em class="iconfont">&#xe652;</em>微博登录</a>
-                <a class="item btn btn-quick" style="background: #FFD000;"><em class="iconfont">&#xe607;</em>QQ登录</a>
+                <a class="item btn btn-quick" style="margin-right: 20px;" href="<%= 'https://api.weibo.com/oauth2/authorize?client_id=' + config.wb.ID + '&redirect_uri=' + config.wb.CALLBACK_URI + '&response_type=code&state=' + user.state_code %>"><em class="iconfont" style="color: #ff424f;">&#xe652;</em></a>
+                <a class="item btn btn-quick" href="<%= 'https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=' + config.qq.ID + '&redirect_uri=' + config.qq.CALLBACK_URI + '&state=' + user.state_code %>"><em class="iconfont" style="color: #43d2f4;">&#xe607;</em></a>
             </div>
 
         </form>

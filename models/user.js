@@ -17,16 +17,15 @@ var UserSchema = new Schema({
 
 	wbid: {type: String}, // weibo 登录 uid
 	qqid: {type: String},    // qq 登录 openid
-	postCount: {type: Number},
-	replyCount: {type: Number}
+	topic_count: {type: Number},
+	reply_count: {type: Number}
 });
 
 UserSchema.virtual('fullAvatar').get(function () {
 
 	// 如果头像是QQ或者微博的头像地址就直接返回
-	if (this.avatar.indexOf('http://q.qlogo.cn') !== -1 || this.avatar.indexOf('sinaimg.cn') !== -1) {
+	if (this.avatar.indexOf('http://q.qlogo.cn') !== -1 || this.avatar.indexOf('sinaimg.cn') !== -1)
 		return this.avatar;
-	}
 	return '/avatar/' + this.avatar;
 });
 
@@ -39,8 +38,8 @@ UserSchema.statics.openInfoOneUser = function (condition, callback) {
 		email: 1,
 		qq: 1,
 		wb: 1,
-		postCount: 1,
-		replyCount: 1
+		topic_count: 1,
+		reply_count: 1
 	}, function (err, result) {
 		if (err) return callback(err, null);
 
@@ -71,19 +70,16 @@ UserSchema.statics.cryptoPassword = function (pwd) {
 // 验证数据
 UserSchema.statics.legal = function (user) {
 	user.description = user.description || '';
-	if (!user.loginname || !user.password || !user.email) {
-		return {states: -1, desc: '请填写完整!'};
-	}
+	if (!user.loginname || !user.password || !user.email)
+		return {states: -1, hint: '请填写完整!'};
 
-	if (user.loginname.length < 3 || user.loginname.length > 20 || user.email.length > 100 || user.description.length > 150) {
-		return {states: -3, desc: '数据长度不匹配'};
-	}
+	if (user.loginname.length < 3 || user.loginname.length > 20 || user.email.length > 100 || user.description.length > 150)
+		return {states: -3, hint: '数据长度不匹配'};
 
-	if (!/^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/.test(user.email)) {
-		return {states: -2, desc: '邮箱格式不正确!'};
-	}
+	if (!/^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/.test(user.email))
+		return {states: -2, hint: '邮箱格式不正确!'};
 
-	return {states: 1, desc: '合法'};
+	return {states: 1, hint: '合法'};
 };
 
 UserSchema.index({loginname: 1}, {unique: true});

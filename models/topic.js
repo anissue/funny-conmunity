@@ -1,3 +1,6 @@
+// 待审核的帖子都存在这里
+// 当帖子的同意通过人数到了指定数量时就会把数据转移到 topic_passed 数据库里
+
 var mongoose = require('mongoose');
 var Schema   = mongoose.Schema;
 
@@ -6,12 +9,10 @@ var TopicSchema = new Schema({
 	title: {type: String},
 	content: {type: String},
 	author_id: {type: Schema.ObjectId},
+	create_date: {type: Date, default: Date.now()},
 
-	passed_count: {type: Number, default: 0}, // 同意通过的数量
-	good: {type: Boolean, default: false}, // 精华帖
-	reply_count: {type: Number, default: 0},
-	like_count: {type: Number, default: 0},
-	create_date: {type: Date, default: Date.now()}
+	passed_count: {type: Number, default: 0},   // 同意通过的数量
+	notpassed_count: {type: Number, default: 0} // 不同意通过的数量
 });
 
 // 验证帖子合法性
@@ -32,6 +33,6 @@ TopicSchema.statics.legal = function (topic) {
 };
 
 TopicSchema.index({author_id: -1});
-TopicSchema.index({create_id: -1});
+TopicSchema.index({create_date: -1});
 
 module.exports = TopicSchema;

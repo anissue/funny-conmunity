@@ -10,6 +10,8 @@ mongoose.connect(config.db, function (err) {
 
 var UserSchema = require('./user');
 var TopicSchema = require('./topic');
+var TopicPassedSchema = require('./topic_passed');
 
 exports.User = mongoose.model('user', UserSchema);
 exports.Topic = mongoose.model('topic', TopicSchema);
+exports.TopicPassed = mongoose.model('topic_passed', TopicPassedSchema);

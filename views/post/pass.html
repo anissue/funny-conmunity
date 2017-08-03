@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="stylesheet" type="text/css" href="/public/css/default.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/pass.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/head_phone.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/footer.css">
+    <script src="http://apps.bdimg.com/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+    <script src="/public/js/head_phone.js" type="text/javascript"></script>
+    <script src="/public/js/hint.js" type="text/javascript"></script>
+    <script src="/public/js/api.js" type="text/javascript"></script>
+
+</head>
+<body>
+<%- include('../header.html', {user: user}) %>
+
+<div class="checkbox">
+    <div class="content">
+        <div class="up-head">
+            <i class="iconfont">&#xe616;</i>图片审核
+        </div>
+        <div class="pic-main clearfix">
+            <h2 id="topic-title"></h2>
+            <img id="topic-img" src="">
+            <div id="port" class="port clearfix">
+                <a id="not-pass" class="item btn btn-quick" href="" title="看不懂"><em class="iconfont" style="color: #43d2f4;">&#xe864;</em></a>
+                <a id="pass" class="item btn btn-quick pass" href="" title="通过"><em class="iconfont" style="color: #ff424f;">&#xe609;</em></a>
+            </div>
+        </div>
+    </div>
+    <div class="side">
+        <h2>请别让以下帖子通过审核!</h2>
+        <h3>1. 带有色情或者求车牌什么的</h3>
+        <h3>2. 政治敏感内容</h3>
+        <h3>3. 灌水恶意求赞</h3>
+        <h3>4. 无笑点带有广告</h3>
+        <h3>5. 画质渣</h3>
+    </div>
+</div>
+
+<%- include('../footer.html') %>
+<script type="text/javascript">
+var $img = $('#topic-img');
+var $title   = $('#topic-title');
+
+// 获得没有通过的帖子
+getNotPass(function (err, topic) {
+    if (err) return hint('服务器错误!');
+    $img.attr('src', topic[0].content);
+    $img.attr('data-id', topic[0]._id);
+    $title.text(topic[0].title);
+});
+
+// 同意加一
+$('#pass').on('click', function () {
+    pass($img.attr('data-id'), function (err, msg) {
+        if (err) return hint('服务器错误!');
+    });
+});
+
+// 不同意加一
+$('#not-pass').on('click',  function () {
+	notPass($img.attr('data-id'), function (err, msg) {
+		if (err) return hint('服务器错误!');
+	});
+});
+
+var $port = $('#port');
+var portTop = $port.offset().top;
+var portLeft = $port.offset().left;
+var clientWidth = $(window).width();
+
+$(window).resize(function () {
+    clientWidth = $(window).width();
+    $port.css({position: 'static', left: 'auto', 'top': 'auto', 'marginRight': '20px'});
+    portLeft = $port.offset().left;
+    portTop = $port.offset().top;
+    if (clientWidth < 800) {
+        $port.css({
+            position: 'fixed',
+            top: 'auto',
+            left: 'auto',
+            bottom: '20px',
+            right: '20px',
+            margin: 0
+        });
+    }
+});
+
+$(window).scroll(function () {
+    var scrollTop = $(window).scrollTop();
+    if (clientWidth > 800) {
+        if (scrollTop > portTop - 86) {
+
+            $port.css({
+                position: 'fixed',
+                top: '86px',
+                left: portLeft + 'px',
+                margin: '0',
+                marginRight: '25px'
+            });
+        }
+        if (scrollTop < portTop - 86) {
+            $port.css({
+                position: 'static',
+                marginTop: '20px',
+                marginRight: '25px'
+            })
+        }
+    }
+});
+
+</script>
+</body>
+</html>

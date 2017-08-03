@@ -63,8 +63,8 @@ exports.notpass = function (req, res, next) {
     };
     Topic.find(condition, function (err, result) {
         if (err) return res.json({ states: -1, hint  : '服务器错误' });
-
-        return res.json({ states: 1, hint  : '成功,共' + result.length + '条数据', topic: result });
+        result = result[parseInt(Math.random() * result.length)];
+        return res.json({ states: 1, hint  : '成功！', topic: result });
     });
 };
 

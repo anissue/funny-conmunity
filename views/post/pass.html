@@ -52,9 +52,9 @@ var $title   = $('#topic-title');
 // 获得没有通过的帖子
 getNotPass(function (err, topic) {
     if (err) return hint('服务器错误!');
-    $img.attr('src', topic[0].content);
-    $img.attr('data-id', topic[0]._id);
-    $title.text(topic[0].title);
+    $img.attr('src', topic.content);
+    $img.attr('data-id', topic._id);
+    $title.text(topic.title);
 });
 
 // 同意加一

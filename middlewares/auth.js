@@ -1,5 +1,4 @@
 var express = require('express');
-var router  = express.Router();
 var User    = require('../models').User;
 
 // 给所有的请求添加一个公共的头，用来记录用户登录状态
@@ -14,10 +13,13 @@ exports.authUser = function (req, res, next) {
 			}
 			return next();
 		})
-	} else {
+	} else if (req.cookies.state === undefined){
 		var state = User.createToken();
 		res.cookie('state', state);
 		req.user.state_code = state;
+		return next();
+	} else {
+		req.user.state_code = req.cookies.state;
 		return next();
 	}
 };

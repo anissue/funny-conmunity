@@ -1,6 +1,5 @@
 var express = require('express');
 var weibo   = require('./middlewares/wb_auth');
-var qq      = require('./controllers/qq');
 var user    = require('./controllers/user');
 var post    = require('./controllers/post');
 var auth    = require('./controllers/auth');
@@ -19,6 +18,8 @@ router.get('/user/new', user.new);
 router.get('/user/login', user.login);
 
 router.get('/post/up', post.upload);
+router.get('/post/pass', post.pass);
+
 
 router.get('/user/edit', user.edit);
 

@@ -4,33 +4,6 @@
     overflow: hidden;
 }
 
-.page .sort {
-    height: 50px;
-    background-color: white;
-    border: 1px solid #e7eaf1;
-    border-radius: 2px;
-    box-shadow: 0 1px 3px rgba(0,37,55,.05);
-    margin-bottom: 10px;
-}
-
-.page .sort a {
-    float: left;
-    padding: 0 30px;
-    height: 50px;
-    line-height: 50px;
-    font-size: 16px;
-}
-
-.page .sort .on {
-    background-color: #E5E5E5;
-    color: #3498db;
-}
-
-.page .sort a:hover {
-    background-color: #E5E5E5;
-    color: #3498db;
-}
-
 .page .post-item {
     height: 100%;
     transition: all 0.3s;
@@ -246,10 +219,7 @@
     .page {
         width: 100%;
     }
-
-    .page .sort {
-        display: none;
-    }
+    
 
     .page .post-item .post-head {
         padding: 10px 18px;

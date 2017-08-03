@@ -3,8 +3,10 @@ var config = require('../config');
 
 // 新用户
 exports.new = function (req, res, next) {
+	var user = req.user;
+	user.info = req.session.tempInfo;
 	res.render('./user/new.html', {
-		user: req.user,
+		user: user,
 		config: config
 	});
 };

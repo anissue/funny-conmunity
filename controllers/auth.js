@@ -12,8 +12,8 @@ function auth (req, res, next) {
     var This = this;
     var user = {state_login: false};
     var code = req.query.code;
-    console.log(code, req.query.state, req.cookies.state);
     if (req.cookies.state !== req.query.state) {
+        console.log(req.cookies.state, req.query.state);
         return next();
     }
 
@@ -32,7 +32,7 @@ function auth (req, res, next) {
                     if (err) next(err);
 
                     // 把信息临时保存起来
-                    req.session.temInfo = info;
+                    req.session.tempInfo = info;
                     req.session.access = access;
                     return res.redirect('/user/new');
                 });

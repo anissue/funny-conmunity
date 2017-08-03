@@ -48,33 +48,6 @@ $(window).ready(function () {
 
 	});
 
-	/*
-	* 获取留言
-	* 传入留言DOM对象 和 一个回调函数
-	* */
-	function getReply (postId, callback) {
-
-		// 先放个假数据吧
-		var data = [
-			{
-				avatar : 'http://src.dounide.cn/tx/uid10007.jpg',
-				name   : '浪啊浪',
-				text   : '很好，好',
-				like   : 50,
-				floor  : 1
-			},{
-				avatar : 'http://q.qlogo.cn/qqapp/101405320/8FEA2598F78DD97562C9A199CD9AF6A3/100',
-				name   : '我是小仙女啊',
-				text   : '啦啦啦，我是卖报的小行家',
-				like   : 20,
-				floor  : 2
-			}
-		];
-		setTimeout(function () {
-			callback(data);
-		}, 1000);
-	}
-
 
 	// 喜欢
 	var $likeButton = $('.like');

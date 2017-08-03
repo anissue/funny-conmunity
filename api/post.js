@@ -99,11 +99,13 @@ function overBound(id) {
         if (err || result.length < 1) return;
         result = result[0];
         if (result.passed_count >= config.pass_count) {
+            var date =  new Date();
             var TopicData = {
                 title: result.title,
 				content: result.content,
 				author_id: result.author_id,
-				create_date: result.create_date
+				create_date: date,
+				like_count: parseInt(Math.random() * config.start_like + 1)
             };
             // 删除以前的帖子数据
             Topic.remove({ _id: id }, function (err, result) {});

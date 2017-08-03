@@ -7,12 +7,7 @@ var router  = express.Router();
 var config  = require('./config');
 
 
-router.get('/', function (req, res, next) {
-	res.render('index', {
-		user: req.user,
-		config: config
-	});
-});
+router.get('/', post.index);
 
 router.get('/user/new', user.new);
 router.get('/user/login', user.login);

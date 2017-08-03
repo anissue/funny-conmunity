@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var config   = require('../config');
-
+mongoose.Promise = require('bluebird');
 mongoose.connect(config.db, function (err) {
 	if (err) {
 		console.log('connect mongoDB error');

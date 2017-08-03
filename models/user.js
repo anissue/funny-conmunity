@@ -29,6 +29,7 @@ UserSchema.virtual('fullAvatar').get(function () {
 	return '/avatar/' + this.avatar;
 });
 
+
 // 返回用户公共信息
 UserSchema.statics.openInfoOneUser = function (condition, callback) {
 	return this.find(condition, {

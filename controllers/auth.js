@@ -13,7 +13,6 @@ function auth (req, res, next) {
     var user = {state_login: false};
     var code = req.query.code;
     if (req.cookies.state !== req.query.state) {
-        console.log(req.cookies.state, req.query.state);
         return next();
     }
 

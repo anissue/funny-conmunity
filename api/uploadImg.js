@@ -30,8 +30,9 @@ exports.saveLocal = function (req, res, next, config, callback) {
 
 		if (file.size > config.maxSize) {
 			fs.unlink(file.path, function (err) {
-				return tools.parseRedirect({ states: -3, hint  : '图片超过' + (c.maxSize / 1024) + 'm', data  : '' }, res);
+				return tools.parseRedirect({ states: -3, hint  : '图片超过' + (config.maxSize / 1024) + 'm', data  : '' }, res);
 			});
+			return;
 		}
 
 		var type = ['image/png','image/jpeg','image/gif'];
@@ -39,6 +40,7 @@ exports.saveLocal = function (req, res, next, config, callback) {
 			fs.unlink(file.path, function (err) {
 				return tools.parseRedirect({ states: -4, hint  : '图片类型不正确', data  : '' }, res);
 			});
+			return;
 		}
 
 		// 新文件名
@@ -47,14 +49,9 @@ exports.saveLocal = function (req, res, next, config, callback) {
 		var userFileName =  config.fileName + path.extname(file.name);
 		fs.rename(file.path, path.join(config.dir, userFileName), function (err) {
 			if (err) return tools.parseRedirect({ states: -5, hint  : '图片地址有误', data  : '' }, res);
-
 			callback(userFileName);
 		});
 
 	});
 
 };
-
-function parseRedirect (json, res) {
-	res.redirect('/uploadredirect/' + json.states + '/' + json.hint + '/' + json.data);
-}

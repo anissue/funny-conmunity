@@ -16,6 +16,12 @@ router.get('/post/pass', post.pass);
 router.get('/user/new', user.new);
 router.get('/user/login', user.login);
 
+// 某人的主页
+router.get('/people/:name', user.index);
+
+// 某人的主页的第几页
+router.get('/people/:name/:page', user.index);
+
 // 修改用户资料的页面
 router.get('/user/edit', user.edit);
 

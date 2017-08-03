@@ -37,7 +37,6 @@ exports.index = function (req, res, next) {
 	});
 };
 
-// 获取最新的帖子
 function getTopic (condition, page, callback) {
 	TopicPassed.find(condition).limit(config.topic_limit).skip(config.topic_limit * (page - 1)).sort({create_date: -1}).exec(function (err, result) {
 		if (err) return callback(err, null, 0);

@@ -23,37 +23,44 @@ exports.pass = function (req, res, next) {
 
 // 展示首页
 exports.index = function (req, res, next) {
-	newTopic(function (err, topic) {
+	var page = req.params.page || 1;
+	getTopic({}, page, function (err, topic, count) {
+		if (err) return next();
 		res.render('index', {
 			user: req.user,
 			topic: topic,
+			topic_count: count,
+			paging: page,
+			paging_link: '/p', // 跳转的地址头
 			config: config
 		});
 	});
-
-
 };
 
 // 获取最新的帖子
-function newTopic (callback) {
-	TopicPassed.find({}).sort({create_date: -1}).exec(function (err, result) {
-		if (err) return callback(err, null);
-		if (result.length < 1) return callback(null, []);
-		getTopic(result, callback);
+function getTopic (condition, page, callback) {
+	TopicPassed.find(condition).limit(config.topic_limit).skip(config.topic_limit * (page - 1)).sort({create_date: -1}).exec(function (err, result) {
+		if (err) return callback(err, null, 0);
+		if (result.length < 1) return callback(null, [], 0);
+
+		TopicPassed.count(condition, function (err, count) {
+			if (err) return callback(err, [], 0);
+			getAuthor(result, callback, count);
+		});
+
 	});
 }
 
 // 组成帖子的数据
-function getTopic (topic, callback) {
+function getAuthor (topic, callback, count) {
 	var topicData = [];
 	(function iteration(i) {
 		if (i >= topic.length) {
-			callback(null, topicData);
-			return;
+			return callback(null, topicData, count);
 		}
 
 		User.openInfoOneUser({_id: topic[i].author_id}, function (err, result) {
-			if (err) return callback(err, null);
+			if (err) return callback(err, null, 0);
 			topic[i].author = result[0];
 			topicData.push(topic[i]);
 			iteration(++i);

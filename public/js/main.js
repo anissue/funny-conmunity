@@ -74,6 +74,11 @@ $(window).ready(function () {
 		}, 300);
 	});
 
+	$('#skip-bn').on('click', function () {
+		$skipTo = $('#skip-to');
+		window.location.href = $skipTo.attr('paging-link') + $skipTo.val();
+	});
+
 	$(window).scroll(function () {
 
 		pageOffsetTop = $page.offset().top + $page.height() - $sideFloat.height(); //打开和关闭评论会影响到page的高度，所以每次都重新获取下

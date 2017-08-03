@@ -1,0 +1,57 @@
+#paging {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: white;
+    border: 1px solid #e7eaf1;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,37,55,.05);
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 0;
+}
+
+#paging ul {
+    margin: 0 auto;
+    display: inline-block;
+    _zoom: 1;
+    _display: inline-block;
+}
+
+#paging ul li {
+    float: left;
+    line-height: 30px;
+    padding: 5px 5px;
+    color: #333333;
+    font-size: 14px;
+}
+
+#paging ul li a {
+    display: block;
+    padding: 0 10px;
+    border: 1px solid #DDDDDD;
+}
+
+#paging ul li a:hover {
+    background: #3498DB;
+    color: white;
+    border: 1px solid transparent;
+}
+
+#paging ul li a.on {
+    background: #3498DB;
+    color: white;
+    border: 1px solid transparent;
+}
+
+#paging ul li .skip-to {
+    float: left;
+    width: 30px;
+    height: 30px;
+    padding: 0 10px;
+    border: 1px solid #CCCCCC;
+    margin-right: 10px;
+}
+
+#paging ul li #skip-bn {
+    float: left;
+}

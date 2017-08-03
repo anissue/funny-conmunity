@@ -11,11 +11,11 @@ exports.new = function (req, res, next) {
 	var legal = User.legal(data);
 
 	if (legal.states !== 1) return res.json(legal);
-	if (req.session.temInfo === undefined || req.session.temInfo === null) {
+	if (req.session.tempInfo === undefined || req.session.tempInfo === null) {
 		data.type = 'dnd';
 	} else {
-		data.type = req.session.temInfo.type ;
-		data.avatar = req.session.temInfo.avatar;
+		data.type = req.session.tempInfo.type ;
+		data.avatar = req.session.tempInfo.avatar;
 	}
 
 	data.token = User.createToken();
@@ -27,7 +27,7 @@ exports.new = function (req, res, next) {
 		data.wbid = req.session.access.id;
 	}
 
-	req.session.temInfo = null;
+	req.session.tempInfo = null;
 	req.session.access  = null;
 	req.session.token   = data.token;
 	User.create(data, function (err) {

@@ -1,0 +1,176 @@
+.checkbox {
+    width: 1000px;
+    border: 1px solid #B5D2E7;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    background: #F8F8F8;
+    overflow: hidden;
+    margin: 110px auto;
+    margin-top: 130px;
+    border-radius: 10px;
+}
+
+.checkbox .content {
+    max-width: 759px;
+    height: 100%;
+    padding-bottom: 20px;
+    background: white;
+    float: left;
+}
+
+.checkbox .content .up-head {
+    padding: 20px 60px 20px 40px;
+    color: #34495e;
+    font-size: 24px;
+}
+
+.checkbox .content .up-head  i {
+    font-size: 24px;
+    vertical-align: middle;
+    padding-right: 10px;
+    color: #3498DB;
+}
+
+.checkbox .content .pic-main {
+    width: 680px;
+    border-top: 1px solid #EAEAEA;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+.checkbox .content .pic-main h2{
+    padding-top: 28px;
+    padding-left: 40px;
+    padding-bottom: 10px;
+    font-size: 16px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.checkbox .content .pic-main img {
+    margin: 20px 0;
+    margin-left: 50px;
+    width: 480px;
+    float: left;
+}
+
+.checkbox .content .pic-main .port {
+    margin-top: 20px;
+    margin-right: 25px;
+    width: 70px;
+    float: right;
+}
+
+.checkbox .content .pic-main .port a {
+    margin: 0;
+    width: 70px;
+    height: 70px;
+    padding: 0;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 70px;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+    border: 1px solid #f3efef;
+    font-size: 25px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.checkbox .content .pic-main .port a:hover {
+    background-color: #efefef;
+}
+
+.checkbox .side {
+    float: left;
+    width: 240px;
+    height: 100%;
+    padding-bottom: 10px;
+}
+
+.checkbox .side h2 {
+    color: #333333;
+    font-size: 18px;
+    line-height: 70px;
+    height: 70px;
+    padding-left: 20px;
+}
+
+.checkbox .side h3 {
+    color: #999999;
+    padding: 5px 15px;
+    font-size: 14px;
+}
+
+@media only screen and ( max-width: 800px ) {
+    .checkbox {
+        margin-top: 60px;
+        border-radius: 0;
+        margin-bottom: 20px;
+        border: none;
+    }
+
+    .checkbox .content .up-head {
+        display: none;
+    }
+
+    .checkbox .content .up-head i {
+        font-size: 16px;
+    }
+
+    .checkbox {
+        width: auto;
+    }
+
+    .checkbox .content {
+        float: none;
+        padding-bottom: 20px;
+    }
+
+    .checkbox .side {
+        float: none;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .checkbox .content .pic-main {
+        width: 100%;
+    }
+
+    .checkbox .content .pic-main h2 {
+        padding: 20px;
+    }
+
+    .checkbox .content .pic-main img {
+        width: 90%;
+        margin: 0 5%;
+    }
+
+    .checkbox .content .pic-main .port {
+        width: 50px;
+        position: fixed;
+        top: auto;
+        left: auto;
+        right: 20px;
+        bottom: 20px;
+        margin: 0
+    }
+
+    .checkbox .content .pic-main .port a:hover {
+        background-color: white;
+    }
+
+    .checkbox .content .pic-main .port a:active {
+        background-color: #efefef;
+    }
+
+    .checkbox .content .pic-main .port a {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+   
+}

@@ -3,8 +3,9 @@
         <div class="band clearfix">
             <h1 class="logo"><a href="/">逗你的-搞笑图</a></h1>
             <div class="port">
-                <a href="./" class="iconfont">&#xe69a;</a>
-                <a href="javascription:void(0)" class="iconfont post-up">&#xe615;</a>
+                <a href="./" class="iconfont" style="font-size: 23px;">&#xe69a;</a>
+                <a href="/post/pass" class="iconfont" style="font-size: 22px;">&#xe627;</a>
+                <a class="iconfont post-up">&#xe615;</a>
             </div>
         </div>
         <div class="menu">
@@ -12,7 +13,8 @@
                 <li class="on"><a href="/">首页</a></li>
                 <li><a href="/">最新</a></li>
                 <li><a href="/">最热</a></li>
-                <li class="post"><a class="post-up" href="javascript:void(0)">投稿</a></li>
+                <li class="hid"><a href="/post/up">投稿</a></li>
+                <li class="hid post"><a class="post-up" href="/post/pass">审贴</a></li>
                 <li class="user"><a href="<% if (user.state_login) { %>/user/<%= user.info.loginname %><% } else {%>/user/login<% } %>">我</a></li>
             </ul>
         </div>

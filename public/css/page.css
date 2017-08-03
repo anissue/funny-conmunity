@@ -1,15 +1,16 @@
 .page {
     width: 760px;
     float: left;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
     overflow: hidden;
 }
 
 .page .sort {
     height: 50px;
-    background-color: #F5F5F5;
+    background-color: white;
+    border: 1px solid #e7eaf1;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,37,55,.05);
+    margin-bottom: 10px;
 }
 
 .page .sort a {
@@ -22,20 +23,22 @@
 
 .page .sort .on {
     background-color: #E5E5E5;
-    color: black;
+    color: #3498db;
 }
 
 .page .sort a:hover {
     background-color: #E5E5E5;
-    color: black;
+    color: #3498db;
 }
 
 .page .post-item {
-    padding-bottom: 10px;
     height: 100%;
     transition: all 0.3s;
     -webkit-transition: all 0.3s;
-    background: #F9F9F9 url('/public/img/split.png') bottom repeat-x;
+    border: 1px solid #e7eaf1;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,37,55,.05);
+    margin-bottom: 10px;
 }
 
 .page .post-item .post-head {
@@ -126,7 +129,7 @@
     padding-left: 180px;
     height: 42px;
     background: white;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .page .port .bar {

@@ -15,16 +15,15 @@
 	<script src="http://apps.bdimg.com/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
 	<script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js" type="text/javascript"></script>
 	<script src="/public/js/hint.js" type="text/javascript"></script>
-	<script src="/public/js/up_avatar.js" type="text/javascript"></script>
 	<script src="/public/js/head_phone.js" type="text/javascript"></script>
 </head>
 <body>
 <%- include('../header.html', {user: user}) %>
 <%
 	if (!user.info) {
-		info = {
+		user.info = {
 			avatar:  '/avatar/user_default.png',
-			name  :  '',
+			name  :  'aa',
 			desc  :  ''
 		}
 	}
@@ -39,13 +38,13 @@
 			<div class="item">
 
 				<span><i class="iconfont" style="position:relative;top: -2px;">&#xe611;</i>用户名(注册后不能修改)</span>
-				<input class="loginname" name="loginname" type="text" placeholder="昵称" value="<%= info.name %>">
+				<input class="loginname" name="loginname" type="text" placeholder="昵称" value="<%= user.info.name %>">
 				<div class="line"></div>
 			</div>
 			<div class="item">
 
 				<span><i class="iconfont">&#xe60d;</i>请输入你的个性签名</span>
-				<input class="description" name="description" type="text" placeholder="个性签名" value="<%= info.desc %>">
+				<input class="description" name="description" type="text" placeholder="个性签名" value="<%= user.info.desc %>">
 				<div class="line"></div>
 			</div>
 			<div class="item">
@@ -67,7 +66,7 @@
 			<div class="item btn finish">注册</div>
 			<a class="tologin" href="/user/login">已有账号，马上登录</a>
 			<span class="more">第三方账号注册</span>
-			<div class="item login-more">
+			<div class="item login-more clearfix">
                 <a class="item btn btn-quick" style="margin-right: 20px;" href="<%= 'https://api.weibo.com/oauth2/authorize?client_id=' + config.wb.ID + '&redirect_uri=' + config.wb.CALLBACK_URI + '&response_type=code&state=' + user.state_code %>"><em class="iconfont" style="color: #ff424f;">&#xe652;</em></a>
                 <a class="item btn btn-quick" href="<%= 'https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=' + config.qq.ID + '&redirect_uri=' + config.qq.CALLBACK_URI + '&state=' + user.state_code %>"><em class="iconfont" style="color: #43d2f4;">&#xe607;</em></a>
             </div>

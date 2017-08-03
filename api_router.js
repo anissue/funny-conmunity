@@ -25,4 +25,13 @@ router.post('/post/upload', post.uploadImg);
 
 // 上传帖子
 router.post('/post/new', post.uploadTopic);
+
+// 返回一条还没有审核的帖子
+router.get('/post/notpass', post.notpass);
+
+// 帖子通过数加一
+router.post('/post/pass', post.pass);
+
+// 帖子不通过数加一
+router.post('/post/notpass', post.notPass);
 module.exports = router;

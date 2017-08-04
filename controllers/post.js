@@ -24,7 +24,7 @@ exports.pass = function (req, res, next) {
 // 展示首页
 exports.index = function (req, res, next) {
 	var page = req.params.page || 1;
-	getTopic({}, page, function (err, topic, count) {
+	getTopic({}, req, function (err, topic, count) {
 		if (err) return next();
 		res.render('index', {
 			user: req.user,
@@ -37,30 +37,33 @@ exports.index = function (req, res, next) {
 	});
 };
 
-function getTopic (condition, page, callback) {
+function getTopic (condition, req, callback) {
+	var page = req.params.page || 1;
 	TopicPassed.find(condition).limit(config.topic_limit).skip(config.topic_limit * (page - 1)).sort({create_date: -1}).exec(function (err, result) {
 		if (err) return callback(err, null, 0);
 		if (result.length < 1) return callback(null, [], 0);
 
 		TopicPassed.count(condition, function (err, count) {
 			if (err) return callback(err, [], 0);
-			getAuthor(result, callback, count);
+			getAuthor(result, req, callback, count);
 		});
 
 	});
 }
 
 // 组成帖子的数据
-function getAuthor (topic, callback, count) {
+function getAuthor (topic, req, callback, count) {
+	var userId = req.user.info._id;
 	var topicData = [];
 	(function iteration(i) {
 		if (i >= topic.length) {
 			return callback(null, topicData, count);
 		}
-
 		User.openInfoOneUser({_id: topic[i].author_id}, function (err, result) {
 			if (err) return callback(err, null, 0);
 			topic[i].author = result[0];
+			// 是否赞过
+			topic[i].liked = topic[i].liker_id.indexOf(userId) === -1 ? 0 : 1;
 			topicData.push(topic[i]);
 			iteration(++i);
 		});

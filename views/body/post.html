@@ -22,11 +22,11 @@
             <a href="javascript:void(0)">
                 <span><i class="iconfont">&#xe86f;</i></span>
             </a>
-            <a class="reply-button" href="javascript:void(0)">
+            <a class="reply-button" href="javascript:void(0)" data-topic-id="<%= topic[i]._id %>">
                 <span><i class="iconfont">&#xe870;</i><%= topic[i].reply_count %></span>
             </a>
-            <a class="like" href="javascript:void(0)">
-                <span><i class="iconfont">&#xe63b;</i><%= topic[i].like_count %></span>
+            <a class="like<% if (topic[i].liked === 1){ %> on<%}%>" href="javascript:void(0)" liked="<%= topic[i].liked %>" data-topic-id="<%= topic[i]._id %>">
+                <span><i class="iconfont"><% if (topic[i].liked === 1){ %>&#xe60a;<%}else{%>&#xe63b;<%}%></i><em><%= topic[i].like_count %></em></span>
             </a>
         </div>
     </div>
@@ -36,7 +36,7 @@
 
         </div>
         <div class="comment clearfix">
-            <textarea class="comment-content" placeholder="大家都是文化人，有话好好说"></textarea>
+            <textarea class="comment-content" data-topic-id="<%= topic[i]._id %>" placeholder="大家都是文化人，有话好好说"></textarea>
             <span class="comment-bnt">发表评论</span>
         </div>
     </div>

@@ -11,7 +11,7 @@
     border: 1px solid #e7eaf1;
     border-radius: 2px;
     box-shadow: 0 1px 3px rgba(0,37,55,.05);
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .page .post-item .post-head {
@@ -102,7 +102,6 @@
     padding-left: 180px;
     height: 42px;
     background: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .page .port .bar {
@@ -144,6 +143,20 @@
 .page .port .bar .like {
     padding: 9px 0;
     padding-left: 42px;
+}
+
+.page .port .bar .on {
+    background-color: rgb(239, 243, 245);
+    color: rgb(52, 152, 219);
+}
+
+.page .port .bar .on i {
+    color: rgb(255, 97, 97);
+    text-shadow: rgb(255, 126, 188) 0px 0px 5px;
+}
+
+.page .port .bar .on em {
+    color: rgb(52, 152, 219);
 }
 
 .page .port .bar .like span {

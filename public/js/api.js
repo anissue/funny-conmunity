@@ -6,6 +6,7 @@ $(window).ready(function () {
         success: function (msg) {
             if (msg.states === 1) {
                 window.login_state = true;
+                window.user_info = msg.data;
             } else if (msg.states < 1) {
                 window.login_state = false;
             }
@@ -163,29 +164,50 @@ function notPass (id, callback) {
 	})
 }
 
-/*
- * 获取留言
- * 传入留言DOM对象 和 一个回调函数
- * */
-function getReply (postId, callback) {
-
-	// 先放个假数据吧
-	var data = [
-		{
-			avatar : 'http://src.dounide.cn/tx/uid10007.jpg',
-			name   : '浪啊浪',
-			text   : '很好，好',
-			like   : 50,
-			floor  : 1
-		},{
-			avatar : 'http://q.qlogo.cn/qqapp/101405320/8FEA2598F78DD97562C9A199CD9AF6A3/100',
-			name   : '我是小仙女啊',
-			text   : '啦啦啦，我是卖报的小行家',
-			like   : 20,
-			floor  : 2
+// 增加留言
+function addReply (id, content, callback) {
+	var data = '_id=' + id + '&content=' + content;
+	$.ajax({
+		type: 'post',
+		url: '/api/post/addreply',
+		data: data,
+		success: function (msg) {
+			callback(null, msg)
+		},
+		error: function () {
+			callback(true, null);
 		}
-	];
-	setTimeout(function () {
-		callback(data);
-	}, 1000);
+	});
+}
+
+// 获取留言
+function getReply (topicId, callback) {
+
+	var data = '_id=' + topicId;
+	$.ajax({
+		type: 'post',
+		url: '/api/post/getreply',
+		data: data,
+		success: function (msg) {
+			callback(null, msg);
+		},
+		error: function () {
+			callback(true, null);
+		}
+	});
+}
+
+function like (topicId, callback) {
+	var data = '_id=' + topicId;
+	$.ajax({
+		type: 'post',
+		url: '/api/post/like',
+		data: data,
+		success: function (msg) {
+			callback(null, msg);
+		},
+		error: function () {
+			callback(true, null);
+		}
+	});
 }

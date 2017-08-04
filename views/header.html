@@ -15,7 +15,7 @@
                 <li><a href="/">月榜</a></li>
                 <li class="hid post"><a class="post-up" href="/post/pass">审贴</a></li>
                 <li class="hid"><a href="/post/up">投稿</a></li>
-                <li class="user"><a href="<% if (user.state_login) { %>/user/<%= user.info.loginname %><% } else {%>/user/login<% } %>">我</a></li>
+                <li class="user"><a href="<% if (user.state_login) { %>/people/<%= user.info.loginname %><% } else {%>/user/login<% } %>">我</a></li>
             </ul>
         </div>
         <% if (!user.state_login) { %>

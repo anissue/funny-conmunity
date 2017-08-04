@@ -1,5 +1,5 @@
 // 过滤html标签
-function filterScript(text) {
+function filterTag(text) {
 	text = text.
 	replace(/</g, '&lt;').
 	replace(/>/g, '&gt;');

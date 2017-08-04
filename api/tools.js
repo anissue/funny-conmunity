@@ -20,7 +20,7 @@ exports.time = function () {
 };
 
 // 过滤脚本标签
-exports.filterScript = function (text) {
+exports.filterTag = function (text) {
 	text = text.
 	replace(/</g, '&lt;').
 	replace(/>/g, '&gt;');

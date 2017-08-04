@@ -9,7 +9,7 @@ var TopicSchema = new Schema({
 	title: {type: String},
 	content: {type: String},
 	author_id: {type: Schema.ObjectId},
-	create_date: {type: Date, default: Date.now()},
+	create_date: {type: Date, default: Date.now},
 
 	passed_count: {type: Number, default: 0},   // 同意通过的数量
 	notpassed_count: {type: Number, default: 0} // 不同意通过的数量
@@ -32,7 +32,7 @@ TopicSchema.statics.legal = function (topic) {
 	return {states: 1, hint: '合法'};
 };
 
-TopicSchema.index({author_id: -1});
+TopicSchema.index({author_id: 1});
 TopicSchema.index({create_date: -1});
 
 module.exports = TopicSchema;

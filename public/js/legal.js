@@ -1,3 +1,7 @@
-// 验证一些东东的，比如评论的时候是否登录了。
-
-
+// 过滤html标签
+function filterScript(text) {
+	text = text.
+	replace(/</g, '&lt;').
+	replace(/>/g, '&gt;');
+	return text;
+}

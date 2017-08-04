@@ -109,11 +109,11 @@ exports.edit = function (req, res, next) {
 // 返回登录状态
 exports.isLogin = function (req, res, next) {
 	var token = req.session.token;
-	User.find({token: token}, function (err, result) {
+	User.openInfoOneUser({token: token}, function (err, result) {
 		if (err) return res.json({ states: -1, hint  : '服务器错误' });
 
 		if (result.length < 1) return res.json({ states: -2, hint  : 'token过期' });
-		return res.json({ states: 1, hint  : '登录' });
+		return res.json({ states: 1, hint  : '登录', data: result });
 	});
 };
 

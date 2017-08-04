@@ -113,7 +113,7 @@ exports.isLogin = function (req, res, next) {
 		if (err) return res.json({ states: -1, hint  : '服务器错误' });
 
 		if (result.length < 1) return res.json({ states: -2, hint  : 'token过期' });
-		return res.json({ states: 1, hint  : '登录', data: result });
+		return res.json({ states: 1, hint  : '登录', data: result[0] });
 	});
 };
 

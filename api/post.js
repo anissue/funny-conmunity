@@ -166,6 +166,11 @@ exports.getReply = function (req, res, next) {
                     avatar: user[0].avatar,
                     floor: i + 1
                 };
+				if (req.user) {
+					tempData.liked = reply[i].liker_id.indexOf(req.user._id) === -1 ? 0 : 1;
+				} else {
+					tempData.liked = 0;
+				}
 				replyData.push(tempData);
                 iteration(++i);
             });

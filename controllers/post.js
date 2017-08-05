@@ -53,7 +53,6 @@ function getTopic (condition, req, callback) {
 
 // 组成帖子的数据
 function getAuthor (topic, req, callback, count) {
-	var userId = req.user.info._id;
 	var topicData = [];
 	(function iteration(i) {
 		if (i >= topic.length) {
@@ -63,7 +62,12 @@ function getAuthor (topic, req, callback, count) {
 			if (err) return callback(err, null, 0);
 			topic[i].author = result[0];
 			// 是否赞过
-			topic[i].liked = topic[i].liker_id.indexOf(userId) === -1 ? 0 : 1;
+			if (req.user.info) {
+				topic[i].liked = topic[i].liker_id.indexOf(req.user.info._id) === -1 ? 0 : 1;
+			} else {
+				topic[i].liked = 0;
+			}
+
 			topicData.push(topic[i]);
 			iteration(++i);
 		});

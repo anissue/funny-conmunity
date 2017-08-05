@@ -43,13 +43,19 @@ $replyButton.on('click', function () {
 				var data = msg.data;
 				var temp = '';
 				for (var i = 0; i < data.length; i++) {
+					var liked = '';
+					if (data[i].liked === 1) {
+						liked = ' on';
+					}
 					temp +=
 						replyModel.replace('[name]', data[i].name).
 						replace('[avatar]', data[i].avatar).
 						replace('[text]', data[i].content).
 						replace('[like]', data[i].like_count).
 						replace('[floor]', data[i].floor).
-						replace('[_id]', data[i]._id);
+						replace('[_id]', data[i]._id).
+						replace('[liked]', liked);
+
 				}
 			}
 
@@ -128,10 +134,21 @@ $replyBnt.on('click', function () {
 function likeReplyBind () {
 	$replyLikeBnt = $('.reply-like-btn');
 	$replyLikeBnt.off('click').on('click', function () {
+		if (!window.login_state) {
+			return hint('登陆后就能给TA点赞了!');
+		}
 		var $This = $(this);
+		if (parseInt($This.attr('liked')) === 1) {
+			return;
+		}
+		$This.addClass('on');
 		likeReply($This.attr('data-reply-id'), function (err, msg) {
-			if (err) hint('服务器错误!');
+			if (err) {
+				return hint('服务器错误!')
+			}
+			$This.find('span').html(parseInt($This.find('span').html()) + 1);
 		});
+		$This.attr('liked', 1);
 	});
 }
 

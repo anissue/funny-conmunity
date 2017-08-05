@@ -28,7 +28,7 @@ exports.filterTag = function (text) {
 	return text;
 };
 
-function checkChar (str) {
+exports.checkChar = function (str) {
 	var pattern = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？]");
 	if (pattern.test(str)) {
 		return -1;

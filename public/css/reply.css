@@ -111,6 +111,9 @@
 .reply .reply-item .reply-port .r a {
     color: #6C7486;
 }
+.reply .reply-item .reply-port .r a.on {
+    color: #3498DB;
+}
 
 .reply .reply-item .reply-port .r a:hover {
 	color: #3498DB;

@@ -197,11 +197,28 @@ function getReply (topicId, callback) {
 	});
 }
 
+// 喜欢一条帖子
 function like (topicId, callback) {
 	var data = '_id=' + topicId;
 	$.ajax({
 		type: 'post',
 		url: '/api/post/like',
+		data: data,
+		success: function (msg) {
+			callback(null, msg);
+		},
+		error: function () {
+			callback(true, null);
+		}
+	});
+}
+
+// 喜欢一条评论
+function likeReply (replyId, callback) {
+	var data = '_id=' + replyId;
+	$.ajax({
+		type: 'post',
+		url: '/api/post/likereply',
 		data: data,
 		success: function (msg) {
 			callback(null, msg);

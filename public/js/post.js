@@ -7,12 +7,16 @@
 
 $(window).ready(function () {
 
+
 // 打开和收缩留言
 var $reply        = $('.reply');                // 留言页面
 var $replyDefault = $('.default');              // 加载评论动画
 var $replyButton  = $('.reply-button');         // 开关按钮
 var $replyWrap    = $('.reply-wrap');           // 放评论的
 var replyModel    = $('#replyTemplate').html(); // 评论模块
+
+// 喜欢评论按钮
+var $replyLikeBnt = $('.reply-like-btn');
 
 $replyButton.on('click', function () {
 	this.off = !this.off;  // 看看是展开还是收缩
@@ -51,6 +55,8 @@ $replyButton.on('click', function () {
 
 			$replyDefault.eq(index).css('display', 'none');
 			$replyWrap.eq(index).append(temp);
+			// 给每个评论按钮绑定事件
+			likeReplyBind();
 		});
 	}
 
@@ -114,9 +120,19 @@ $replyBnt.on('click', function () {
 			replace('[_id]', msg._id);
 		$replyWrap.eq(index).append(temp.toString());
 		$replyContent.val('');
+		likeReplyBind();
 	});
 });
 
-
+// 喜欢一条评论
+function likeReplyBind () {
+	$replyLikeBnt = $('.reply-like-btn');
+	$replyLikeBnt.off('click').on('click', function () {
+		var $This = $(this);
+		likeReply($This.attr('data-reply-id'), function (err, msg) {
+			if (err) hint('服务器错误!');
+		});
+	});
+}
 
 });

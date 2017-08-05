@@ -195,9 +195,19 @@ exports.like = function (req, res, next) {
 
 // 给一条评论点赞
 exports.likeReply = function (req, res, next) {
-	Reply.update({_id: req.body._id}, {$inc: {like_count: 1}, $push: {liker_id: ObjectId(req.user._id)}}, function (err, result) {
+	var condition = {
+		_id: req.body._id,
+		liker_id: req.user._id
+	};
+	Reply.find(condition, function (err, reply) {
 		if (err) return res.json({ states: -1, hint: '服务器错误' });
+		if (reply.length > 0) return res.json({ states: -2, hint: '已经赞过咯' });
 
-		return res.json({ states: 1, hint: '成功!' });
+		Reply.update({_id: req.body._id}, {$inc: {like_count: 1}, $push: {liker_id: ObjectId(req.user._id)}}, function (err, result) {
+			if (err) return res.json({ states: -1, hint: '服务器错误' });
+
+			return res.json({ states: 1, hint: '成功!' });
+		});
 	});
+
 };

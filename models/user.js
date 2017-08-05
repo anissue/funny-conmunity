@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema   = mongoose.Schema;
 var crypto   = require('crypto');
 var config   = require('../config');
+var tools    = require('../api/tools');
 
 var UserSchema = new Schema({
 	loginname: {type: String},
@@ -71,8 +72,12 @@ UserSchema.statics.cryptoPassword = function (pwd) {
 // 验证数据
 UserSchema.statics.legal = function (user) {
 	user.description = user.description || '';
+
 	if (!user.loginname || !user.password || !user.email)
 		return {states: -1, hint: '请填写完整!'};
+
+	if (tools.checkChar(user.loginname) !== 1)
+		return {states: -4, hint: '昵称含有特殊字符'};
 
 	if (user.loginname.length < 3 || user.loginname.length > 20 || user.email.length > 100 || user.description.length > 150)
 		return {states: -3, hint: '数据长度不匹配'};

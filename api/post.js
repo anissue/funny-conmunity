@@ -130,11 +130,11 @@ exports.addReply = function (req, res, next) {
 		if (err) return res.json({ states: -1, hint  : '服务器错误' });
 		if (topic.length < 1) return res.json({ states: -2, hint  : '找不到该帖子' });
 
-		Reply.create(replyData, function (err, result){
+		Reply.create(replyData, function (err, reply){
 			if (err) return res.json({ states: -1, hint  : '服务器错误' });
 			TopicPassed.update({_id: req.body._id}, {$inc: {reply_count: 1}}, function (err, result) {
 				if (err) return res.json({ states: -1, hint  : '服务器错误' });
-				return res.json({ states: 1, hint  : '评论成功！', _id: result._id });
+				return res.json({ states: 1, hint  : '评论成功！', _id: reply._id });
 			});
 		});
 	});
@@ -183,9 +183,21 @@ exports.like = function (req, res, next) {
 		if (err) return res.json({ states: -1, hint: '服务器错误' });
 		if (topic.length > 0) return res.json({ states: -2, hint: '已经赞过咯' });
 
-		TopicPassed.update({_id: req.body._id}, {$inc: {like_count: 1}, $push: {liker_id: ObjectId(req.user._id)}}, function (err, result) {
+		var like_count = parseInt(Math.random() * config.like + 1);
+
+		TopicPassed.update({_id: req.body._id}, {$inc: {like_count: like_count}, $push: {liker_id: ObjectId(req.user._id)}}, function (err, result) {
 			if (err) return res.json({ states: -1, hint: '服务器错误' });
+
 			return res.json({ states: 1, hint: '成功!' });
 		});
+	});
+};
+
+// 给一条评论点赞
+exports.likeReply = function (req, res, next) {
+	Reply.update({_id: req.body._id}, {$inc: {like_count: 1}, $push: {liker_id: ObjectId(req.user._id)}}, function (err, result) {
+		if (err) return res.json({ states: -1, hint: '服务器错误' });
+
+		return res.json({ states: 1, hint: '成功!' });
 	});
 };

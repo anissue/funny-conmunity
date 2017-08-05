@@ -61,3 +61,4 @@ avatar/temp/*.png
 avatar/temp/*.gif
 !avatar/temp/user_default.png
 !avatar/user_default.png
+*.xml___jb_old___

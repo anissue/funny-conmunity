@@ -1,6 +1,7 @@
 var config = require('../config');
 var TopicPassed = require('../models').TopicPassed;
 var User   = require('../models').User;
+var tools  = require('../api/tools');
 
 // 上传帖子
 exports.upload = function (req, res, next) {
@@ -24,8 +25,9 @@ exports.pass = function (req, res, next) {
 // 展示首页
 exports.index = function (req, res, next) {
 	var page = req.params.page || 1;
-	getTopic({}, req, function (err, topic, count) {
+	getTopic({}, {create_date: -1}, req, function (err, topic, count) {
 		if (err) return next();
+		config.subfield = 0;
 		res.render('index', {
 			user: req.user,
 			topic: topic,
@@ -37,9 +39,59 @@ exports.index = function (req, res, next) {
 	});
 };
 
-function getTopic (condition, req, callback) {
+// 周榜
+exports.week = function (req, res, next) {
 	var page = req.params.page || 1;
-	TopicPassed.find(condition).limit(config.topic_limit).skip(config.topic_limit * (page - 1)).sort({create_date: -1}).exec(function (err, result) {
+	var condition = {
+		create_date: {
+			$gte: tools.toTime(7)
+		}
+	};
+	var sort = {
+		like_count: -1
+	};
+	getTopic(condition, sort, req, function (err, topic, count) {
+		if (err) return next();
+		config.subfield = 1;
+		res.render('index', {
+			user: req.user,
+			topic: topic,
+			topic_count: count,
+			paging: page,
+			paging_link: '/week/p', // 跳转的地址头
+			config: config
+		});
+	});
+};
+
+// 月榜
+exports.month = function (req, res, next) {
+	var page = req.params.page || 1;
+	var condition = {
+		create_date: {
+			$gte: tools.toTime(30)
+		}
+	};
+	var sort = {
+		like_count: -1
+	};
+	getTopic(condition, sort, req, function (err, topic, count) {
+		if (err) return next();
+		config.subfield = 2;
+		res.render('index', {
+			user: req.user,
+			topic: topic,
+			topic_count: count,
+			paging: page,
+			paging_link: '/week/p', // 跳转的地址头
+			config: config
+		});
+	});
+};
+
+function getTopic (condition, sort, req, callback) {
+	var page = req.params.page || 1;
+	TopicPassed.find(condition).limit(config.topic_limit).skip(config.topic_limit * (page - 1)).sort(sort).exec(function (err, result) {
 		if (err) return callback(err, null, 0);
 		if (result.length < 1) return callback(null, [], 0);
 

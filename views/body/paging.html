@@ -4,23 +4,25 @@
         paging = parseInt(paging);
         var paging_start = paging;
         var paging_count = Math.ceil(topic_count / config.topic_limit)
+        if (paging + 2 > paging_count)
+        paging_start = paging - 3;
+
+        if (paging + 1 > paging_count)
+        paging_start = paging - 4;
+        
         if (paging - 2 >= 1)
             paging_start = paging - 2;
 
-        if (paging - 2 === 0)
+        if (paging - 2 <= 0)
             paging_start = 1;
 
-        if (paging + 2 > paging_count)
-            paging_start = paging - 3;
 
-        if (paging + 1 > paging_count)
-            paging_start = paging - 4;
 
         if (paging - 1 >= 1) { %>
             <li><a href="<%= paging_link + '/' + (paging - 1) %>">上一页</a></li>
         <% }
 
-        for (var i = paging_start; i < paging_start + 5; i++) {
+        for (var i = paging_start; i < paging_start + 5 && i <= paging_count; i++) {
             if (i == paging) { %>
                 <li><a class="on" href="<%= paging_link + '/' + i %>"><%= i %></a></li>
             <% } else { %>

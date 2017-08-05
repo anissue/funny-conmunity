@@ -123,7 +123,8 @@ $replyBnt.on('click', function () {
 			replace('[text]', filterTag($replyContent.val())).
 			replace('[like]', 0).
 			replace('[floor]','n').
-			replace('[_id]', msg._id);
+			replace('[_id]', msg._id).
+			replace('[liked]', '');
 		$replyWrap.eq(index).append(temp.toString());
 		$replyContent.val('');
 		likeReplyBind();

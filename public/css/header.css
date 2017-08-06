@@ -1,6 +1,6 @@
 #header {
     width: 100%;
-    height: 75px;
+    height: 60px;
     background: white;
     border-bottom: 1px solid #e2e2e2;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -10,11 +10,25 @@
     z-index: 999;
 }
 
+#hint {
+    position: fixed;
+    top: -60px;
+    z-index: 99999;
+    width: 100%;
+    font-size: 16px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    color: white;
+    background-color: #3498DB;
+    opacity: 0.8;
+}
+
 #header .head-main {
     max-width: 1100px;
     padding: 0 10px;
-    height: 75px;
-    line-height: 70px;
+    height: 60px;
+    line-height: 50px;
     margin: 0 auto;
 }
 
@@ -27,7 +41,7 @@
 #header .head-main .logo a {
     display: block;
     height: 0;
-    margin-top: 25px;
+    margin-top: 15px;
     padding-top: 30px;
     overflow: hidden;
     background: url('/public/img/logo.png') no-repeat 0 0;
@@ -88,7 +102,7 @@
 #header .head-main .login {
     float: right;
     max-width: 190px;
-    height: 100%;
+    height: 60px;
     box-sizing: border-box;
     font-size: 16px;
     border-top: 5px solid transparent;
@@ -108,9 +122,11 @@
 #header .head-main .login .login-btn {
     display: block;
     padding: 0 15px;
+    height: 55px;
     transition: all 0.3s;
     text-align: center;
     color: #3498DB;
+    line-height: 50px;
 }
 
 #header .head-main .login .login-btn i {
@@ -158,7 +174,8 @@
 #header .head-phone {
     display: none;
     width: 100%;
-    height: 60px;
+    height: 50px;
+    line-height: 50px;
     background-color: white;
     position: relative;
     border-bottom: 1px solid #DDDDDD;
@@ -169,7 +186,6 @@
     font-size: 20px;
     width: 50px;
     text-align: center;
-    line-height: 60px;
     top: 0;
     left: 0;
     cursor: pointer;
@@ -178,7 +194,6 @@
 #header .head-phone h1 {
     text-align: center;
     font-size: 18px;
-    line-height: 60px;
 }
 
 #header .head-phone a {
@@ -186,7 +201,6 @@
     font-size: 25px;
     width: 50px;
     text-align: center;
-    line-height: 60px;
     top: 0;
     right: 0;
     cursor: pointer;
@@ -209,6 +223,13 @@
 @media only screen and (max-width: 800px) {
     #header {
         height: auto;
+        border: none;
+        box-shadow: none;
+    }
+
+    #hint {
+        height: 40px;
+        line-height: 40px;
     }
 
     #header .head-main {
@@ -265,10 +286,8 @@
     }
 
     #header .head-main .menu ul .on a {
-        background-color: #e6e6e6;
         color: #3498DB;
         border: none;
-        border-bottom: 2px solid #3498DB;
     }
 
     #header .head-main .menu ul li a:hover {

@@ -233,11 +233,14 @@
         width: 100%;
     }
 
+    .page .post-item {
+        box-shadow: none;
+        border: none;
+    }
 
     .page .post-item .post-head {
         padding: 10px 18px;
         height: 36px;
-        border-bottom: 1px solid #e6e6e6;
     }
 
     .page .post-item .post-head .avatar {
@@ -279,8 +282,7 @@
 
     .page .post-item .content .title {
         display: block;
-        padding: 8px;
-        border-bottom: 1px solid #e6e6e6;
+        padding: 8px 20px;
         background-color: white;
     }
 
@@ -292,7 +294,7 @@
 
     .page .post-item .content .picture {
         display: block;
-        padding: 10px;
+        padding: 10px 20px;
         background: #f7f7f7;
         text-align: center;
     }

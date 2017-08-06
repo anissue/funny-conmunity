@@ -55,3 +55,18 @@
 #paging ul li #skip-bn {
     float: left;
 }
+
+@media only screen and (max-width: 800px) {
+    #paging ul li {
+        padding:0;
+        margin: 0 5px;
+    }
+
+    #paging ul li a {
+        padding: 0 8px;
+    }
+
+    #paging ul .skip-to {
+        display: none;
+    }
+}

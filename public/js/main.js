@@ -6,8 +6,8 @@ var $sideFloat = {};
 
 $(window).resize(function () {
 	clientWidth = $(window).width();
-	$sideFloat.css({position: 'static',top: '76px'});
-	sideOffsetTop = $sideFloat.offset().top - 76;
+	$sideFloat.css({position: 'static',top: '60px'});
+	sideOffsetTop = $sideFloat.offset().top - 60;
 });
 
 
@@ -19,7 +19,7 @@ $(window).ready(function () {
 	var $toBottom  = $('.to-bottom');
 	var pageOffsetTop = 0;
 	$sideFloat = $('.side-float');
-	sideOffsetTop = $sideFloat.offset().top - 76; // 侧边栏到顶部的高度 减去头部的高度
+	sideOffsetTop = $sideFloat.offset().top - 60; // 侧边栏到顶部的高度 减去头部的高度
 
 
 	// 头部的显示和隐藏
@@ -44,17 +44,17 @@ $(window).ready(function () {
 		if (scrollTop > sideOffsetTop) {
 			$sideFloat.css({
 				position: 'fixed',
-				top: '76px'
+				top: '60px'
 			});
 		} 
 		if (scrollTop < sideOffsetTop){
 			$sideFloat.css({
 				position: 'static',
-				top: '76px'
+				top: '60px'
 			});
 		}
 
-		if (scrollTop + 76 > pageOffsetTop) {
+		if (scrollTop + 60 > pageOffsetTop) {
 			$sideFloat.css({
 				position: 'absolute',
 				top: pageOffsetTop + 'px'

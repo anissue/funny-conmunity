@@ -3,9 +3,8 @@
         <div class="band clearfix">
             <h1 class="logo"><a href="/">逗你的-搞笑图</a></h1>
             <div class="port">
-                <a href="./" class="iconfont" style="font-size: 23px;">&#xe69a;</a>
-                <a href="/post/pass" class="iconfont" style="font-size: 22px;">&#xe627;</a>
-                <a class="iconfont post-up">&#xe615;</a>
+                <a href="/post/pass" class="iconfont">&#xe6de;</a>
+                <a class="iconfont post-up">&#xe6e5;</a>
             </div>
         </div>
         <div class="menu">
@@ -27,7 +26,7 @@
         </div>
         <% } else if(user.state_login) { %>
         <div class="login">
-            <a class="login-btn login-user ell" href="" title="<%= user.info.loginname + '的主页' %>"><img src="<%= user.info.avatar %>" alt="" width="40" height="40"><%= user.info.loginname %></a>
+            <a class="login-btn login-user ell" href="" title="<%= user.info.loginname + '的主页' %>"><img src="<%= user.info.avatar %>" alt="" width="35" height="35"><%= user.info.loginname %></a>
             <a class="login-btn login-quick" href="/people/<%= user.info.loginname %>"><i class="iconfont">&#xe606;</i>个人中心</a>
             <a class="login-btn login-quick" href="/user/edit"><i class="iconfont">&#xe604;</i>修改资料</a>
             <a class="login-btn login-quick" href="/post/up"><i class="iconfont">&#xe615;</i>新建投稿</a>
@@ -37,7 +36,7 @@
     </div>
     <div class="head-phone">
         <i class="iconfont back">&#xe605;</i>
-        <h1>我是傻的。</h1>
+        <h1><%= config.title %></h1>
         <a class="iconfont user">&#xe606;</a>
     </div>
 </div>

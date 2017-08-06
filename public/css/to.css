@@ -34,9 +34,20 @@
 }
 
 @media only screen and ( max-width: 800px ) {
+    .to {
+        right: 20px;
+        bottom: 50px;
+    }
 
     .to .hid {
         display: none;
+    }
+
+    .to .item {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        line-height: 40px;
     }
 
     .to .item:hover {

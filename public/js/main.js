@@ -76,6 +76,10 @@ $(window).ready(function () {
 
 	$('#skip-bn').on('click', function () {
 		$skipTo = $('#skip-to');
+		if ($skipTo.val() === '') {
+			hint('要输入页数啊!');
+			return;
+		}
 		window.location.href = $skipTo.attr('paging-link') + $skipTo.val();
 	});
 

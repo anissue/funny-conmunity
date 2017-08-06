@@ -28,9 +28,7 @@ app.engine('html', require('ejs').renderFile);
 
 app.use('/avatar', express.static(avatarDir));
 app.use('/public', express.static(staticDir));
-if (config.qiniu.ACCESS_KEY === '') {
-	app.use('/picture', express.static(pictureDir));
-}
+app.use('/picture', express.static(pictureDir));
 
 app.use(session({
 	secret: config.session_secret,

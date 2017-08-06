@@ -1,48 +1,14 @@
 <div class="rank">
     <span class="title"><i class="iconfont">&#xe6b8;</i>大神榜</span>
+    <% for ( var i = 0; i < user_rank.length; i++ ){ %>
     <div class="item clearfix">
-        <a class="head" href="">
-            <img src="http://src.dounide.cn/tx/uid10007.jpg" alt="" width="50" height="50">
+        <a class="head" href="/people/<%= user_rank[i].loginname %>">
+            <img src="<%= user_rank[i].avatar %>" alt="<%= user_rank[i].loginname %>" width="50" height="50">
         </a>
         <div class="info">
-            <a href="">愿祖国繁荣昌盛</a>
-            <p class="ell">[啦啦啦啦,我是卖报的小行家,大风大雨满街跑]</p>
+            <a href="/people/<%= user_rank[i].loginname %>"><%= user_rank[i].loginname %></a>
+            <p class="ell"><%= user_rank[i].description %></p>
         </div>
     </div>
-    <div class="item clearfix">
-        <a class="head" href="">
-            <img src="http://src.dounide.cn/tx/uid10007.jpg" alt="" width="50" height="50">
-        </a>
-        <div class="info">
-            <a href="">愿祖国繁荣昌盛</a>
-            <p class="ell">[啦啦啦啦,我是卖报的小行家,大风大雨满街跑]</p>
-        </div>
-    </div>
-    <div class="item clearfix">
-        <a class="head" href="">
-            <img src="http://src.dounide.cn/tx/uid10007.jpg" alt="" width="50" height="50">
-        </a>
-        <div class="info">
-            <a href="">愿祖国繁荣昌盛</a>
-            <p class="ell">[啦啦啦啦,我是卖报的小行家,大风大雨满街跑]</p>
-        </div>
-    </div>
-    <div class="item clearfix">
-        <a class="head" href="">
-            <img src="http://src.dounide.cn/tx/uid10007.jpg" alt="" width="50" height="50">
-        </a>
-        <div class="info">
-            <a href="">愿祖国繁荣昌盛</a>
-            <p class="ell">[啦啦啦啦,我是卖报的小行家,大风大雨满街跑]</p>
-        </div>
-    </div>
-    <div class="item clearfix">
-        <a class="head" href="">
-            <img src="http://src.dounide.cn/tx/uid10007.jpg" alt="" width="50" height="50">
-        </a>
-        <div class="info">
-            <a href="">愿祖国繁荣昌盛</a>
-            <p class="ell">[啦啦啦啦,我是卖报的小行家,大风大雨满街跑]</p>
-        </div>
-    </div>
+    <% } %>
 </div>

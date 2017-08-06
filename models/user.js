@@ -30,29 +30,6 @@ UserSchema.virtual('fullAvatar').get(function () {
 	return '/avatar/' + this.avatar;
 });
 
-
-// 返回用户公共信息
-UserSchema.statics.openInfoOneUser = function (condition, callback) {
-	return this.find(condition, {
-		loginname: 1,
-		description: 1,
-		avatar: 1,
-		email: 1,
-		qq: 1,
-		wb: 1,
-		topic_count: 1,
-		reply_count: 1
-	}, function (err, result) {
-		if (err) return callback(err, null);
-
-		if (result < 1) return callback(null, []);
-		result[0].avatar = result[0].fullAvatar;
-		callback(null, result);
-	})
-};
-
-
-
 // 创建 token
 UserSchema.statics.createToken = function () {
 	var token = new Date().getTime() + config.token_secret + Math.random();

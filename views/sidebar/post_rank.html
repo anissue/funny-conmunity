@@ -1,35 +1,13 @@
 <div class="rank post-rank">
     <span class="title"><i class="iconfont" style="color: #3498DB;">&#xe803;</i>热门推荐</span>
+    <% for (var i = 0; i < topic_rank.length; i++) { %>
     <div class="item clearfix">
-        <a class="head" href="">
-            <img src="http://qt-1251888776.picsh.myqcloud.com/t/1500200096_123.jpg/min" alt="" width="60" height="60">
+        <a class="head" href="/topic/<%= topic_rank[i]._id %>">
+            <img src="<%= topic_rank[i].content %>" alt="" width="60" height="60">
         </a>
         <div class="info">
-            <a href="">愿祖国繁荣昌盛</a>
+            <a href="/topic/<%= topic_rank[i]._id %>"><%= topic_rank[i].title %></a>
         </div>
     </div>
-    <div class="item clearfix">
-        <a class="head" href="">
-            <img src="http://qt-1251888776.picsh.myqcloud.com/t/1500200096_123.jpg/min" alt="" width="60" height="60">
-        </a>
-        <div class="info">
-            <a href="">愿祖国繁荣昌盛</a>
-        </div>
-    </div>
-    <div class="item clearfix">
-        <a class="head" href="">
-            <img src="http://qt-1251888776.picsh.myqcloud.com/t/1500200096_123.jpg/min" alt="" width="60" height="60">
-        </a>
-        <div class="info">
-            <a href="">愿祖国繁荣昌盛</a>
-        </div>
-    </div>
-    <div class="item clearfix">
-        <a class="head" href="">
-            <img src="http://qt-1251888776.picsh.myqcloud.com/t/1500200096_123.jpg/min" alt="" width="60" height="60">
-        </a>
-        <div class="info">
-            <a href="">愿祖国繁荣昌盛</a>
-        </div>
-    </div>
+    <% } %>
 </div>

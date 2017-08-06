@@ -54,7 +54,8 @@ $replyButton.on('click', function () {
 						replace('[like]', data[i].like_count).
 						replace('[floor]', data[i].floor).
 						replace('[_id]', data[i]._id).
-						replace('[liked]', liked);
+						replace('[liked]', liked).
+						replace('[is-liked]', data[i].liked);
 
 				}
 			}
@@ -75,7 +76,7 @@ var $likeIcon   = $('.like i');
 var $likeCount  = $('.like em');
 $likeButton.on('click', function () {
 	if (!window.login_state) {
-		return hint('要登陆后才能点赞啦!');
+		return hint('登陆后就能给TA点赞了!');
 	}
 	var $This = $(this);
 	if (parseInt($This.attr('liked')) === 1) {

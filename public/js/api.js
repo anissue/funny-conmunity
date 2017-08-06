@@ -135,10 +135,10 @@ function getNotPass (callback) {
 }
 
 // 帖子通过加1
-function pass (id, callback) {
+function allowPass (id, callback) {
     $.ajax({
         type: 'post',
-        url: '/api/post/pass',
+        url: '/api/post/allowPass',
         data: '_id=' + id,
         success: function (msg) {
             callback(null, msg);

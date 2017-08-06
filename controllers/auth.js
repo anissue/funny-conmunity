@@ -1,6 +1,6 @@
-var qq = require('../middlewares/qq_auth');
+var qq   = require('../middlewares/qq_auth');
+var wb   = require('../middlewares/wb_auth');
 var User = require('../models').User;
-var wb = require('../middlewares/wb_auth');
 
 // qq 登录
 exports.qqSign = auth.bind(qq);

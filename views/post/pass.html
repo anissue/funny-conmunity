@@ -30,7 +30,7 @@
             <img id="topic-img" src="">
             <div id="port" class="port clearfix">
                 <a id="not-pass" class="item btn btn-quick" href="" title="看不懂"><em class="iconfont" style="color: #43d2f4;">&#xe864;</em></a>
-                <a id="pass" class="item btn btn-quick pass" href="" title="通过"><em class="iconfont" style="color: #ff424f;">&#xe609;</em></a>
+                <a id="allowPass" class="item btn btn-quick pass" href="" title="通过"><em class="iconfont" style="color: #ff424f;">&#xe609;</em></a>
             </div>
         </div>
     </div>
@@ -58,8 +58,8 @@ getNotPass(function (err, topic) {
 });
 
 // 同意加一
-$('#pass').on('click', function () {
-    pass($img.attr('data-id'), function (err, msg) {
+$('#allowPass').on('click', function () {
+	allowPass($img.attr('data-id'), function (err, msg) {
         if (err) return hint('服务器错误!');
     });
 });

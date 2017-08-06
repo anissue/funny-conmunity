@@ -3,6 +3,7 @@ var config     = require('../config');
 var upload_img  = require('./upload_img');
 var tools      = require('./tools');
 var ObjectId   = require('mongoose').Types.ObjectId;
+var async      = require('async');
 var fmdb       = require('../fmdb');
 var user       = fmdb.user;
 var topic      = fmdb.topic;
@@ -69,9 +70,16 @@ function uploadTopic (req, res, next) {
 
 	var legal = topic.legal(topicData);
 	if (legal.states !== 1) return res.json(legal);
-
-	topic.upload(topicData, function (err, result) {
+	async.series([
+		function (callback) {
+			topic.upload(topicData, callback);
+		},
+		function (callback) {
+			user.addTopicCount(topicData.author_id, callback);
+		}
+	], function (err, result) {
 		if (err) return res.json({ states: -1, hint  : '服务器繁忙!' });
+
 		return  res.json({ states: 1, hint  : '投稿成功!'});
 	});
 }
@@ -118,10 +126,17 @@ function addReply (req, res, next) {
 	if (legal.states < 1) {
 		return res.json(legal);
 	}
-
-	reply.addReply(condition, replyData, function (err, reply) {
+	async.series([
+		function (callback) {
+			reply.addReply(condition, replyData, callback);
+		},
+		function (callback) {
+			user.addReplyCount(replyData.reply_id, callback);
+		}
+	], function (err, item) {
 		if (err) return res.json({ states: -1, hint: '服务器繁忙!' });
-		res.json({ states: 1, hint: '评论成功!',  _id: reply._id  })
+		console.log(item);
+		res.json({ states: 1, hint: '评论成功!',  _id: item[0]._id  })
 	});
 }
 

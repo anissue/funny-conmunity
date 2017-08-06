@@ -6,6 +6,8 @@ var topic_passed = require('./topic_passed');
 exports.login          = login;                  // 站内登陆
 exports.createUser     = createUser;             // 创建用户
 exports.edit           = edit;                   // 修改用户资料
+exports.addReplyCount  = addReplyCount;          // 回复数加一
+exports.addTopicCount  = addTopicCount;          // 回复数加一
 exports.getUserById    = getUserById;            // 通过 id 获取用户
 exports.getUserByName  = getUserByName;          // 通过 用户名 获取用户
 exports.getUserByToken = getUserByToken;         // 通过 token 获取用户
@@ -61,6 +63,18 @@ function createUser (data, callback) {
 	User.create(data, function (err, result) {
 		if (err) return callback({ states: -3, hint: '用户名已存在'});
 		return callback({ states: 1, 'hint': '成功' });
+	});
+}
+
+function addTopicCount (id, callback) {
+	User.update({_id: id}, {$inc: {topic_count: 1}}, function (err, result) {
+		callback(err, result);
+	});
+}
+
+function addReplyCount (id, callback) {
+	User.update({_id: id}, {$inc: {reply_count: 1}}, function (err, result) {
+		callback(err, result);
 	});
 }
 

@@ -1,12 +1,12 @@
 .upload {
     width: 1000px;
-    border: 1px solid #B5D2E7;
-    box-shadow: 0 0 10px rgba(0,0,0,.1);
     background: #F8F8F8;
     overflow: hidden;
     margin: 110px auto;
     margin-top: 100px;
-    border-radius: 10px;
+    border: 1px solid #e7eaf1;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,37,55,.05);
 }
 
 .upload .content {

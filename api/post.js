@@ -37,14 +37,15 @@ function uploadImg (req, res, next) {
         }, function (fileName) {
 
 			if (config.qiniu.ACCESS_KEY === '') {
-				return tools.parseRedirect({ states: 1, hint  : '上传完成', data  : '/picture%2f' + fileName}, res);
+				var url = encodeURIComponent('/picture/' + fileName);
+				return tools.parseRedirect({ states: 1, hint  : '上传完成', data  :  url}, res);
 			}
 			upload_img.qiniu(path.join(__dirname, '..', 'picture', fileName), fileName, function (respErr, respBody, respInfo){
 				if (respErr) {
 					return tools.parseRedirect({ states: -1, hint  : '服务器繁忙!', data  : '' }, res);
 				}
 				if (respInfo.statusCode == 200) {
-					var url = encodeURIComponent(config.qiniu.URL + '/' + fileName + '/' + config.qiniu.URL.mark);
+					var url = encodeURIComponent(config.qiniu.URL + '/' + fileName + '/' + config.qiniu.watermark);
 					return tools.parseRedirect({ states: 1, hint  : '上传完成', data  : url }, res);
 				} else {
 					return tools.parseRedirect({ states: -2, hint  : respBody, data  : '' }, res);

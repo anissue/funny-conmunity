@@ -19,7 +19,7 @@ var apiRouter = require('./api_router');
 var staticDir = path.join(__dirname, 'public');
 var avatarDir = path.join(__dirname, 'avatar');
 var viewsDir  = path.join(__dirname, 'views');
-
+var pictureDir = path.join(__dirname, 'picture');
 
 app.set('views', viewsDir);
 app.set('view engine', 'html');
@@ -28,6 +28,9 @@ app.engine('html', require('ejs').renderFile);
 
 app.use('/avatar', express.static(avatarDir));
 app.use('/public', express.static(staticDir));
+if (config.qiniu.ACCESS_KEY === '') {
+	app.use('/picture', express.static(pictureDir));
+}
 
 app.use(session({
 	secret: config.session_secret,

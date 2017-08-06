@@ -71,8 +71,8 @@ function uploadAvatar(input, img, callback) {
         if (!login) return hint('登陆后才能进行操作！');
         if (this.files !== undefined) {
             var file = this.files[0];
+            console.log(file.name);
             var type = ['image/png','image/jpeg','image/gif'];
-
             if (file.size > 1024 * 1024 * 5) {
                 hint('大小不能超过2M');
                 return;
@@ -92,6 +92,7 @@ function uploadAvatar(input, img, callback) {
             url = iframeAvatar.contentWindow.window.location.href;
             if (url.indexOf('uploadredirect') !== -1) {
                 clearInterval(time);
+				iframeAvatar.contentWindow.window.location.href = '';
                 parseUrl(url, callback);
                 $('.spinner').remove();
             }

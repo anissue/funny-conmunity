@@ -45,9 +45,6 @@ exports.saveLocal = function (req, res, next, config, callback) {
 			return;
 		}
 
-		// 新文件名
-		// config.fileName = config.fileName || file.
-
 		var userFileName =  config.fileName + path.extname(file.name);
 		fs.rename(file.path, path.join(config.dir, userFileName), function (err) {
 			if (err) return tools.parseRedirect({ states: -5, hint  : '图片地址有误', data  : '' }, res);

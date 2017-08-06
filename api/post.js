@@ -44,7 +44,8 @@ function uploadImg (req, res, next) {
 					return tools.parseRedirect({ states: -1, hint  : '服务器繁忙!', data  : '' }, res);
 				}
 				if (respInfo.statusCode == 200) {
-					return tools.parseRedirect({ states: 1, hint  : '上传完成', data  : encodeURIComponent(config.qiniu.URL + '/' +fileName) }, res);
+					var url = encodeURIComponent(config.qiniu.URL + '/' + fileName + '/' + config.qiniu.URL.mark);
+					return tools.parseRedirect({ states: 1, hint  : '上传完成', data  : url }, res);
 				} else {
 					return tools.parseRedirect({ states: -2, hint  : respBody, data  : '' }, res);
 				}

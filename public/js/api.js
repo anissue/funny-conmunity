@@ -114,7 +114,7 @@ function uploadAvatar(input, img, callback) {
         if (url[0] > 0) {
             hint(url[1]);
             url[2] = decodeURIComponent(url[2]);
-            $(img).attr('src', url[2] + '?t=' + new Date().getTime());
+            $(img).attr('src', url[2]);
             callback();
         }
     }

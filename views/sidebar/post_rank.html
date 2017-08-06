@@ -3,7 +3,7 @@
     <% for (var i = 0; i < topic_rank.length; i++) { %>
     <div class="item clearfix">
         <a class="head" href="/topic/<%= topic_rank[i]._id %>">
-            <img src="<%= topic_rank[i].content %>" alt="" width="60" height="60">
+            <img src="<%= topic_rank[i].content + '/' + config.qiniu.shrink %>" alt="" width="60" height="60">
         </a>
         <div class="info">
             <a href="/topic/<%= topic_rank[i]._id %>"><%= topic_rank[i].title %></a>

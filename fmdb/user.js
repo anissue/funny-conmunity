@@ -31,7 +31,7 @@ function getUserTopicByName (option, callback) {
 		},
 		function (user, callback) {
 			author = user[0];
-			option.condition = {author_id: user[0]._id};
+			option.condition = {author_id: author._id};
 			topic_passed.getTopic(option, callback);
 		}
 	], function (err, item) {

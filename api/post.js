@@ -3,8 +3,6 @@ var config     = require('../config');
 var upload_img  = require('./upload_img');
 var tools      = require('./tools');
 var ObjectId   = require('mongoose').Types.ObjectId;
-var TopicPassed= require('../models').TopicPassed;
-var Reply      = require('../models').Reply;
 var fmdb       = require('../fmdb');
 var user       = fmdb.user;
 var topic      = fmdb.topic;
@@ -35,9 +33,23 @@ function uploadImg (req, res, next) {
         return upload_img.saveLocal(req, res, next, {
             maxSize: 1024 * 1024 * 2.5,
             fileName: tools.time(),
-            dir: path.join(__dirname, '..', 'avatar', 'temp')
+            dir: path.join(__dirname, '..', 'picture')
         }, function (fileName) {
-            return tools.parseRedirect({ states: 1, hint  : '上传完成', data  :  'temp%2F' + fileName}, res);
+
+			if (config.qiniu.ACCESS_KEY === '') {
+				return tools.parseRedirect({ states: 1, hint  : '上传完成', data  : '/picture%2f' + fileName}, res);
+			}
+			upload_img.qiniu(path.join(__dirname, '..', 'picture', fileName), fileName, function (respErr, respBody, respInfo){
+				if (respErr) {
+					return tools.parseRedirect({ states: -1, hint  : '服务器繁忙!', data  : '' }, res);
+				}
+				if (respInfo.statusCode == 200) {
+					return tools.parseRedirect({ states: 1, hint  : '上传完成', data  : encodeURIComponent(config.qiniu.URL + '/' +fileName) }, res);
+				} else {
+					return tools.parseRedirect({ states: -2, hint  : respBody, data  : '' }, res);
+				}
+
+			})
 
         });
 

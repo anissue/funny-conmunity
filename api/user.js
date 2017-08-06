@@ -75,11 +75,11 @@ function uploadAvatar (req, res, next) {
 			User.update({token: token}, {$set: {avatar: userFileName}}, function (err, result) {
 				if (err) return tools.parseRedirect({ states: -1, hint  : '服务器错误', data  : '' }, res);
 
-				return tools.parseRedirect({ states: 1, hint  : '头像上传完成', data  :  userFileName}, res);
+				return tools.parseRedirect({ states: 1, hint  : '头像上传完成', data  : 'avatar' + userFileName}, res);
 			});
 		});
 	});
-};
+}
 
 // 修改资料
 function edit (req, res, next) {

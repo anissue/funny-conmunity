@@ -113,8 +113,8 @@ function uploadAvatar(input, img, callback) {
         }
         if (url[0] > 0) {
             hint(url[1]);
-            $(img).attr('src', '/avatar/' + url[2] + '?t=' + new Date().getTime());
-            console.log(callback);
+            url[2] = decodeURIComponent(url[2]);
+            $(img).attr('src', url[2] + '?t=' + new Date().getTime());
             callback();
         }
     }

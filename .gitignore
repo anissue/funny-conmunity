@@ -50,6 +50,12 @@ jspm_packages
 .idea/funny-conmunity.iml
 config.js
 
+# picture
+picture/*.jpg
+picture/*.jpeg
+picture/*.png
+picture/*.gif
+
 # avatar
 avatar/*.jpg
 avatar/*.jpeg

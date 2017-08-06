@@ -1,4 +1,5 @@
 var express = require('express');
+var config  = require('../config');
 var User    = require('../models').User;
 var user    = require('../fmdb/user');
 

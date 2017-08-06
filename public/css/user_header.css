@@ -43,7 +43,7 @@
     font-size: 14px;
 }
 
-.user-hd .info a {
+.user-hd .info .con {
 	display: block;
     float: left;
     width: 26px;
@@ -83,10 +83,7 @@
 }
 
 .user-hd-port  .on {
-    background-color: #f5f3f3;
     color: #3498DB;
-    border: none;
-    border-bottom: 2px solid #3498DB;
 }
 
 .user-hd-port  a:hover {
@@ -102,7 +99,6 @@
         width: 615px;
         margin: 0 auto;
         margin-top: 30px;
-        margin-bottom: 20px;
     }
 
     .user-hd .info {
@@ -112,12 +108,22 @@
     .user-hd .info p {
         height: auto;
     }
+
+    .user-hd-port {
+        width: 800px;
+        margin: 0 auto;
+    }
 }
 
 
 
 @media only screen and ( max-width: 800px ) {
-
+    body {
+        background: white;
+    }
+    #main {
+        margin-top: 40px!important;
+    }
     .user-hd {
         background-color: white;
         margin: 10px 0;
@@ -155,7 +161,7 @@
         line-height: 18px;
     }
 
-    .user-hd .info a {
+    .user-hd .info .con {
         display: none;
     }
 
@@ -164,5 +170,6 @@
         width: 50%;
     }
     .user-hd-port {
+        width: 100%;
     }
 }

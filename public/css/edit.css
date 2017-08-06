@@ -5,7 +5,7 @@
     background-color: white;
     overflow: hidden;
     margin: 110px auto;
-    margin-top: 130px;
+    margin-top: 100px;
     border-radius: 10px;
 }
 
@@ -160,9 +160,10 @@
     }
 
     .edit .content .edit-form {
-        padding: 10px 15px;
+        padding: 10px 20px;
         border: none;
     }
+
     .edit .content .edit-head {
         height: 40px;
         line-height: 40px;

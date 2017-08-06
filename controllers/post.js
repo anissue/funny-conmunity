@@ -14,7 +14,7 @@ exports.month  = month;   // 月榜
 function upload (req, res, next) {
 	var token = req.session.token;
 	if (token === undefined) return res.redirect('/user/login');
-
+	config.title = '上传图片';
 	res.render('./post/upload', {
 		user: req.user,
 		config: config
@@ -22,6 +22,7 @@ function upload (req, res, next) {
 }
 
 function pass (req, res, next) {
+	config.title = '审核图片';
 	res.render('./post/pass', {
 		user: req.user,
 		config: config

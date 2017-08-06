@@ -10,6 +10,7 @@ exports.edit  = edit;    // 修改用户资料
 function newUser(req, res, next) {
 	var user = req.user;
 	user.info = req.session.tempInfo;
+	config.title = '注册';
 	res.render('./user/new.html', {
 		user: user,
 		config: config
@@ -17,6 +18,7 @@ function newUser(req, res, next) {
 }
 
 function login(req, res, next) {
+	config.title = '登陆';
 	res.render('./user/login.html', {user: req.user, config: config});
 }
 
@@ -28,6 +30,7 @@ function edit (req, res, next) {
 		if (err) return next(err);
 
 		if (result.length < 1) return  res.redirect('/user/login');
+		config.title = '个人资料';
 		res.render('./user/edit', {
 			user: req.user,
 			config: config
@@ -46,6 +49,7 @@ function index (req, res, next) {
 
 	user.getUserTopicByName(option, function (err, item) {
 		if (err) return next(err);
+		config.title = req.params.name;
 		res.render('./user/index', {
 			user: req.user,
 			topic: item.topic,

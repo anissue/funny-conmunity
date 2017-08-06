@@ -320,6 +320,7 @@
         height: 35px;
         text-align: center;
         padding: 0;
+        float: right;
     }
 
     .page .post-item .port .bar a span {

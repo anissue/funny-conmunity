@@ -25,8 +25,6 @@
         <span><i class=" iconfont">&#xe60f;</i>用户登录</span>
     </p>
     <div class="edit">
-
-        <img class="avatar" src="/avatar/user_default.png" alt="" >
         <form id="new-user-form" class="clearfix" action="/api/user/login" method="post" enctype="application/x-www-form-urlencoded">
             <div class="item">
                 <span><i class="iconfont" style="position:relative;top: -2px;">&#xe611;</i>请输入用户名</span>
@@ -52,15 +50,6 @@
 
 <%- include('../footer.html') %>
 <script type="text/javascript">
-    $('.more').on('click', function () {
-    	this.off = !this.off;
-    	$this = $(this);
-    	if (this.off) {
-            $('.login-more').css('display', 'block');
-        } else {
-			$('.login-more').css('display', 'none');
-        }
-    });
 	$('.finish').on('click', function () {
 		var loginname = $('.loginname').val();
 		var password  = $('.password').val();

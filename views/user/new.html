@@ -24,7 +24,7 @@
 	if (!user.info) {
 		user.info = {
 			avatar:  '/avatar/user_default.png',
-			name  :  'aa',
+			name  :  '',
 			desc  :  ''
 		}
 	}
@@ -37,21 +37,14 @@
 
 		<form id="new-user-form" action="/api/user/new" method="post" enctype="application/x-www-form-urlencoded">
 			<div class="item">
-
 				<span><i class="iconfont" style="position:relative;top: -2px;">&#xe611;</i>用户名(注册后不能修改)</span>
-				<input class="loginname" name="loginname" type="text" placeholder="昵称" value="<%= user.info.name %>">
-				<div class="line"></div>
-			</div>
-			<div class="item">
-
-				<span><i class="iconfont">&#xe60d;</i>请输入你的个性签名</span>
-				<input class="description" name="description" type="text" placeholder="个性签名" value="<%= user.info.desc %>">
+				<input class="loginname" name="loginname" type="text" placeholder="3-12位中文,字母,数字" value="<%= user.info.name %>">
 				<div class="line"></div>
 			</div>
 			<div class="item">
 
 				<span><i class="iconfont">&#xe660;</i>设置密码</span>
-				<input class="password" name="password" type="password" placeholder="密码">
+				<input class="password" name="password" type="password" placeholder="6-16位">
 				<div class="line"></div>
 			</div>
 			<div class="item">
@@ -77,41 +70,30 @@
 
 <%- include('../footer.html') %>
 <script type="text/javascript">
-	$('.more').on('click', function () {
-		this.off = !this.off;
-		$this = $(this);
-		if (this.off) {
-			$('.login-more').css('display', 'block');
-		} else {
-			$('.login-more').css('display', 'none');
-		}
-	});
 	$('.finish').on('click', function () {
 		var loginname = $('.loginname').val();
 		var password  = $('.password').val();
-		var description = $('.description').val();
 		var email = $('.email').val();
 		if (checkChar(loginname) !== 1) {
 			return hint('昵称不能含有特殊字符!');
 		}
 		if (!loginname || !password || !email) {
-			return hint('请完整填写选项!');
+			return hint('不填完是不行得!');
+		}
+		if (loginname.length < 3 || loginname.length > 12) {
+			hint('名字不能太长也不能太短了!');
+			return;
+		}
+		if (password.length < 6) {
+			hint('密码不能那么短啊?');
+			return;
+		}
+		if (password.length > 16) {
+			hint('密码那么长你记得住?');
+			return;
 		}
 		if (!/^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/.test(email)) {
-			hint('邮箱格式不正确');
-			return;
-		}
-		if (loginname.length < 3 || loginname.length > 20) {
-			hint('名字长度大于3或小于20');
-			return;
-		}
-		console.log(password.length);
-		if (password.length < 6 || password.length > 16) {
-			hint('密码长度大于6或小于16');
-			return;
-		}
-		if (description.length > 150) {
-			hint('描述有点长，只能在150个字符以内');
+			hint('邮箱不是这样的吧?');
 			return;
 		}
 		var $This = $(this);

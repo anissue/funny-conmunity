@@ -35,15 +35,7 @@
             </div>
             <div class="info">
                 <div class="group">
-                    <p class="title">用户名：<span style="color: #ffcdcd;">不可修改</span></p>
-                    <input class="loginname" readonly="readonly" type="text" placeholder="用户名" value="<%= user.info.loginname %>">
-                </div>
-                <div class="group">
-                    <p class="title">验证邮箱： <span style="color: #ffcdcd;">不可修改</span></p>
-                    <input class="email" readonly="readonly" type="email"  placeholder="验证邮箱"  value="<%= user.info.email %>">
-                </div>
-                <div class="group">
-                    <p class="title">个性签名： <span>建议少于16字。</span></p>
+                    <p class="title">个性签名： </p>
                     <input class="description" type="text" placeholder="个性签名"  value="<%= user.info.description %>">
                 </div>
                 <div class="group community" style="margin-right: 40px">
@@ -53,6 +45,14 @@
                 <div class="group community">
                     <p class="title">微博：</p>
                     <input class="wb" type="text" placeholder="昵称或链接"  value="<%= user.info.wb %>">
+                </div>
+                <div class="group">
+                    <p class="title">用户名：<span style="color: #ffcdcd;">不可修改</span></p>
+                    <input class="loginname" readonly="readonly" type="text" placeholder="用户名" value="<%= user.info.loginname %>">
+                </div>
+                <div class="group">
+                    <p class="title">邮箱号： <span style="color: #ffcdcd;">不可修改</span></p>
+                    <input class="email" readonly="readonly" type="email"  placeholder="验证邮箱"  value="<%= user.info.email %>">
                 </div>
                 <div style="clear: both;"></div>
                 <div class="group clearfix">

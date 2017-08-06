@@ -1,7 +1,7 @@
 <div id="header">
     <div class="head-main clearfix">
         <div class="band clearfix">
-            <h1 class="logo"><a href="/">逗你的-搞笑图</a></h1>
+            <h1 class="logo"><a href="/">逗你的 一个正经网站</a></h1>
             <div class="port">
                 <a href="/post/pass" class="iconfont">&#xe6de;</a>
                 <a class="iconfont post-up">&#xe6e5;</a>
@@ -37,7 +37,7 @@
     <div class="head-phone">
         <i class="iconfont back">&#xe605;</i>
         <h1><%= config.title %></h1>
-        <a class="iconfont user">&#xe606;</a>
+        <a href="<% if (user.state_login) { %>/people/<%= user.info.loginname %><% } else {%>/user/login<% } %>" class="iconfont user">&#xe606;</a>
     </div>
 </div>
 

@@ -56,7 +56,7 @@ UserSchema.statics.legal = function (user) {
 	if (tools.checkChar(user.loginname) !== 1)
 		return {states: -4, hint: '昵称含有特殊字符'};
 
-	if (user.loginname.length < 3 || user.loginname.length > 20 || user.email.length > 100 || user.description.length > 150)
+	if (user.loginname.length < 3 || user.loginname.length > 12 || user.email.length > 100 || user.description.length > 150)
 		return {states: -3, hint: '数据长度不匹配'};
 
 	if (!/^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/.test(user.email))

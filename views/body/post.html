@@ -7,12 +7,12 @@
 <% for (var i = 0; i < topic.length; i++){ %>
 <div class="post-item">
     <div class="post-head clearfix">
-        <a class="avatar clearfix" href="/people/<%= topic[i].author.loginname %>">
+        <a class="avatar clearfix" href="/people/<%= topic[i].author.loginname %>"  target="_blank">
             <img src="<%= topic[i].author.avatar %>" alt="" width="50" height="50">
             <span class="name"><%= topic[i].author.loginname %></span>
         </a>
         <div class="user-info">
-            <a class="name" href="/people/<%= topic[i].author.loginname %>"><%= topic[i].author.loginname %></a>
+            <a class="name" href="/people/<%= topic[i].author.loginname %>"  target="_blank"><%= topic[i].author.loginname %></a>
             <p class="ell"><%= topic[i].author.description %></p>
         </div>
     </div>

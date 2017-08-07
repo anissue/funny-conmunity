@@ -1,6 +1,8 @@
 var User   = require('../models').User;
 var async  = require('async');
 var topic_passed = require('./topic_passed');
+var rank   = require('./rank');
+var reply  = require('./reply');
 
 
 exports.login          = login;                  // 站内登陆
@@ -11,6 +13,7 @@ exports.addTopicCount  = addTopicCount;          // 回复数加一
 exports.getUserById    = getUserById;            // 通过 id 获取用户
 exports.getUserByName  = getUserByName;          // 通过 用户名 获取用户
 exports.getUserByToken = getUserByToken;         // 通过 token 获取用户
+exports.getReplyByName = getReplyByName;         // 通过 用户名 获取评论
 exports.getUserTopicByName = getUserTopicByName; // 通过 用户名 获取发的帖子
 
 function getUserById (id, callback, open) {
@@ -42,6 +45,31 @@ function getUserTopicByName (option, callback) {
 		item.topic.author = author;
 		callback(err, item);
 	});
+}
+
+function getReplyByName (option, callback) {
+	getUserByName(option.name, function (err, user) {
+		if (err || user.length < 1) return callback(new Error('not find user'), null);
+		var author = user[0];
+		async.series({
+			reply: function (callback) {
+				option.reply_id = author._id;
+				reply.getReplyByUserId(option, callback);
+			},
+			user_rank: function (callback) {
+				rank.user(callback);
+			},
+			topic_rank: function (callback) {
+				rank.topic(callback);
+			}
+		},function (err, item) {
+			if (err) return callback(err, null);
+			item.reply_count = author.reply_count;
+			item.topic_count = author.topic_count;
+			item.author = author;
+			callback(err, item);
+		});
+	})
 }
 
 function getUser (condition, callback, open) {

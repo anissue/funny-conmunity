@@ -3,11 +3,13 @@ var ObjectId   = require('mongoose').Types.ObjectId;
 var Reply       = require('../models').Reply;
 var tools       = require('../api/tools');
 var user        = require('./user');
+var config = require('../config');
 
 exports.legal    = Reply.legal;   // 检测数据合法
 exports.addReply = addReply;      // 增加一条评论
 exports.getReply = getReply;      // 获得帖子的评论
 exports.likeReply = likeReply;    // 给一条评论点赞
+exports.getReplyByUserId = getReplyByUserId; // 通过用户id获取评论
 
 // 增加一条评论
 function addReply (condition, replyData, callback) {
@@ -28,7 +30,7 @@ function addReply (condition, replyData, callback) {
 
 // 获得帖子的评论
 function getReply (condition, authuser, callback) {
-	Reply.find(condition, function (err, reply) {
+	Reply.find(condition).exec(function (err, reply) {
 		if (err) return callback(err, null);
 		var replyData = [];
 		(function iteration(i) {
@@ -70,5 +72,15 @@ function likeReply (condition, callback) {
 
 			return callback({ states: 1, hint: '成功!' });
 		});
+	});
+}
+
+// 通过用户id获取评论
+function getReplyByUserId (option, callback) {
+	var condition = option.condition;
+	var page      = option.page;
+	var limit     = config.reply_limit;
+	Reply.find(condition).limit(limit).skip(limit * (page - 1)).sort({create_date: -1}).exec(function (err, reply) {
+		callback(err, reply);
 	});
 }

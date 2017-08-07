@@ -42,7 +42,7 @@ function index (req, res, next) {
 		res.render('index', {
 			user: req.user,
 			topic: item.topic,
-			topic_count: item.count,
+			count: item.topic_count,
 			user_rank: item.user_rank,
 			topic_rank: item.topic_rank,
 			paging: option.page,

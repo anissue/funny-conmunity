@@ -1,7 +1,7 @@
 <div class="user-hd clearfix">
-	<a href="/user/edit"><img src="<%= author.avatar %>" alt="<%= author.loginname %>" class="avatar"></a>
+	<a href="/people/<%= author.loginname %>"><img src="<%= author.avatar %>" alt="<%= author.loginname %>" class="avatar"></a>
 	<div class="info">
-		<strong class="ell"><a href="/user/edit"><%= author.loginname %></a></strong>
+		<strong class="ell"><a href="/people/<%= author.loginname %>"><%= author.loginname %></a></strong>
 		<p class=""><%= author.description %></p>
 		<a href="" class="con kj iconfont">&#xe68c;</a>
 		<a href="" class="con wb iconfont">&#xe61e;</a>
@@ -9,6 +9,6 @@
 </div>
 
 <div class="user-hd-port clearfix">
-	<a class="on" href="">发帖(<%= topic_count %>)</a>
-	<a href="">回复(23)</a>
+	<a <% if (header_on === 0) { %> class="on"<% } %> href="/people/<%= author.loginname %>">发帖(<%= author.topic_count %>)</a>
+	<a <% if (header_on === 1) { %> class="on"<% } %> href="/reply/<%= author.loginname %>">回复(<%= author.reply_count %>)</a>
 </div>

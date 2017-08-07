@@ -4,7 +4,7 @@
         <%
         paging = parseInt(paging);
         var paging_start = paging;
-        var paging_count = Math.ceil(topic_count / config.topic_limit)
+        var paging_count = Math.ceil(count / config.topic_limit)
         if (paging + 2 > paging_count)
         paging_start = paging - 3;
 

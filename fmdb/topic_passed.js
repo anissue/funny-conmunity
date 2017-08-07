@@ -10,12 +10,13 @@ exports.createTopic = createTopic; // 创建一条帖子
 exports.like        = like;        // 增加一个喜欢
 exports.getTopicById= getTopicById;// 通过帖子id获取帖子
 
+// 获得一组帖子,包含 帖子排行，用户排行
 function getTopic (option, cd) {
 	async.series({
 		topic: function (callback) {
 			topic(option, callback);
 		},
-		count: function (callback) {
+		topic_count: function (callback) {
 			count(option, callback);
 		},
 		user_rank: function (callback) {
@@ -29,32 +30,15 @@ function getTopic (option, cd) {
 	});
 }
 
+// 通过帖子id获取帖子
 function getTopicById (option, cd) {
 	async.series({
 		topic: function (callback) {
 			TopicPassed.find (option.condition, function (err, topic) {
 				if (err) return callback(err, null);
 				var userInfo = option.userInfo;
-				var topicData = [];
-				(function iteration(i) {
-					if (i >= topic.length) {
-						return callback(null, topicData);
-					}
-					user.getUserById(topic[i].author_id, function (err, user) {
 
-						if (err) return callback(err, null);
-						topic[i].author = user[0];
-						// 是否赞过
-						if (userInfo) {
-							topic[i].liked = topic[i].liker_id.indexOf(userInfo._id) === -1 ? 0 : 1;
-						} else {
-							topic[i].liked = 0;
-						}
-
-						topicData.push(topic[i]);
-						iteration(++i);
-					});
-				})(0)
+				liked(userInfo, topic, callback);
 			})
 		},
 		count: function (callback) {
@@ -71,48 +55,7 @@ function getTopicById (option, cd) {
 	});
 }
 
-function topic (option, callback) {
-	var req = option.req;
-	var page = option.page;
-	var sort = option.sort;
-	var condition = option.condition;
-	var userInfo = option.userInfo;
-	TopicPassed.find(condition)
-		.limit(config.topic_limit)
-		.skip(config.topic_limit * (page - 1))
-		.sort(sort).exec(function (err, topic) {
-
-			if (err) return callback(err, null);
-
-			var topicData = [];
-			(function iteration(i) {
-				if (i >= topic.length) {
-					return callback(null, topicData);
-				}
-				user.getUserById(topic[i].author_id, function (err, user) {
-
-					if (err) return callback(err, null);
-					topic[i].author = user[0];
-					// 是否赞过
-					if (userInfo) {
-						topic[i].liked = topic[i].liker_id.indexOf(userInfo._id) === -1 ? 0 : 1;
-					} else {
-						topic[i].liked = 0;
-					}
-
-					topicData.push(topic[i]);
-					iteration(++i);
-				});
-			})(0)
-		})
-}
-
-function count (option, callback) {
-	TopicPassed.count(option.condition, function (err, count) {
-		callback(err, count);
-	});
-}
-
+// 创建一条帖子
 function createTopic (topic, callback) {
 	TopicPassed.create(topic, function (err, result) {
 		callback(err, result);
@@ -134,3 +77,54 @@ function like (condition, callback) {
 		});
 	});
 }
+
+
+// 是否赞过
+function liked (userInfo, topic, callback) {
+	var topicData = [];
+	(function iteration(i) {
+		if (i >= topic.length) {
+			return callback(null, topicData);
+		}
+		user.getUserById(topic[i].author_id, function (err, user) {
+
+			if (err) return callback(err, null);
+			topic[i].author = user[0];
+			// 是否赞过
+			if (userInfo) {
+				topic[i].liked = topic[i].liker_id.indexOf(userInfo._id) === -1 ? 0 : 1;
+			} else {
+				topic[i].liked = 0;
+			}
+
+			topicData.push(topic[i]);
+			iteration(++i);
+		});
+	})(0)
+}
+
+// 获取帖子
+function topic (option, callback) {
+	var req = option.req;
+	var page = option.page;
+	var sort = option.sort;
+	var condition = option.condition;
+	var userInfo = option.userInfo;
+	TopicPassed.find(condition)
+		.limit(config.topic_limit)
+		.skip(config.topic_limit * (page - 1))
+		.sort(sort).exec(function (err, topic) {
+
+		if (err) return callback(err, null);
+		liked(userInfo, topic, callback);
+
+	})
+}
+
+// 帖子数
+function count (option, callback) {
+	TopicPassed.count(option.condition, function (err, count) {
+		callback(err, count);
+	});
+}
+

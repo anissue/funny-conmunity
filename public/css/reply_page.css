@@ -1,0 +1,40 @@
+.page {
+    float: left;
+    width: 760px;
+    min-height: 500px;
+    background-color: white;
+    overflow: hidden;
+    border: 1px solid #e7eaf1;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,37,55,.05);
+    margin-bottom: 15px;
+}
+
+.page .reply {
+    display: block;
+    padding: 0;
+}
+
+.page .reply .reply-item .reply-content {
+    padding-bottom: 0;
+}
+
+.page .reply .reply-wrap {
+    background-color: white;
+}
+
+.page .reply .reply-port {
+    height: 30px;
+    line-height: 30px;
+    padding: 0;
+}
+
+.page .reply .reply-port .time {
+    font-size: 14px;
+    color: #9a9a9a;
+}
+
+.page .reply .reply-port .to-topic {
+    color: #3498db;
+    font-size: 14px;
+}

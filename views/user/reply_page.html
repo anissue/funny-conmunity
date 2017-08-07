@@ -1,0 +1,24 @@
+<div class="page">
+    <div class="reply">
+        <div class="reply-wrap">
+            <% for (var i = 0; i < reply.length; i ++) {
+            var date = new Date(reply[i].create_date);
+            var parseDate = '' + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+            %>
+            <div class="reply-item clearfix">
+                <a class="reply-head" href="">
+                    <img src="http://q.qlogo.cn/qqapp/101405320/CE68B07B901EB535A69B58D2F141CE1D/100" alt="" width="30" height="30">
+                </a>
+                <div class="reply-content">
+                    <a href="">愿祖国繁荣昌盛</a>
+                    <span><%= reply[i].content %></span>
+                </div>
+                <div class="reply-port clearfix">
+                    <span class="time"><%= parseDate %>&nbsp;</span><a href="/topic/<%= reply[i].topic_id %>" class="to-topic" target="_blank">#前往帖子</a>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+<%- include('../body/paging.html') %>

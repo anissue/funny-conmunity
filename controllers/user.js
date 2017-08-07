@@ -7,6 +7,7 @@ exports.out   = out;     // 退出登录
 exports.index = index;   // 显示某人的主页
 exports.edit  = edit;    // 修改用户资料
 exports.center= center;  // 用户中心
+exports.reply = reply;   // 某人的回复
 
 function newUser(req, res, next) {
 	var user = req.user;
@@ -49,9 +50,9 @@ function index (req, res, next) {
 		res.render('./user/index', {
 			user: req.user,
 			topic: item.topic,
-			topic_count: item.count,
 			user_rank: item.user_rank,
 			topic_rank: item.topic_rank,
+			count: item.topic_count,
 			author: item.topic.author,
 			paging: option.page,
 			paging_link: '/people/' + item.topic.author.loginname, // 跳转的地址头
@@ -71,9 +72,28 @@ function center (req, res, next) {
 	if (user === undefined) return res.redirect('/user/login');
 
 	config.title = '个人中心';
-	console.log();
 	res.render('./user/center', {
 		user: req.user,
 		config: config
 	});
+}
+
+function reply (req, res, next) {
+	var option = {
+		name: req.params.name,
+		page: req.params.page || 1
+	};
+	user.getReplyByName(option, function (err, item) {
+		if (err) return next(err);
+		res.render('./user/reply', {
+			user: req.user,
+			config: config,
+			user_rank: item.user_rank,
+			topic_rank: item.topic_rank,
+			reply: item.reply,
+			author: item.author,
+			count: item.author.reply_count
+		});
+	});
+
 }

@@ -77,10 +77,9 @@ function likeReply (condition, callback) {
 
 // 通过用户id获取评论
 function getReplyByUserId (option, callback) {
-	var condition = option.condition;
 	var page      = option.page;
 	var limit     = config.reply_limit;
-	Reply.find(condition).limit(limit).skip(limit * (page - 1)).sort({create_date: -1}).exec(function (err, reply) {
+	Reply.find({reply_id: option.reply_id}).limit(limit).skip(limit * (page - 1)).sort({create_date: -1}).exec(function (err, reply) {
 		callback(err, reply);
 	});
 }

@@ -154,4 +154,23 @@ function likeReplyBind () {
 	});
 }
 
+
+window.$shareTitle = $('.content-title');
+window.$shareImg = $('.content-picture');
+
+
 });
+// 分享帖子
+function shareTo(id, type, postId){
+	var title = $shareTitle[id].innerText;
+	var img = $shareImg[id].src;
+	var url = window.location.origin + postId;
+	var href = '';
+	if(type === 'qq'){
+		href= "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://www.dounide.com/user/post.php?postId%3D"+postId+"&showcount=1&desc=&summary=来自一个正经的网站&title="+title+"&site=逗你的 一个正经网站&pics="+img
+	}
+	if(type === 'wb'){
+		href= "http://service.weibo.com/share/share.php?title="+title+"&pic="+img+"&url="+url
+	}
+	window.open(href, "_blank",'width=630,height=630,toolbar=no, menubar=no, scrollbars=no, location=no,status=no');
+}

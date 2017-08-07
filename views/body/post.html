@@ -17,15 +17,20 @@
         </div>
     </div>
     <div class="content">
-        <h3 class="title"><a href="/topic/<%= topic[i]._id %>"  target="_blank"><%= topic[i].title %></a></h3>
+        <h3 class="title content-title"><a href="/topic/<%= topic[i]._id %>"  target="_blank"><%= topic[i].title %></a></h3>
         <a href="/topic/<%= topic[i]._id %>" target="_blank" class="picture">
-            <img src="<%= topic[i].content + config.qiniu.watermark %>" alt="">
+            <img class="content-picture" src="<%= topic[i].content + config.qiniu.watermark %>" alt="">
         </a>
     </div>
     <div class="port">
         <div class="bar">
-            <a href="javascript:void(0)">
+            <a href="javascript:void(0)" class="share-bn">
                 <span><i class="iconfont">&#xe86f;</i></span>
+                <ul>
+                    <li><span onclick="shareTo(<%= i  %>, 'qq' ,'<%= topic[i]._id  %>')"><em class="iconfont"></em>QQ空间</span></li>
+                    <li><span onclick="shareTo(<%= i  %>, 'wb' ,'<%= topic[i]._id  %>')"><em class="iconfont"></em>新浪微博</span></li>
+                    <li class="wx_code"><span><em class="iconfont"></em>微信</span><img src="http://qr.liantu.com/api.php?&amp;w=153&amp;text=<%= config.domain %>/topic/<%= topic[i]._id %>"></li>
+                </ul>
             </a>
             <a class="reply-button" href="javascript:void(0)" data-topic-id="<%= topic[i]._id %>">
                 <span><i class="iconfont">&#xe870;</i><%= topic[i].reply_count %></span>

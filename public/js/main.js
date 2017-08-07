@@ -89,4 +89,10 @@ $(window).ready(function () {
 		head();
 		side();
 	});
+
+	$('.share-bn').on('click', function () {
+		if (clientWidth < 800) {
+			hint('点击浏览器的选项栏就可以分享啦!');
+		}
+	});
 });

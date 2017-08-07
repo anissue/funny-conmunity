@@ -12,26 +12,29 @@ exports.reply = reply;   // 某人的回复
 function newUser(req, res, next) {
 	var user = req.user;
 	user.info = req.session.tempInfo;
-	config.title = '注册';
 	res.render('./user/new.html', {
 		user: user,
-		config: config
+		config: config,
+		title: '注册'
 	});
 }
 
 function login(req, res, next) {
-	config.title = '登陆';
-	res.render('./user/login.html', {user: req.user, config: config});
+	res.render('./user/login.html', {
+		user: req.user,
+		config: config,
+		title: '登陆'
+	});
 }
 
 function edit (req, res, next) {
 	var user = req.user.info;
 	if (user === undefined) return res.redirect('/user/login');
 
-	config.title = '个人资料';
 	res.render('./user/edit', {
 		user: req.user,
-		config: config
+		config: config,
+		title: '个人资料'
 	});
 }
 
@@ -46,7 +49,6 @@ function index (req, res, next) {
 
 	user.getUserTopicByName(option, function (err, item) {
 		if (err) return next(err);
-		config.title = req.params.name;
 		res.render('./user/index', {
 			user: req.user,
 			topic: item.topic,
@@ -56,7 +58,8 @@ function index (req, res, next) {
 			author: item.topic.author,
 			paging: option.page,
 			paging_link: '/people/' + item.topic.author.loginname, // 跳转的地址头
-			config: config
+			config: config,
+			title: req.params.name
 		})
 	});
 }
@@ -71,10 +74,10 @@ function center (req, res, next) {
 	var user = req.user.info;
 	if (user === undefined) return res.redirect('/user/login');
 
-	config.title = '个人中心';
 	res.render('./user/center', {
 		user: req.user,
-		config: config
+		config: config,
+		title: '个人中心'
 	});
 }
 
@@ -94,7 +97,8 @@ function reply (req, res, next) {
 			author: item.author,
 			count: item.author.reply_count,
 			paging: option.page,
-			paging_link: '/reply/' + item.author.loginname // 跳转的地址头
+			paging_link: '/reply/' + item.author.loginname, // 跳转的地址头
+			title: '所有评论'
 		});
 	});
 

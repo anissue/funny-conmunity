@@ -1,7 +1,6 @@
 .page {
     float: left;
     width: 760px;
-    min-height: 500px;
     background-color: white;
     overflow: hidden;
     border: 1px solid #e7eaf1;
@@ -21,6 +20,7 @@
 
 .page .reply .reply-wrap {
     background-color: white;
+    min-height: 500px;
 }
 
 .page .reply .reply-port {

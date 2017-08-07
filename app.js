@@ -43,5 +43,8 @@ app.use('/', userMiddlewares.authUser);
 
 
 app.use('/', webRouter);
+app.use('/', function (req, res) {
+	res.redirect('/');
+});
 
 app.listen(80, '127.0.0.1');

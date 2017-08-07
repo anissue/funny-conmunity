@@ -152,11 +152,27 @@
 
 .page .port .bar .on i {
     color: rgb(255, 97, 97);
-    text-shadow: rgb(255, 126, 188) 0px 0px 5px;
+    text-shadow: rgb(255, 126, 188) 0 0 5px;
 }
 
 .page .port .bar .on em {
     color: rgb(52, 152, 219);
+}
+
+/* 提示 */
+.default-hint {
+    width: 100%;
+    padding: 150px 0;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #e7eaf1;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,37,55,.05);
+    margin-bottom: 15px;
+}
+
+.default-hint strong {
+    display: block;
 }
 
 .page .port .bar .like span {
@@ -241,6 +257,10 @@
     .page .post-item .post-head {
         padding: 10px 18px;
         height: 36px;
+    }
+
+    .default-hint {
+        padding: 80px 0;
     }
 
     .page .post-item .post-head .avatar {

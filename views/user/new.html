@@ -98,8 +98,7 @@
 		}
 		var $This = $(this);
 		$This.html('<div class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>');
-		//document.getElementById('new-user-form').submit();
-		var data = 'loginname=' + loginname + '&password=' + md5(password) + '&email=' + email + '&description=' + description;
+		var data = 'loginname=' + loginname + '&password=' + md5(password) + '&email=' + email;
 		$.ajax({
 			type: 'POST',
 			url: '/api/user/new',

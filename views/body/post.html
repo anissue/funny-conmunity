@@ -1,4 +1,9 @@
-
+<% if (topic.length < 1) {%>
+<div class="default-hint">
+    <img src="/public/img/gh.png" alt="">
+    <strong>我真的什么都没有了啊!</strong>
+</div>
+<% } %>
 <% for (var i = 0; i < topic.length; i++){ %>
 <div class="post-item">
     <div class="post-head clearfix">

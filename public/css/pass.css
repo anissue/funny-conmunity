@@ -32,6 +32,7 @@
 
 .checkbox .content .pic-main {
     width: 680px;
+    min-height: 340px;
     border-top: 1px solid #EAEAEA;
     margin: 0 auto;
     text-align: center;

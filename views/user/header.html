@@ -3,8 +3,8 @@
 	<div class="info">
 		<strong class="ell"><a href="/people/<%= author.loginname %>"><%= author.loginname %></a></strong>
 		<p class=""><%= author.description %></p>
-		<a href="" class="con kj iconfont">&#xe68c;</a>
-		<a href="" class="con wb iconfont">&#xe61e;</a>
+		<% if (author.qq) { %><a href="<%= author.qq %>" target="_blank" class="con kj iconfont">&#xe68c;</a><% } %>
+		<% if (author.wb) { %><a href="<%= author.wb %>" target="_blank" class="con wb iconfont">&#xe61e;</a><% } %>
 	</div>
 </div>
 

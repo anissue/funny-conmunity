@@ -19,7 +19,7 @@
     <div class="content">
         <h3 class="title"><a href="/topic/<%= topic[i]._id %>"  target="_blank"><%= topic[i].title %></a></h3>
         <a href="/topic/<%= topic[i]._id %>" target="_blank" class="picture">
-            <img src="<%= topic[i].content %>" alt="">
+            <img src="<%= topic[i].content + config.qiniu.watermark %>" alt="">
         </a>
     </div>
     <div class="port">

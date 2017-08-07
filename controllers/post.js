@@ -19,7 +19,6 @@ function index (req, res, next) {
 	};
 	topic_passed.getTopic(option, function (err, item) {
 		if (err) return next(err);
-		config.subfield = 0;
 		res.render('index', {
 			user: req.user,
 			topic: item.topic,
@@ -29,7 +28,8 @@ function index (req, res, next) {
 			paging: option.page,
 			paging_link: '/p', // 跳转的地址头
 			config: config,
-			title: config.title
+			title: config.title,
+			subfield: 0
 		});
 	});
 }
@@ -43,7 +43,6 @@ function week (req, res, next) {
 	};
 	topic_passed.getTopic(option, function (err, item) {
 		if (err) return next(err);
-		config.subfield = 1;
 		res.render('index', {
 			user: req.user,
 			topic: item.topic,
@@ -53,7 +52,8 @@ function week (req, res, next) {
 			paging: option.page,
 			paging_link: '/week/p', // 跳转的地址头
 			config: config,
-			title: config.title
+			title: config.title,
+			subfield: 1
 		});
 	});
 }
@@ -67,7 +67,6 @@ function month (req, res, next) {
 	};
 	topic_passed.getTopic(option, function (err, item) {
 		if (err) return next(err);
-		config.subfield = 2;
 		res.render('index', {
 			user: req.user,
 			topic: item.topic,
@@ -77,7 +76,8 @@ function month (req, res, next) {
 			paging: option.page,
 			paging_link: '/month/p', // 跳转的地址头
 			config: config,
-			title: config.title
+			title: config.title,
+			subfield: 2
 		});
 	});
 }

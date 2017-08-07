@@ -91,6 +91,16 @@ function edit (req, res, next) {
 	if (data.description.length > 150 || data.qq.length > 100 || data.wb.length > 100) {
 		return res.json({ states: -2, hint  : '数据有误' });
 	}
+	if (data.qq) {
+		if (data.qq.indexOf('qq.com') === -1) {
+			data.qq = 'https://user.qzone.qq.com/' + data.qq;
+		}
+	}
+	if (data.wb) {
+		if (data.wb.indexOf('weibo.com') === -1) {
+			return res.json({ states: -2, hint  : '微博链接不是这样的吧 QAQ!' });
+		}
+	}
 	var token = req.session.token;
 
 	user.edit({token: token}, data, function (msg) {

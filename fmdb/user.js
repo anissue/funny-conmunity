@@ -32,6 +32,7 @@ function getUserTopicByName (option, callback) {
 			getUserByName(option.name, callback);
 		},
 		function (user, callback) {
+			if (user.length < 1) return callback(new Error('not find user'), []);
 			author = user[0];
 			option.condition = {author_id: author._id};
 			topic_passed.getTopic(option, callback);

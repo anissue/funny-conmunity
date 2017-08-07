@@ -14,7 +14,17 @@
                 <li <% if (config.subfield == 2) { %> class="on" <% } %> ><a href="/month">月榜</a></li>
                 <li class="hid post"><a class="post-up" href="/post/pass">审贴</a></li>
                 <li class="hid"><a href="/post/up">投稿</a></li>
-                <li class="user"><a href="<% if (user.state_login) { %>/people/<%= user.info.loginname %><% } else {%>/user/login<% } %>">我</a></li>
+                <li class="user">
+                    <% if (user.state_login) { %>
+                    <a href="/people/<%= user.info.loginname %>">
+                        我
+                    </a>
+                    <% } else { %>
+                    <a href="/user/login">
+                        登录
+                    </a>
+                    <% } %>
+                </li>
             </ul>
         </div>
         <% if (!user.state_login) { %>
@@ -37,7 +47,7 @@
     <div class="head-phone">
         <i class="iconfont back">&#xe605;</i>
         <h1><%= config.title %></h1>
-        <a href="<% if (user.state_login) { %>/people/<%= user.info.loginname %><% } else {%>/user/login<% } %>" class="iconfont user">
+        <a href="<% if (user.state_login) { %>/user/center<% } else {%>/user/login<% } %>" class="iconfont user">
             <% if (user.state_login) { %> <img src="<%= user.info.avatar %>" alt=""> <% } else {%>&#xe606;<% } %>
         </a>
     </div>

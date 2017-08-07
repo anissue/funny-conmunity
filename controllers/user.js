@@ -6,6 +6,7 @@ exports.login = login;   // 站内登录
 exports.out   = out;     // 退出登录
 exports.index = index;   // 显示某人的主页
 exports.edit  = edit;    // 修改用户资料
+exports.center= center;  // 用户中心
 
 function newUser(req, res, next) {
 	var user = req.user;
@@ -23,18 +24,13 @@ function login(req, res, next) {
 }
 
 function edit (req, res, next) {
-	var token = req.session.token;
-	if (token === undefined) return res.redirect('/user/login');
+	var user = req.user.info;
+	if (user === undefined) return res.redirect('/user/login');
 
-	user.getUserByToken(token, function(err, result) {
-		if (err) return next(err);
-
-		if (result.length < 1) return  res.redirect('/user/login');
-		config.title = '个人资料';
-		res.render('./user/edit', {
-			user: req.user,
-			config: config
-		});
+	config.title = '个人资料';
+	res.render('./user/edit', {
+		user: req.user,
+		config: config
 	});
 }
 
@@ -67,4 +63,17 @@ function index (req, res, next) {
 function out (req, res, next) {
 	req.session.destroy();
 	res.redirect('/');
+}
+
+function center (req, res, next) {
+
+	var user = req.user.info;
+	if (user === undefined) return res.redirect('/user/login');
+
+	config.title = '个人中心';
+	console.log();
+	res.render('./user/center', {
+		user: req.user,
+		config: config
+	});
 }

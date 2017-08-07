@@ -22,6 +22,7 @@ router.get('/auth/wb', auth.wbSign);     // 微博登录
 router.get('/auth/qq', auth.qqSign);     // qq登录进入
 router.get('/user/out', user.out);       // 退出登录
 router.get('/user/edit', user.edit);     // 修改用户资料的页面
+router.get('/user/center', user.center); // 用户中心
 
 
 router.get('/people/:name', user.index);      // 某人的主页

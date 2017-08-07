@@ -25,12 +25,7 @@ ul, li {
 }
 
 body {
-    background-color: #F3F3F4;
-}
-@media only screen and ( max-width: 800px ) {
-    body {
-        background-color: #F3F3F4;
-    }
+    background-color: #EBEBEB;
 }
 
 a,input{
@@ -145,11 +140,11 @@ img {
 
 @font-face {
     font-family: 'iconfont';  /* project id 307079 */
-    src: url('//at.alicdn.com/t/font_th90w2w9n7lxflxr.eot');
-    src: url('//at.alicdn.com/t/font_th90w2w9n7lxflxr.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_th90w2w9n7lxflxr.woff') format('woff'),
-    url('//at.alicdn.com/t/font_th90w2w9n7lxflxr.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_th90w2w9n7lxflxr.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_8xu0287wnqht1emi.eot');
+    src: url('//at.alicdn.com/t/font_8xu0287wnqht1emi.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_8xu0287wnqht1emi.woff') format('woff'),
+    url('//at.alicdn.com/t/font_8xu0287wnqht1emi.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_8xu0287wnqht1emi.svg#iconfont') format('svg');
 }
 
 .iconfont{

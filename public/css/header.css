@@ -179,7 +179,7 @@
     line-height: 50px;
     background-color: white;
     position: relative;
-    border-bottom: 1px solid #DDDDDD;
+    border-bottom: 1px solid #d1dbdc;
 }
 
 #header .head-phone i {
@@ -201,12 +201,20 @@
     position: absolute;
     font-size: 25px;
     width: 50px;
+    padding: 10px 0;
+    height: 30px;
+    line-height: 30px;
     text-align: center;
     top: 0;
     right: 0;
     cursor: pointer;
 }
 
+#header .head-phone a img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
 
 #header .head-phone a:active {
     background-color: #efefef;
@@ -271,6 +279,7 @@
         width: 100%;
         height: 40px;
         line-height: 40px;
+        border-bottom: 1px solid #d1dbdc;
     }
 
     #header .head-main .menu .hid{

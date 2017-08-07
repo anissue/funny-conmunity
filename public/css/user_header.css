@@ -118,11 +118,8 @@
 
 
 @media only screen and ( max-width: 800px ) {
-    body {
-        background: white;
-    }
     #main {
-        margin-top: 40px!important;
+        margin-top: 55px!important;
     }
     .user-hd {
         background-color: white;

@@ -37,7 +37,9 @@
     <div class="head-phone">
         <i class="iconfont back">&#xe605;</i>
         <h1><%= config.title %></h1>
-        <a href="<% if (user.state_login) { %>/people/<%= user.info.loginname %><% } else {%>/user/login<% } %>" class="iconfont user">&#xe606;</a>
+        <a href="<% if (user.state_login) { %>/people/<%= user.info.loginname %><% } else {%>/user/login<% } %>" class="iconfont user">
+            <% if (user.state_login) { %> <img src="<%= user.info.avatar %>" alt=""> <% } else {%>&#xe606;<% } %>
+        </a>
     </div>
 </div>
 

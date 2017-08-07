@@ -38,3 +38,24 @@
     color: #3498db;
     font-size: 14px;
 }
+
+
+
+@media only screen and ( max-width:  1140px) {
+    .page {
+        width: 800px;
+        margin: 0 auto;
+        float: none;
+    }
+    .sidebar {
+        display: none;
+    }
+}
+
+
+@media only screen and ( max-width: 800px ) {
+
+    .page {
+        width: 100%;
+    }
+}

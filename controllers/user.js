@@ -92,7 +92,9 @@ function reply (req, res, next) {
 			topic_rank: item.topic_rank,
 			reply: item.reply,
 			author: item.author,
-			count: item.author.reply_count
+			count: item.author.reply_count,
+			paging: option.page,
+			paging_link: '/reply/' + item.author.loginname // 跳转的地址头
 		});
 	});
 

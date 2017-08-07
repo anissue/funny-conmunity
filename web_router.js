@@ -27,6 +27,8 @@ router.get('/user/center', user.center); // 用户中心
 
 router.get('/people/:name', user.index);      // 某人的主页
 router.get('/people/:name/:page', user.index);// 某人的主页的分页
+router.get('/reply/:name', user.reply);       // 某人的评论
+router.get('/reply/:name/:page', user.reply); // 某人的评论的分页
 
 // 这个页面主要是用于通过iframe框架的地址来传递值！
 router.use('/uploadredirect', function (req, res, next) {

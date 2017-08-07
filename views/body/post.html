@@ -17,8 +17,8 @@
         </div>
     </div>
     <div class="content">
-        <h3 class="title"><a href=""><%= topic[i].title %></a></h3>
-        <a href="" class="picture">
+        <h3 class="title"><a href="/topic/<%= topic[i]._id %>"  target="_blank"><%= topic[i].title %></a></h3>
+        <a href="/topic/<%= topic[i]._id %>" target="_blank" class="picture">
             <img src="<%= topic[i].content %>" alt="">
         </a>
     </div>

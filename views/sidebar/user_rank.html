@@ -2,11 +2,11 @@
     <span class="title"><i class="iconfont">&#xe6b8;</i>大神榜</span>
     <% for ( var i = 0; i < user_rank.length; i++ ){ %>
     <div class="item clearfix">
-        <a class="head" href="/people/<%= user_rank[i].loginname %>">
+        <a class="head" href="/people/<%= user_rank[i].loginname %>"  target="_blank">
             <img src="<%= user_rank[i].avatar %>" alt="<%= user_rank[i].loginname %>" width="50" height="50">
         </a>
         <div class="info">
-            <a href="/people/<%= user_rank[i].loginname %>"><%= user_rank[i].loginname %></a>
+            <a href="/people/<%= user_rank[i].loginname %>"  target="_blank"><%= user_rank[i].loginname %></a>
             <p class="ell"><%= user_rank[i].description %></p>
         </div>
     </div>

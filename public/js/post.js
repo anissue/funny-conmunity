@@ -24,7 +24,7 @@ $replyButton.on('click', function () {
 	var $This = $(this);
 	var height = $This.offset().top - 130;
 
-	$('html,body').animate({scrollTop: height}, 300);
+	// $('html,body').animate({scrollTop: height}, 300);
 
 	var index = $replyButton.index($This);
 	if (this.off) {

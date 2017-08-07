@@ -14,7 +14,7 @@ router.get('/week/p/:page', post.week);  // 周榜分页
 router.get('/month/p/:page', post.week); // 月榜分页
 router.get('/post/up', post.upload);     // 上传帖子
 router.get('/post/pass', post.pass);     // 审核帖子
-
+router.get('/topic/:topic', post.topic); // 某个帖子
 
 router.get('/user/new', user.new);       // 注册新用户
 router.get('/user/login', user.login);   // 站内登陆

@@ -1,7 +1,6 @@
 var config = require('../config');
 var tools  = require('../api/tools');
 var fmdb   = require('../fmdb');
-var rank   = fmdb.rank;
 var topic_passed = fmdb.topic_passed;
 
 exports.upload = upload;  // 上传帖子
@@ -9,6 +8,7 @@ exports.pass   = pass;    // 审核帖子
 exports.index  = index;   // 展示首页
 exports.week   = week;    // 周榜
 exports.month  = month;   // 月榜
+exports.topic  = topic;   // 展示某个帖子
 
 
 function upload (req, res, next) {
@@ -95,5 +95,26 @@ function month (req, res, next) {
 			paging_link: '/month/p', // 跳转的地址头
 			config: config
 		});
+	});
+}
+
+// 展示某个帖子
+function topic(req, res, next) {
+	var option = {
+		condition: {_id: req.params.topic},
+		userInfo: req.user.info
+	};
+	topic_passed.getTopicById (option, function (err, item) {
+		if (err) return next(err);
+		config.title = req.params.name;
+		res.render('./user/topic', {
+			user: req.user,
+			topic: item.topic,
+			topic_count: item.count,
+			user_rank: item.user_rank,
+			topic_rank: item.topic_rank,
+			author: item.topic[0].author,
+			config: config
+		})
 	});
 }

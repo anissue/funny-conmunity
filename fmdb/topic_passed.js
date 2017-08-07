@@ -8,11 +8,54 @@ var async  = require('async');
 exports.getTopic    = getTopic;    // 获得一组帖子
 exports.createTopic = createTopic; // 创建一条帖子
 exports.like        = like;        // 增加一个喜欢
+exports.getTopicById= getTopicById;// 通过帖子id获取帖子
 
 function getTopic (option, cd) {
 	async.series({
 		topic: function (callback) {
 			topic(option, callback);
+		},
+		count: function (callback) {
+			count(option, callback);
+		},
+		user_rank: function (callback) {
+			rank.user(callback);
+		},
+		topic_rank: function (callback) {
+			rank.topic(callback);
+		}
+	},function (err, item) {
+		cd(err, item);
+	});
+}
+
+function getTopicById (option, cd) {
+	async.series({
+		topic: function (callback) {
+			TopicPassed.find (option.condition, function (err, topic) {
+				if (err) return callback(err, null);
+				var userInfo = option.userInfo;
+				var topicData = [];
+				(function iteration(i) {
+					if (i >= topic.length) {
+						return callback(null, topicData);
+					}
+					user.getUserById(topic[i].author_id, function (err, user) {
+
+						if (err) return callback(err, null);
+						topic[i].author = user[0];
+						// 是否赞过
+						if (userInfo) {
+							topic[i].liked = topic[i].liker_id.indexOf(userInfo._id) === -1 ? 0 : 1;
+						} else {
+							topic[i].liked = 0;
+						}
+
+						topicData.push(topic[i]);
+						iteration(++i);
+					});
+				})(0)
+			})
 		},
 		count: function (callback) {
 			count(option, callback);

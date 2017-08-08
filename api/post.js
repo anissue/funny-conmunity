@@ -135,7 +135,6 @@ function addReply (req, res, next) {
 		}
 	], function (err, item) {
 		if (err) return res.json({ states: -1, hint: '服务器繁忙!' });
-		console.log(item);
 		res.json({ states: 1, hint: '评论成功!',  _id: item[0]._id  })
 	});
 }

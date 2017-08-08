@@ -1,9 +1,15 @@
 var config = {
-	title: '逗你的 一个正经网站',
+	domain: 'http://www.dounide.com',
+
+	title: '逗你的 (正经网站)',
 
 	description: '网站描述',
 
 	keywords: '关键字',
+
+	mini_assets: false,  // 启用静态资源压缩
+
+	static_host: '',    // cdn 静态文件储存域名
 
 	// 微博授权 http://open.weibo.com/
 	wb: {
@@ -19,8 +25,7 @@ var config = {
 		CALLBACK_URI: ''
 	},
 
-	// 七牛图片空间，帖子图片加载本地的话，这里不需要更改
-	// 保存在本地的话，下面的都留空
+	// 七牛图片空间，帖子储存在本地的话，这里留空
 	qiniu: {
 		ACCESS_KEY: '',
 		SECRET_KEY: '',
@@ -34,17 +39,17 @@ var config = {
 	db: 'mongodb://127.0.0.1/funny_conmunity',
 
 	// session 密匙
-	session_secret: 'qWjou456W.qouY',
+	session_secret: '随便输入点啥就好了啦(字母,符号,数字)',
 
 	// token 密匙
-	token_secret: 'qiouwWOU.WREJL?&29',
+	token_secret: '随便输入点啥就好了啦(字母,符号,数字)',
 
 	// 用户密码 密匙
-	password_secret: 'Qoiu)23&.,w!',
+	password_secret: '随便输入点啥就好了啦(字母,符号,数字)',
 
-	// 帖子展示的话，需要多少人同意通过 t.t。
-	// 当多少人不同意时隐藏帖子也是这个
-	pass_count: 1,
+	// 多少人同意通过审核就展示这个帖子
+	// 多少人不同意就隐藏掉这个帖子
+	pass_count: 3,
 
 	// 发布时给1到多少区间的赞
 	start_like: 10,
@@ -56,7 +61,9 @@ var config = {
 	topic_limit: 20,
 
 	// 一页显示多少评论
-	reply_limit: 20
-};
+	reply_limit: 20,
 
+	// 默认头像有多少张
+	avatar_default_count: 80
+};
 module.exports = config;

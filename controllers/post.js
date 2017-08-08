@@ -116,7 +116,7 @@ function topic(req, res, next) {
 			topic_rank: item.topic_rank,
 			author: item.topic[0].author,
 			config: config,
-			title:  req.params.name
+			title:  item.topic[0].title
 		})
 	});
 }

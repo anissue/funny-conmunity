@@ -2,21 +2,30 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title><%= title + '-' + config.title %></title>
+    <title><%= title + ' ' + config.title %></title>
     <meta name="description" content="<%= config.description %>" />
     <meta name="keywords" content="<%= config.keywords %>" />
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
     <meta name="format-detection" content="telephone=no" />
 
-    <link rel="stylesheet" type="text/css" href="/public/css/default.css">
-    <link rel="stylesheet" type="text/css" href="/public/css/header.css">
-    <link rel="stylesheet" type="text/css" href="/public/css/upload.css">
-    <link rel="stylesheet" type="text/css" href="/public/css/head_phone.css">
-    <link rel="stylesheet" type="text/css" href="/public/css/footer.css">
-    <script src="http://apps.bdimg.com/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
-    <script src="/public/js/hint.js" type="text/javascript"></script>
-    <script src="/public/js/api.js" type="text/javascript"></script>
-    <script src="/public/js/head_phone.js" type="text/javascript"></script>
+    <%-
+        Loader('/public/css/upload_index.css')
+        .css('/public/css/default.css')
+        .css('/public/css/header.css')
+        .css('/public/css/upload.css')
+        .css('/public/css/head_phone.css')
+        .css('/public/css/footer.css')
+        .done(assets, config.static_host, config.mini_assets)
+    %>
+
+    <script src="http://apps.bdimg.com/libs/jquery/1.8.3/jquery.min.js"></script>
+    <%-
+        Loader('/public/js/upload_index.js')
+        .js('/public/js/hint.js')
+        .js('/public/js/api.js')
+        .js('/public/js/head_phone.js')
+        .done(assets, config.static_host, config.mini_assets)
+    %>
 </head>
 <body>
 <%- include('../header.html', {user: user}) %>

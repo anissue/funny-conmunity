@@ -8,27 +8,33 @@
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
     <meta name="format-detection" content="telephone=no" />
 
-    <link rel="stylesheet" type="text/css" href="/public/css/default.css">
-    <link rel="stylesheet" type="text/css" href="/public/css/header.css">
-    <link rel="stylesheet" type="text/css" href="/public/css/body.css">
-    <link rel="stylesheet" type="text/css" href="/public/css/page.css">
-    <link rel="stylesheet" type="text/css" href="/public/css/reply.css">
-    <link rel="stylesheet" type="text/css" href="/public/css/sidebar.css">
-    <link rel="stylesheet" type="text/css" href="/public/css/rank.css">
-    <link rel="stylesheet" type="text/css" href="/public/css/post_rank.css">
-    <link rel="stylesheet" type="text/css" href="/public/css/community.css">
-    <link rel="stylesheet" type="text/css" href="/public/css/to.css">
-    <link rel="stylesheet" type="text/css" href="/public/css/paging.css">
-    <link rel="stylesheet" type="text/css" href="/public/css/footer.css">
+    <%-
+        Loader('/public/css/index.css')
+        .css('/public/css/default.css')
+        .css('/public/css/header.css')
+        .css('/public/css/body.css')
+        .css('/public/css/page.css')
+        .css('/public/css/reply.css')
+        .css('/public/css/sidebar.css')
+        .css('/public/css/rank.css')
+        .css('/public/css/post_rank.css')
+        .css('/public/css/community.css')
+        .css('/public/css/to.css')
+        .css('/public/css/paging.css')
+        .css('/public/css/footer.css')
+        .done(assets, config.static_host, config.mini_assets)
+    %>
 
-
-    <script src="http://apps.bdimg.com/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
-    <script src="/public/js/legal.js" type="text/javascript"></script>
-    <script src="/public/js/main.js" type="text/javascript"></script>
-    <script src="/public/js/post.js" type="text/javascript"></script>
-    <script src="/public/js/hint.js" type="text/javascript"></script>
-    <script src="/public/js/api.js" type="text/javascript"></script>
-    
+    <script src="http://apps.bdimg.com/libs/jquery/1.8.3/jquery.min.js"></script>
+    <%-
+        Loader('/public/js/index.js')
+        .js('/public/js/api.js')
+        .js('/public/js/legal.js')
+        .js('/public/js/main.js')
+        .js('/public/js/post.js')
+        .js('/public/js/hint.js')
+        .done(assets, config.static_host, config.mini_assets)
+    %>
 </head>
 <body>
 <%- include('./header.html', {user: user}) %>

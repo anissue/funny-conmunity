@@ -7,6 +7,7 @@ var session = require('express-session');
 var mongoStore = require('connect-mongo')(session);
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var Loader  = require('loader');
 var path    = require('path');
 var ejs     = require('ejs');
 
@@ -20,6 +21,7 @@ var staticDir = path.join(__dirname, 'public');
 var avatarDir = path.join(__dirname, 'avatar');
 var viewsDir  = path.join(__dirname, 'views');
 var pictureDir = path.join(__dirname, 'picture');
+
 
 app.set('views', viewsDir);
 app.set('view engine', 'html');
@@ -38,6 +40,22 @@ app.use(session({
 }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser(config.session_secret));
+
+var assets = {};
+if (config.mini_assets) {
+	try {
+		assets = require('./assets');
+	} catch (e) {
+		console.log('开启静态资源压缩前需要使用构建脚本压缩资源 http://doxmate.cool/JacksonTian/loader/index.html#index_构建');
+		throw e;
+	}
+}
+
+app.locals = {
+	Loader: Loader,
+	assets: assets
+};
+
 app.use('/api', apiRouter);
 app.use('/', userMiddlewares.authUser);
 

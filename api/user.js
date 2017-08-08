@@ -1,6 +1,7 @@
 var path       = require('path');
 var tools      = require('./tools');
 var uploadImg  = require('./upload_img');
+var config     = require('../config');
 var User       = require('../models').User;
 var fmdb       = require('../fmdb');
 var user       = fmdb.user;
@@ -21,6 +22,7 @@ function newUser (req, res, next) {
 	if (legal.states !== 1) return res.json(legal);
 	if (req.session.tempInfo === undefined || req.session.tempInfo === null) {
 		data.type = 'dnd';
+		data.avatar = 'default/' + parseInt(Math.random() * config.avatar_default_count  + 1) + '.jpg';
 	} else {
 		data.type = req.session.tempInfo.type ;
 		data.avatar = req.session.tempInfo.avatar;

@@ -48,7 +48,7 @@ $replyButton.on('click', function () {
 						liked = ' on';
 					}
 					temp +=
-						replyModel.replace('[name]', data[i].name).
+						replyModel.replace(/\[name\]/gi, data[i].name).
 						replace('[avatar]', data[i].avatar).
 						replace('[text]', data[i].content).
 						replace('[like]', data[i].like_count).
@@ -119,7 +119,7 @@ $replyBnt.on('click', function () {
 		if (err) return hint('服务器错误!');
 		hint(msg.hint);
 		var temp =
-			replyModel.replace('[name]', window.user_info.loginname).
+			replyModel.replace(/\[name\]/gi, window.user_info.loginname).
 			replace('[avatar]', window.user_info.avatar).
 			replace('[text]', filterTag($replyContent.val())).
 			replace('[like]', 0).

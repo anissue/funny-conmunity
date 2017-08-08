@@ -13,8 +13,8 @@
                 <li <% if (subfield == 0) { %> class="on" <% } %> ><a href="/">最新</a></li>
                 <li <% if (subfield == 1) { %> class="on" <% } %> ><a href="/week">周榜</a></li>
                 <li <% if (subfield == 2) { %> class="on" <% } %> ><a href="/month">月榜</a></li>
-                <li class="hid post"><a class="post-up" href="/post/pass">审贴</a></li>
-                <li class="hid"><a href="/post/up">投稿</a></li>
+                <li class="hid post"><a href="/post/pass">审贴</a></li>
+                <li class="hid post-up"><a class="post-up" href="/post/up">投稿</a></li>
                 <li class="user">
                     <% if (user.state_login) { %>
                     <a href="/people/<%= user.info.loginname %>">

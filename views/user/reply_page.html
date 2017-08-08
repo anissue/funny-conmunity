@@ -6,11 +6,11 @@
             var parseDate = '' + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
             %>
             <div class="reply-item clearfix">
-                <a class="reply-head" href="">
-                    <img src="http://q.qlogo.cn/qqapp/101405320/CE68B07B901EB535A69B58D2F141CE1D/100" alt="" width="30" height="30">
+                <a class="reply-head" href="/people/<%= author.loginname %>">
+                    <img src="<%= author.avatar %>" alt="" width="30" height="30">
                 </a>
                 <div class="reply-content">
-                    <a href="">愿祖国繁荣昌盛</a>
+                    <a href="/people/<%= author.loginname %>"><%= author.loginname %></a>
                     <span><%= reply[i].content %></span>
                 </div>
                 <div class="reply-port clearfix">

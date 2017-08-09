@@ -35,6 +35,13 @@ app.use('/picture', express.static(pictureDir));
 app.use(session({
 	secret: config.session_secret,
 	store: new mongoStore({url: config.db}),
+	cookie:{
+		path: '/',
+		domain: config.domain,
+		maxAge: 1000 * 60 * 60 * 24 * 30,
+		signed: true,
+		httpOnly: true
+	},
 	resave: false,
 	saveUninitialized: false
 }));

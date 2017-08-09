@@ -1,5 +1,5 @@
 var config = {
-	domain: 'http://www.dounide.com',
+	domain: '',
 
 	title: '逗你的 (正经网站)',
 

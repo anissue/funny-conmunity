@@ -11,7 +11,10 @@ $(window).ready(function () {
                 window.login_state = false;
             }
             bind();
-        }
+        },
+		error: function () {
+        	hint('服务器繁忙!╰(*°▽°*)╯');
+		}
     });
 });
 
@@ -71,10 +74,9 @@ function uploadAvatar(input, img, callback) {
         if (!login) return hint('登陆后才能进行操作！');
         if (this.files !== undefined) {
             var file = this.files[0];
-            console.log(file.name);
             var type = ['image/png','image/jpeg','image/gif'];
-            if (file.size > 1024 * 1024 * 5) {
-                hint('大小不能超过2M');
+            if (file.size > 1024 * 1024 * 3) {
+                hint('大小不能超过3M');
                 return;
             }
             if (type.indexOf(file.type) === -1) {

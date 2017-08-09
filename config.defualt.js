@@ -64,6 +64,9 @@ var config = {
 	reply_limit: 20,
 
 	// 默认头像有多少张
-	avatar_default_count: 80
+	avatar_default_count: 80,
+
+	// 帖子最大多少m
+	max_topic_img: 3
 };
 module.exports = config;

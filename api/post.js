@@ -32,7 +32,7 @@ function uploadImg (req, res, next) {
 
         // 先把图片放在本地然后直接上传
         return upload_img.saveLocal(req, res, next, {
-            maxSize: 1024 * 1024 * 2.5,
+            maxSize: 1024 * 1024 * config.max_topic_img,
             fileName: tools.time(),
             dir: path.join(__dirname, '..', 'picture')
         }, function (fileName) {

@@ -14,7 +14,6 @@ function newUser(req, res, next) {
 	user.info = req.session.tempInfo;
 	res.render('./user/new.html', {
 		user: user,
-		config: config,
 		title: '注册'
 	});
 }
@@ -22,7 +21,6 @@ function newUser(req, res, next) {
 function login(req, res, next) {
 	res.render('./user/login.html', {
 		user: req.user,
-		config: config,
 		title: '登陆'
 	});
 }
@@ -33,7 +31,6 @@ function edit (req, res, next) {
 
 	res.render('./user/edit', {
 		user: req.user,
-		config: config,
 		title: '个人资料'
 	});
 }
@@ -58,7 +55,6 @@ function index (req, res, next) {
 			author: item.topic.author,
 			paging: option.page,
 			paging_link: '/people/' + item.topic.author.loginname, // 跳转的地址头
-			config: config,
 			title: req.params.name
 		})
 	});
@@ -76,7 +72,6 @@ function center (req, res, next) {
 
 	res.render('./user/center', {
 		user: req.user,
-		config: config,
 		title: '个人中心'
 	});
 }
@@ -90,7 +85,6 @@ function reply (req, res, next) {
 		if (err) return next(err);
 		res.render('./user/reply', {
 			user: req.user,
-			config: config,
 			user_rank: item.user_rank,
 			topic_rank: item.topic_rank,
 			reply: item.reply,

@@ -12,8 +12,10 @@ exports.authUser = function (req, res, next) {
 			if (result.length > 0) {
 				req.user.state_login = true;
 				req.user.info = result[0];
+				return next();
 			}
 		})
+	} else {
+		return next();
 	}
-	return next();
 };

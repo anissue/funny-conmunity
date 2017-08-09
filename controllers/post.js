@@ -27,7 +27,6 @@ function index (req, res, next) {
 			topic_rank: item.topic_rank,
 			paging: option.page,
 			paging_link: '/p', // 跳转的地址头
-			config: config,
 			title: config.title,
 			subfield: 0
 		});
@@ -51,7 +50,6 @@ function week (req, res, next) {
 			topic_rank: item.topic_rank,
 			paging: option.page,
 			paging_link: '/week/p', // 跳转的地址头
-			config: config,
 			title: config.title,
 			subfield: 1
 		});
@@ -75,7 +73,6 @@ function month (req, res, next) {
 			topic_rank: item.topic_rank,
 			paging: option.page,
 			paging_link: '/month/p', // 跳转的地址头
-			config: config,
 			title: config.title,
 			subfield: 2
 		});
@@ -87,7 +84,6 @@ function upload (req, res, next) {
 	if (token === undefined) return res.redirect('/user/login');
 	res.render('./post/upload', {
 		user: req.user,
-		config: config,
 		title: '上传图片'
 	});
 }
@@ -95,7 +91,6 @@ function upload (req, res, next) {
 function pass (req, res, next) {
 	res.render('./post/pass', {
 		user: req.user,
-		config: config,
 		title: '审核图片'
 	});
 }
@@ -115,7 +110,6 @@ function topic(req, res, next) {
 			user_rank: item.user_rank,
 			topic_rank: item.topic_rank,
 			author: item.topic[0].author,
-			config: config,
 			title:  item.topic[0].title
 		})
 	});

@@ -2,7 +2,7 @@
 	<a href="/people/<%= author.loginname %>"><img src="<%= author.avatar %>" alt="<%= author.loginname %>" class="avatar"></a>
 	<div class="info">
 		<strong class="ell"><a href="/people/<%= author.loginname %>"><%= author.loginname %></a></strong>
-		<p class=""><%= author.description %></p>
+		<p class="ell"><%= author.description %></p>
 		<% if (author.qq) { %><a href="<%= author.qq %>" target="_blank" class="con kj iconfont">&#xe68c;</a><% } %>
 		<% if (author.wb) { %><a href="<%= author.wb %>" target="_blank" class="con wb iconfont">&#xe61e;</a><% } %>
 	</div>

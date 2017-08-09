@@ -156,6 +156,7 @@
         font-size: 12px;
         height: auto;
         line-height: 18px;
+        white-space: inherit;
     }
 
     .user-hd .info .con {

@@ -68,7 +68,7 @@ app.use('/', userMiddlewares.authUser);
 
 
 app.use('/', webRouter);
-app.use('/', function (req, res) {
+app.use(function (err, req, res, next) {
 	res.redirect('/');
 });
 

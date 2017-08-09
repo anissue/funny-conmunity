@@ -203,8 +203,8 @@
     }
 
     #main {
-        margin: 0;
         box-shadow: none;
+        margin-top: 50px;
     }
 
     #main .title {

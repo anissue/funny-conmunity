@@ -60,7 +60,8 @@ if (config.mini_assets) {
 
 app.locals = {
 	Loader: Loader,
-	assets: assets
+	assets: assets,
+	config: config
 };
 
 app.use('/api', apiRouter);

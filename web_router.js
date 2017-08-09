@@ -18,6 +18,7 @@ router.get('/topic/:topic', post.topic); // 某个帖子
 
 router.get('/user/new', user.new);       // 注册新用户
 router.get('/user/login', user.login);   // 站内登陆
+router.get('/auths/:type', auth.index);   // 第三方登陆
 router.get('/auth/wb', auth.wbSign);     // 微博登录
 router.get('/auth/qq', auth.qqSign);     // qq登录进入
 router.get('/user/out', user.out);       // 退出登录

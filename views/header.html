@@ -32,8 +32,8 @@
         <div class="login">
             <a class="login-btn quick" href="javascript:void(0)"><i class="iconfont">&#xe606;</i>快速登录</a>
             <a class="login-btn login-quick" href="/user/login"><i class="iconfont">&#xe6f0;</i>站内登录</a>
-            <% if ( config.qq.ID != '' ) { %><a class="login-btn login-quick" href="<%= 'https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=' + config.qq.ID + '&redirect_uri=' + config.qq.CALLBACK_URI + '&state=' + user.state_code %>"><i class="iconfont">&#xe607;</i>QQ&nbsp;登录</a><% } %>
-            <% if ( config.wb.ID != '' ) { %><a class="login-btn login-quick" href="<%= 'https://api.weibo.com/oauth2/authorize?client_id=' + config.wb.ID + '&redirect_uri=' + config.wb.CALLBACK_URI + '&response_type=code&state=' + user.state_code %>"><i class="iconfont">&#xe652;</i>微博登录</a><% } %>
+            <% if ( config.qq.ID != '' ) { %><a class="login-btn login-quick" href="/auths/qq"><i class="iconfont">&#xe607;</i>QQ&nbsp;登录</a><% } %>
+            <% if ( config.wb.ID != '' ) { %><a class="login-btn login-quick" href="/auths/wb"><i class="iconfont">&#xe652;</i>微博登录</a><% } %>
         </div>
         <% } else if(user.state_login) { %>
         <div class="login">

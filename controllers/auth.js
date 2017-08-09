@@ -1,6 +1,27 @@
 var qq   = require('../middlewares/qq_auth');
 var wb   = require('../middlewares/wb_auth');
 var User = require('../models').User;
+var config = require('../config');
+
+exports.index = index;
+
+function index (req, res, next) {
+    if (req.params.type === undefined) {
+        return next(new Error('auth type error'));
+    }
+	var state = User.createToken();
+	res.cookie('state', state);
+	req.user.state_code = state;
+
+    if (req.params.type === 'qq') {
+        res.redirect('https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=' + config.qq.ID + '&redirect_uri=' + config.qq.CALLBACK_URI + '&state=' + state);
+    }
+
+    if (req.params.type === 'wb') {
+        res.redirect('https://api.weibo.com/oauth2/authorize?client_id=' + config.wb.ID + '&redirect_uri=' + config.wb.CALLBACK_URI + '&response_type=code&state=' + state);
+    }
+
+}
 
 // qq 登录
 exports.qqSign = auth.bind(qq);

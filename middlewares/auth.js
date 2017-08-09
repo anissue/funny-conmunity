@@ -13,18 +13,7 @@ exports.authUser = function (req, res, next) {
 				req.user.state_login = true;
 				req.user.info = result[0];
 			}
-			var state = User.createToken();
-			res.cookie('state', state);
-			req.user.state_code = state;
-			return next();
 		})
-	} else if (req.cookies.state === undefined){
-		var state = User.createToken();
-		res.cookie('state', state);
-		req.user.state_code = state;
-		return next();
-	} else {
-		req.user.state_code = req.cookies.state;
-		return next();
 	}
+	return next();
 };

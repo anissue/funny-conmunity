@@ -1,5 +1,44 @@
--# funny-conmunity
-```javascript
+# funny-conmunity
+
+## 前言
+由于是在暑假期间写的，家里的电脑不能装Linux，换成 Linux 的话估计要挨揍，所以只能在 window 环境下写，不保证linux的兼容性，这也许是史上第一个不兼容 Linux 的网站项目吧。
+
+## 说明
+细心的话会发现项目结构和 [cnode](https://github.com/cnodejs/nodeclub) 的很像
+写这个项目主要是为了更好的学习，理解 Node
+前端代码是快速撸出来的，没有去兼容其他浏览器。建议使用 chrome 新版查看
+手机端的效果不太理想，刚开始是准备电脑和手机端分开写的，但是 ... 但是由于  ...懒 没有分开写
+最后...  虽然写的不怎么样，但是我脸皮厚啊，请你们帮我把右上角的 "star" 点亮 (#^.^#)
+
+## 效果演示
+在线地址：  [正经网站](http://www.dounide.com)
+
+## 功能
+注册
+登陆
+qq 登陆
+微博登陆
+修改资料
+发帖
+审帖
+回复
+用户中心
+后面会继续更新其他功能，可以 “follow” 一下
+
+
+## 开发环境
+ [Node.js](https://nodejs.org) 版本  v6.11.0，[MongoDB](https://www.mongodb.org) 版本是 v3.4.5
+```
+1. 环境中必须有 Node.js 和 MongoDb
+2. 启动 MongoDB 数据库
+3. npm install 安装项目依赖包
+4. 根据需求修改配置文件 config.default.js => config.js
+5. 运行 app.js
+6. 访问 127.0.0.1:3000
+```
+
+## 目录
+```
 │  app.js                   // 入口
 │  config.defualt.js        // 配置文件，修改后重命名为 config.js
 │  web_router.js            // 页面路由
@@ -10,10 +49,10 @@
 │
 ├─public                   // 静态资源
 │  │  favicon.ico          // 网站小图标
-│  ├─css                  // 样式文件
-│  ├─img                  // 公用图片
+│  ├─css                   // 样式文件
+│  ├─img                   // 公用图片
 │  │      logo.png         // 网站logo
-│  └─js                   // js 文件
+│  └─js                    // js 文件
 │
 ├─views
 │  │  footer.html          // 公用页脚
@@ -55,7 +94,7 @@
 │      wb_auth.js           // 微博登录
 │      qq_auth.js           // q q 登录
 │
-├─controllers              // 路由控制
+├─controllers               // 路由控制
 │      post.js              // 帖子的路由控制
 │      user.js              // 用户的路由控制
 │      auth.js              // 所有的请求都添加授权
@@ -74,9 +113,9 @@
 │      reply.js             // 回复结构
 │      user.js              // 用户结构
 │
-├─avatar                   // 用户头像
-│  └─default              // 存放用户默认头像
-├─fmdb                     // 数据操作
+├─avatar                    // 用户头像
+│  └─default                // 存放用户默认头像
+├─fmdb                      // 数据操作
 │      topic_passed.js      // 未通过的帖子
 │      topic.js             // 通过审核的帖子
 │      user.js              // 用户
